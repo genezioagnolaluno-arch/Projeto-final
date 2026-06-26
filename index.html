@@ -10,65 +10,54 @@
             --primary-light: #1e293b;
             --accent: #2563eb;
             --accent-hover: #1d4ed8;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text: #334155;
-            --text-dark: #0f172a;
-            --code-bg: #011627;
-            --enunciado-bg: #f0f9ff;
-            --enunciado-border: #0284c7;
-            --success-bg: #f0fdf4;
+            --bg: #0b0f19;
+            --card-bg: #131b2e;
+            --card-hover: #1e2942;
+            --border-color: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --code-bg: #020813;
+            --enunciado-bg: rgba(2, 132, 199, 0.1);
+            --enunciado-border: #06b6d4;
+            --success-bg: rgba(34, 197, 94, 0.1);
             --success-border: #22c55e;
-            --alert-bg: #fffbeb;
+            --alert-bg: rgba(217, 119, 6, 0.1);
             --alert-border: #d97706;
-            --danger-bg: #fef2f2;
-            --danger-border: #ef4444;
         }
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg);
-            color: var(--text);
+            color: var(--text-primary);
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #2563eb 100%);
+            background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.2), transparent), 
+                        linear-gradient(180deg, #0f172a 0%, #0b0f19 100%);
             color: white;
             padding: 5rem 2rem;
             text-align: center;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            pointer-events: none;
+            border-bottom: 1px solid var(--border-color);
         }
 
         header h1 {
             margin: 0;
-            font-size: 3.2rem;
+            font-size: 3rem;
             font-weight: 800;
             letter-spacing: -0.05em;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            background: linear-gradient(to right, #ffffff, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         header p {
             margin: 1rem auto 0 auto;
             max-width: 800px;
-            opacity: 0.9;
-            font-size: 1.3rem;
-            font-weight: 300;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
         }
 
         .student-card {
@@ -76,80 +65,63 @@
             align-items: center;
             gap: 1.5rem;
             margin-top: 2rem;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(30, 41, 59, 0.5);
             backdrop-filter: blur(12px);
-            padding: 0.75rem 2rem;
+            padding: 0.6rem 2rem;
             border-radius: 50px;
-            font-size: 1rem;
-            border: 1px solid rgba(255,255,255,0.25);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .student-card strong {
-            color: #38bdf8;
+            color: var(--accent-cyan);
         }
 
         main {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 4rem auto;
             padding: 0 2rem;
         }
 
         .section-container {
-            background: #ffffff;
-            padding: 2.5rem;
-            border-radius: 24px;
+            background: transparent;
+            padding: 0;
             margin-bottom: 4rem;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
         }
 
         .section-title {
             font-size: 1.8rem;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 0;
-            margin-bottom: 2rem;
+            color: white;
+            margin-bottom: 2.5rem;
             font-weight: 800;
-            border-left: 6px solid var(--accent);
+            border-left: 5px solid var(--accent);
             padding-left: 1rem;
         }
 
         .accordion-item {
             background-color: var(--card-bg);
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.2s ease;
         }
 
         .accordion-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
-            border-color: #cbd5e1;
+            border-color: #334155;
+            background-color: var(--card-hover);
         }
 
         .accordion-header {
-            background-color: var(--card-bg);
             padding: 1.5rem;
-            margin: 0;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            color: var(--primary-light);
+            color: white;
             user-select: none;
-            transition: background-color 0.2s;
-        }
-
-        .accordion-header:hover {
-            background-color: #f8fafc;
         }
 
         .header-left {
@@ -162,93 +134,74 @@
         .badge {
             font-size: 0.75rem;
             text-transform: uppercase;
-            padding: 0.4rem 1rem;
-            border-radius: 8px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
             font-weight: 800;
             letter-spacing: 0.05em;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        .badge-projeto { background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
-        .badge-relatorio { background-color: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
-        .badge-codigo { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
-        .badge-exercicio { background-color: #f3e8ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+        .badge-projeto { background-color: rgba(37, 99, 235, 0.15); color: #60a5fa; border: 1px solid rgba(37, 99, 235, 0.3); }
+        .badge-relatorio { background-color: rgba(217, 119, 6, 0.15); color: #fbbf24; border: 1px solid rgba(217, 119, 6, 0.3); }
 
         .arrow-icon {
-            font-size: 0.8rem;
-            color: var(--accent);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
             transition: transform 0.3s ease;
-            background: #eff6ff;
-            width: 36px;
-            height: 36px;
+            background: #1e293b;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            border: 1px solid #dbeafe;
         }
 
         .accordion-item.active {
             border-color: var(--accent);
-            box-shadow: 0 10px 25px -5px rgba(37,99,235,0.15);
-        }
-
-        .accordion-item.active .accordion-header {
-            border-bottom: 1px solid #e2e8f0;
-            background-color: #f8fafc;
+            background-color: var(--card-hover);
         }
 
         .accordion-item.active .arrow-icon {
             transform: rotate(180deg);
             background: var(--accent);
             color: white;
-            border-color: var(--accent);
         }
 
         .accordion-content {
             display: none;
             padding: 2.5rem;
-            background-color: #ffffff;
+            background-color: #0e1424;
+            border-top: 1px solid var(--border-color);
         }
 
         .enunciado {
             background-color: var(--enunciado-bg);
-            border-left: 6px solid var(--enunciado-border);
-            padding: 1.5rem;
+            border-left: 4px solid var(--enunciado-border);
+            padding: 1.25rem 1.5rem;
             border-radius: 8px;
             margin-bottom: 2rem;
         }
 
-        .enunciado h4 {
-            margin-top: 0;
-            color: #0369a1;
-            font-size: 1.05rem;
+        .enunciado h4, .solucao h4 {
+            margin: 0 0 0.5rem 0;
+            color: #06b6d4;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 0.75rem;
         }
+
+        .solucao h4 { color: white; margin-top: 1.5rem; }
 
         .enunciado p {
             margin: 0;
-            font-size: 1.05rem;
-            color: #0c4a6e;
-        }
-
-        .solucao h4 {
-            color: var(--text-dark);
-            margin-top: 0;
-            font-size: 1.2rem;
-            margin-bottom: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            color: #e2e8f0;
         }
 
         .grid-visuals {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
 
         @media (max-width: 900px) {
@@ -257,103 +210,87 @@
 
         pre {
             background-color: var(--code-bg);
-            color: #f8fafc;
+            color: #e2e8f0;
             padding: 1.5rem;
             border-radius: 12px;
             overflow-x: auto;
-            font-family: 'Fira Code', 'Consolas', monospace;
-            font-size: 0.95rem;
-            margin: 0;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
-            border: 1px solid #1e293b;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
         }
 
         .texto-relatorio {
             background-color: var(--success-bg);
             border: 1px solid var(--success-border);
-            padding: 1.75rem;
+            padding: 1.5rem;
             border-radius: 12px;
-            font-size: 1.05rem;
+            color: #4ade80;
+            font-size: 1rem;
             white-space: pre-line;
-            color: #14532d;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
         .texto-relatorio.alert-box {
             background-color: var(--alert-bg);
             border-color: var(--alert-border);
-            color: #78350f;
+            color: #fbbf24;
         }
 
         .tabela-container {
             overflow-x: auto;
             margin-bottom: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background-color: var(--code-bg);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         th, td {
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
         th {
-            background-color: #f1f5f9;
-            color: var(--text-dark);
+            background-color: #111827;
+            color: white;
             font-weight: 700;
         }
 
         tr:hover {
-            background-color: #f8fafc;
+            background-color: rgba(255, 255, 255, 0.02);
         }
 
         .canvas-holder {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
         .canvas-holder h5 {
             margin: 0 0 1rem 0;
-            color: var(--text-dark);
-            font-size: 1rem;
-            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
         canvas {
-            max-width: 100%;
-            background: #fafafa;
+            background: #070a13;
             border-radius: 8px;
-            border: 1px solid #f1f5f9;
+            width: 100% !important;
+            height: auto !important;
         }
 
         footer {
             text-align: center;
             padding: 4rem;
-            margin-top: 8rem;
-            color: #64748b;
-            font-size: 1rem;
-            border-top: 1px solid #e2e8f0;
-            background-color: white;
-        }
-
-        @media (max-width: 640px) {
-            header h1 { font-size: 2.2rem; }
-            .accordion-header { font-size: 1.1rem; padding: 1.25rem; }
-            main { padding: 0 1rem; }
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            background-color: #070a13;
         }
     </style>
 </head>
@@ -370,132 +307,30 @@
     </header>
 
     <main>
-
         <div class="section-container">
-            <h2 class="section-title">📂 1. Sistemas Estruturais & Relatórios Comparativos Industriais</h2>
+            <h2 class="section-title">📂 Projetos & Exercícios Desenvolvidos</h2>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-projeto">Projeto</span>
-                        <span>Atividade 1: Análise Estrutural Computacional de Treliças Planas</span>
-                    </div>
+                    <div class="header-left"><span class="badge badge-projeto">Projeto 01</span><span>Cálculo de Tensão em um Eixo de Transmissão</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
                     <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Desenvolver um programa completo em Python focado no cálculo estrutural clássico de treliças isostáticas lineares de grande escala. O script deve receber coordenadas de nós e barras, montar dinamicamente as matrizes de equilíbrio com os cossenos diretores e realizar a resolução do sistema linear de forças através do método de eliminação de Gauss-Jordan desenvolvido manualmente de raiz (sem uso de pacotes de álgebra linear prontos de alto nível).</p>
+                        <h4>Contexto Técnico:</h4>
+                        <p>Um engenheiro precisa verificar se a tensão normal em um eixo circular está dentro dos limites de segurança após a aplicação de uma carga axial.</p>
                     </div>
                     <div class="solucao">
-                        <h4>Código Python Implementado (Integral):</h4>
+                        <h4>Código Python Integrado:</h4>
                         <pre><code>import math
-import matplotlib.pyplot as plt
-import numpy as np
 
-# =========================================================
-# SISTEMA DE ANÁLISE DE TRELIÇAS PLANAS ISOSTÁTICAS
-# =========================================================
+forca = float(input("Força axial (N): "))
+diametro = float(input("Diâmetro do eixo (mm): "))
 
-N = int(input('Número de nós: '))
-x = []
-y = []
+area = math.pi * (diametro / 2)**2
+tensao = forca / area
 
-print('\n--- Coordenadas dos Nós ---')
-for i in range(N):
-    xi = float(input(f'Coordenada X do nó {i}: '))
-    yi = float(input(f'Coordenada Y do nó {i}: '))
-    x.append(xi)
-    y.append(yi)
-
-B = int(input('\nNúmero de barras: '))
-barras = []
-print('\n--- Definição das Barras ---')
-for i in range(B):
-    no_i = int(input(f'Nó inicial da barra {i}: '))
-    no_j = int(input(f'Nó final da barra {i}: '))
-    barras.append((no_i, no_j))
-
-R = int(input('\nNúmero de reações de apoio (R): '))
-apoios = []
-print('\n--- Definição dos Apoios ---')
-for i in range(R):
-    no_apoio = int(input(f'Nó do apoio {i}: '))
-    direcao = input(f'Direção da restrição (X ou Y) no nó {no_apoio}: ').upper()
-    apoios.append((no_apoio, direcao))
-
-# Inicialização das matrizes do sistema linear Ax = b
-total_equacoes = 2 * N
-A = [[0.0] * total_equacoes for _ in range(total_equacoes)]
-b = [0.0] * total_equacoes
-
-# Aplicação de cargas externas nos nós
-print('\n--- Cargas Externas ---')
-for i in range(N):
-    fx = float(input(f'Carga horizontal Fx no nó {i} (0 se nenhuma): '))
-    fy = float(input(f'Carga vertical Fy no nó {i} (0 se nenhuma): '))
-    b[2 * i] = -fx
-    b[2 * i + 1] = -fy
-
-# Montagem dos cossenos diretores nas equações de equilíbrio dos nós
-for idx, (no_i, no_j) in enumerate(barras):
-    dx = x[no_j] - x[no_i]
-    dy = y[no_j] - y[no_i]
-    L = math.sqrt(dx**2 + dy**2)
-    cos_x = dx / L
-    cos_y = dy / L
-    
-    A[2 * no_i][idx] = cos_x
-    A[2 * no_i + 1][idx] = cos_y
-    A[2 * no_j][idx] = -cos_x
-    A[2 * no_j + 1][idx] = -cos_y
-
-# Inclusão das reações na matriz global
-col_apoio = B
-for no_apoio, direcao in apoios:
-    if direcao == 'X':
-        A[2 * no_apoio][col_apoio] = 1.0
-    elif direcao == 'Y':
-        A[2 * no_apoio + 1][col_apoio] = 1.0
-    col_apoio += 1
-
-# Algoritmo de Eliminação de Gauss-Jordan desenvolvido manualmente
-n = len(b)
-for i in range(n):
-    pivot = A[i][i]
-    if pivot == 0:
-        for k in range(i+1, n):
-            if A[k][i] != 0:
-                A[i], A[k] = A[k], A[i]
-                b[i], b[k] = b[k], b[i]
-                pivot = A[i][i]
-                break
-    if pivot == 0:
-        continue
-    for j in range(n):
-        A[i][j] = A[i][j] / pivot
-    b[i] = b[i] / pivot
-    for k in range(n):
-        if k != i:
-            fator = A[k][i]
-            for j in range(n):
-                A[k][j] = A[k][j] - fator * A[i][j]
-            b[k] = b[k] - fator * b[i]
-
-print('\n================ RESULTADOS ================')
-for i in range(B):
-    F = b[i]
-    if abs(F) < 1e-6:
-        tipo = 'Nula'
-    elif F > 0:
-        tipo = 'Tração'
-    else:
-        tipo = 'Compressão'
-    print(f'Barra {i}: {F:.2f} -> {tipo}')
-
-print('\n=============== REAÇÕES ===============')
-for i in range(R):
-    print(f'Reação de Apoio {i}: {b[B + i]:.2f}')</code></pre>
+print(f"A tensão normal é de {tensao:.2f} MPa")</code></pre>
                         
                         <div class="grid-visuals">
                             <div class="canvas-holder">
@@ -513,10 +348,7 @@ for i in range(R):
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-relatorio">Relatório</span>
-                        <span>Atividade 2: Avaliação Comparativa de Modelos de Linguagem (Treliças)</span>
-                    </div>
+                    <div class="header-left"><span class="badge badge-relatorio">Relatório 02</span><span>Avaliação Comparativa de Modelos de Linguagem</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
@@ -525,8 +357,7 @@ for i in range(R):
                         <p>Redigir uma análise crítica e comparativa dos códigos e gráficos produzidos pelas LLMs (ChatGPT, Copilot e Gemini) focado no comportamento de resolução numérica de estruturas de grande escala, robustez para N=32 e conformidade com a engenharia.</p>
                     </div>
                     <div class="solucao">
-                        <h4>Relatório Crítico e Tabela Comparativa de Desempenho:</h4>
-                        
+                        <h4>Matriz de Desempenho e Conclusões:</h4>
                         <div class="tabela-container">
                             <table>
                                 <thead>
@@ -544,32 +375,11 @@ for i in range(R):
                                         <td>Fiel ao cálculo clássico (cossenos diretores, reações de apoio). Batem com cálculo manual.</td>
                                         <td>Correto para exemplo pequeno (N=3), mas não generaliza bem.</td>
                                     </tr>
-                                    <tr>
-                                        <td><strong>Robustez (N=4, 8, 16, 32)</strong></td>
-                                        <td>Aceita N arbitrário, mas pode falhar em casos muito complexos.</td>
-                                        <td>Escala perfeitamente para N grandes, desde que as entradas estruturadas sejam fornecidas.</td>
-                                        <td>Limitado a N=3; falha para casos maiores sem alterações diretas no código.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Qualidade Gráfica</strong></td>
-                                        <td>Básicos, sem legenda de apoios, mas distinguem tração/compressão por cor.</td>
-                                        <td>Gráficos completos: apoios, cores por intensidade, espessura proporcional e legendas de fácil compreensão.</td>
-                                        <td>Didáticos e claros, porém extremamente simplificados.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Aderência ao Prompt</strong></td>
-                                        <td>Implementa Gauss-Jordan de forma manual.</td>
-                                        <td>Implementa Gauss-Jordan puramente manual sem bibliotecas prontas de álgebra linear.</td>
-                                        <td>Usa Gauss-Jordan manual em versão excessivamente simplificada.</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
-
                         <div class="texto-relatorio">
-                            <strong>Conclusão do Relatório:</strong> Com base nos resultados estruturais obtidos, determinou-se que todas as LLMs possuíram resultados corretos envolvendo a física básica do problema, mas o ChatGPT se sobressaiu por apresentar resultados muito mais robustos e corretos numericamente sob malhas de grande escala. 
-
-                            O ChatGPT cometeu erros pontuais na estruturação de loops em scripts longos, o Copilot apresentou erros na renderização tridimensional dos gráficos visuais dos resultados e o Gemini gerou um código python com lacunas internas de generalização que impediam que ele fosse aplicado diretamente a estruturas complexas N=32 sem intervenções diretas de refatoração manual do código. Portanto, o ChatGPT apresentou a melhor resposta consolidada.
+                            <strong>Conclusão do Relatório:</strong> O ChatGPT apresentou a melhor resposta consolidada e robustez sob malhas de grande escala, enquanto o Gemini gerou um código com lacunas de generalização para N=32.
                         </div>
                     </div>
                 </div>
@@ -577,186 +387,256 @@ for i in range(R):
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-projeto">Projeto</span>
-                        <span>Atividade 3: Gestão Computacional Hídrica de Sistemas Urbanos</span>
-                    </div>
+                    <div class="header-left"><span class="badge badge-projeto">Projeto 03</span><span>Conversão de Temperatura de Pré-aquecimento</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
                     <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Construir um simulador em Python que avalie o abastecimento hídrico e calcule perdas e custos associados por bairro. O programa deve processar as variáveis via objetos estruturados ou vetores e gerar um relatório automatizado em formato executável estruturado (.docx).</p>
+                        <h4>Contexto Técnico:</h4>
+                        <p>Em processos de soldagem, a temperatura de pré-aquecimento é dada em Fahrenheit em manuais americanos, mas o sensor da oficina lê em Celsius.</p>
                     </div>
                     <div class="solucao">
-                        <h4>Código de Simulação Integrada (Base de Desenvolvimento):</h4>
-                        <pre><code>import pandas as pd
-import matplotlib.pyplot as plt
-from docx import Document
+                        <h4>Código Python Integrado:</h4>
+                        <pre><code>celsius = float(input("Temperatura em Celsius: "))
 
-def calcular_risco(autonomia):
-    if autonomia > 3: return "Baixo"
-    elif autonomia >= 1: return "Médio"
-    else: return "Alto"
+fahrenheit = (celsius * 9/5) + 32
 
-def analisar_bairro(nome, demanda, volume, perda, custo):
-    volume_perdido = demanda * (perda / 100)
-    volume_entregue = demanda - volume_perdido
-    custo_diario = demanda * custo
-    autonomia = volume / demanda
-    risco = calcular_risco(autonomia)
-    return {
-        "Bairro": nome, "Demanda": demanda, "Volume Entregue": volume_entregue,
-        "Volume Perdido": volume_perdido, "Custo Diário": custo_diario,
-        "Autonomia": autonomia, "Risco": risco
-    }
+print(f"Temperatura: {fahrenheit:.2f} °F")</code></pre>
+                    </div>
+                </div>
+            </div>
 
-N = int(input("Quantidade de bairros: "))
-dados = []
-for i in range(N):
-    print(f"\n--- Bairro {i+1} ---")
-    nome = input("Nome: ")
-    demanda = float(input("Demanda diária (m³): "))
-    volume = float(input("Volume disponível (m³): "))
-    perda = float(input("Perda na tubulação (%): "))
-    custo = float(input("Custo bombeamento por m³: "))
-    dados.append(analisar_bairro(nome, demanda, volume, perda, custo))
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge badge-projeto">Projeto 04</span><span>Seleção de Rolamento por Vida Útil</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado">
+                        <h4>Contexto Técnico:</h4>
+                        <p>Verificar se um rolamento suportará o número de ciclos desejado antes da falha por fadiga.</p>
+                    </div>
+                    <div class="solucao">
+                        <h4>Código Python Integrado:</h4>
+                        <pre><code>c = float(input("Capacidade de carga dinâmica (N): "))
+p = float(input("Carga dinâmica equivalente (N): "))
 
-df = pd.DataFrame(dados)
-bairro_critico = df.loc[df["Autonomia"].idxmin(), "Bairro"]
+vida_l10 = (c / p)**3
 
-# Geração do Documento Estruturado Oficial .docx
-doc = Document()
-doc.add_heading('Análise do Sistema de Abastecimento de Água', level=1)
-doc.add_paragraph(f"Bairro mais crítico identificado automaticamente: {bairro_critico}")
-doc.save("analise_abastecimento.docx")</code></pre>
+print(f"Vida nominal L10: {vida_l10:.2f} milhões de revoluções")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge badge-projeto">Projeto 05</span><span>Dilatação Térmica de uma Tubulação</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado">
+                        <h4>Contexto Técnico:</h4>
+                        <p>Calcular a variação no comprimento de uma tubulação de vapor de aço inoxidável devido ao aumento de temperatura.</p>
+                    </div>
+                    <div class="solucao">
+                        <h4>Código Python Integrado:</h4>
+                        <pre><code>l0 = float(input("Comprimento inicial (m): "))
+alfa = 17.3e-6 # Aço Inox
+ti = float(input("Temperatura inicial (°C): "))
+tf = float(input("Temperatura final (°C): "))
+
+delta_l = l0 * alfa * (tf - ti)
+
+print(f"A variação de comprimento é: {delta_l*1000:.2f} mm")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge badge-projeto">Projeto 06</span><span>Eficiência de um Motor de Combustão</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado">
+                        <h4>Contexto Técnico:</h4>
+                        <p>Determinar a eficiência térmica de um motor a partir do trabalho útil produzido e do calor fornecido pelo combustível.</p>
+                    </div>
+                    <div class="solucao">
+                        <h4>Código Python Integrado:</h4>
+                        <pre><code>w_util = float(input("Trabalho útil produzido (kJ): "))
+q_in = float(input("Calor fornecido pelo combustível (kJ): "))
+
+eficiencia = (w_util / q_in) * 100
+
+print(f"Eficiência térmica do motor: {eficiencia:.2f}%")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge badge-projeto">Projeto 07</span><span>Velocidade de Corte em Torneamento</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado">
+                        <h4>Contexto Técnico:</h4>
+                        <p>Um operador de torno precisa calcular a velocidade de corte (Vc) para ajustar a rotação da máquina.</p>
+                    </div>
+                    <div class="solucao">
+                        <h4>Código Python Integrado:</h4>
+                        <pre><code>import math
+
+d = float(input("Diâmetro da peça (mm): "))
+n = float(input("Rotação (RPM): "))
+
+vc = (math.pi * d * n) / 1000
+
+print(f"Velocidade de corte: {vc:.2f} m/min")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge badge-projeto">Projeto 08</span><span>Perda de Carga em Tubulação</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado">
+                        <h4>Contexto Técnico:</h4>
+                        <p>Calcular a queda de pressão em uma tubulação horizontal para dimensionar uma bomba hidráulica.</p>
+                    </div>
+                    <div class="solucao">
+                        <h4>Código Python Integrado:</h4>
+                        <pre><code>f = float(input("Fator de atrito: "))
+l = float(input("Comprimento (m): "))
+d = float(input("Diâmetro interno (m): "))
+rho = float(input("Densidade do fluido (kg/m³): "))
+v = float(input("Velocidade do fluido (m/s): "))
+
+delta_p = f * (l / d) * (rho * v**2 / 2)
+
+print(f"Queda de pressão: {delta_p:.2f} Pa")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge badge-projeto">Projeto 09</span><span>Torque em Parafuso de Fixação</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado">
+                        <h4>Contexto Técnico:</h4>
+                        <p>Determinar o torque necessário para atingir uma força de união específica em um parafuso de fixação.</p>
+                    </div>
+                    <div class="solucao">
+                        <h4>Código Python Integrado:</h4>
+                        <pre><code>k = 0.2 # Coeficiente de atrito padrão
+d = float(input("Diâmetro nominal do parafuso (m): "))
+f_pre = float(input("Força de protensão desejada (N): "))
+
+torque = k * d * f_pre
+
+print(f"Torque de aperto necessário: {torque:.2f} Nm")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge badge-projeto">Projeto 10</span><span>Volume de Material em um Fundido</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado">
+                        <h4>Contexto Técnico:</h4>
+                        <p>Calcular o volume de metal necessário para preencher um molde cilíndrico de fundição com base no raio e altura.</p>
+                    </div>
+                    <div class="solucao">
+                        <h4>Código Python Integrado:</h4>
+                        <pre><code>import math
+
+raio = float(input("Raio do molde (m): "))
+altura = float(input("Altura do molde (m): "))
+
+volume = math.pi * (raio**2) * altura
+
+print(f"Volume necessário de metal: {volume:.4f} m³")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge badge-projeto">Projeto 11</span><span>Monitoramento Térmico de Rolamentos Industriais</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado">
+                        <h4>Contexto Técnico:</h4>
+                        <p>Algoritmo condicional para verificar a temperatura de operação de rolamentos industriais e emitir alertas de segurança.</p>
+                    </div>
+                    <div class="solucao">
+                        <h4>Código Python Integrado:</h4>
+                        <pre><code>temp = float(input("Temperatura do rolamento (°C): "))
+
+if temp > 80:
+    print("CRÍTICO: Risco de quebra. Desligamento imediato!")
+elif temp > 65:
+    print("ALERTA: Temperatura elevada. Monitorar componente.")
+else:
+    print("Temperatura operacional normal.")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge badge-projeto">Projeto 12</span><span>Análise de Abastecimento e Reservatórios</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado">
+                        <h4>Contexto Técnico:</h4>
+                        <p>Algoritmo condicional para gerenciamento automatizado de bombas de fluido com base no nível percentual do reservatório industrial.</p>
+                    </div>
+                    <div class="solucao">
+                        <h4>Código Python Integrado:</h4>
+                        <pre><code>nivel = float(input("Nível atual do reservatório (%): "))
+
+if nivel < 20:
+    print("Bomba LIGADA - Nível Crítico")
+elif nivel > 90:
+    print("Bomba DESLIGADA - Limite Máximo Atingido")
+else:
+    print("Operação Estável - Bomba em Standby")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge badge-projeto">Projeto 13</span><span>Monitoramento de Resfriamento Líquido</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado">
+                        <h4>Contexto Técnico:</h4>
+                        <p>Controle condicional da vazão de uma bomba em sistemas de refrigeração industrial de alta performance e simulações térmicas transientes.</p>
+                    </div>
+                    <div class="solucao">
+                        <h4>Código Python Integrado:</h4>
+                        <pre><code>temp_fluido = float(input("Temperatura do fluido de resfriamento (°C): "))
+
+if temp_fluido > 50:
+    print("Acionar Vazão Máxima (100% da capacidade da bomba)")
+else:
+    print("Acionar Vazão Econômica (50% da capacidade da bomba)")</code></pre>
                         
-                        <div class="grid-visuals">
-                            <div class="canvas-holder">
-                                <h5>Gráfico 1: Demanda Diária vs Volume Efetivamente Entregue (m³)</h5>
-                                <canvas id="canvasHidrico1" width="400" height="230"></canvas>
-                            </div>
-                            <div class="canvas-holder">
-                                <h5>Gráfico 2: Custo Diário de Bombeamento por Área (R$)</h5>
-                                <canvas id="canvasHidrico2" width="400" height="230"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-relatorio">Relatório</span>
-                        <span>Atividade 4: Análise de Estrutura de Vetores Hídricos pelas LLMs</span>
-                    </div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Mapear analiticamente a forma como as diferentes IAs abordaram o armazenamento de dados estruturais na modelagem fluido-mecânica urbana e apresentar a matriz de classificação.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Matriz de Desempenho Computacional Hídrico:</h4>
-                        <div class="tabela-container">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>LLM</th>
-                                        <th>Execução</th>
-                                        <th>Uso de Vetores</th>
-                                        <th>Corretude</th>
-                                        <th>Qualidade Geral</th>
-                                        <th>Legibilidade</th>
-                                        <th>Simulação Dinâmica</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>ChatGPT (GPT)</strong></td>
-                                        <td>Bom</td>
-                                        <td>Médio</td>
-                                        <td>Sim</td>
-                                        <td>Muito Bom</td>
-                                        <td>Médio</td>
-                                        <td>Sim</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Copilot</strong></td>
-                                        <td>Bom</td>
-                                        <td>Bom</td>
-                                        <td>Sim</td>
-                                        <td>Bom</td>
-                                        <td>Muito Bom</td>
-                                        <td>Sim</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Gemini</strong></td>
-                                        <td>Muito Bom</td>
-                                        <td>Médio</td>
-                                        <td>Sim</td>
-                                        <td>Médio</td>
-                                        <td>Muito Bom</td>
-                                        <td>Sim</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="texto-relatorio">
-                            <strong>Análise Técnico Comparativa:</strong> 
-                            • O <strong>ChatGPT</strong> se destacou no resultado gráfico, gerando saídas visuais de fácil entendimento e integrando perfeitamente a manipulação de DataFrames com a biblioteca externa python-docx.
-                            • O <strong>Copilot</strong> destacou-se principalmente pela facilidade de compreensão do código gerado, modularizando o sistema em dicionários independentes e limpos.
-                            • O <strong>Gemini</strong> baseou o processamento hídrico na declaração de múltiplos vetores e listas independentes em paralelo. Embora eficiente em pequenos volumes, essa estratégia baseada em vetores desalinhados reduz drasticamente a escalabilidade do código à medida que novas variáveis operacionais são adicionadas ao sistema de engenharia.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-projeto">Projeto</span>
-                        <span>Atividade 5: Simulação Térmica Transiente de Sistemas de Resfriamento Líquido</span>
-                    </div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Desenvolver um modelo transiente para estimar por convecção forçada a evolução temporal da temperatura de uma CPU, GPU e líquido de arrefecimento em um sistema fechado submetido a altas cargas, gerando dados experimentais e triggers de alerta.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Dados Convectivos Transientes Industriais e Gráficos:</h4>
-                        <div class="tabela-container">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Tempo (min)</th>
-                                        <th>Temp CPU (°C)</th>
-                                        <th>Temp GPU (°C)</th>
-                                        <th>Temp Líquido (°C)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>0.0</td><td>30.00</td><td>30.00</td><td>28.00</td></tr>
-                                    <tr><td>1.0</td><td>33.20</td><td>32.41</td><td>28.54</td></tr>
-                                    <tr><td>2.0</td><td>36.14</td><td>34.66</td><td>29.05</td></tr>
-                                    <tr><td>3.0</td><td>38.85</td><td>36.75</td><td>29.54</td></tr>
-                                    <tr><td>4.0</td><td>41.34</td><td>38.70</td><td>29.99</td></tr>
-                                    <tr><td>5.0</td><td>43.63</td><td>40.51</td><td>30.43</td></tr>
-                                    <tr><td>10.0</td><td>52.62</td><td>47.87</td><td>32.26</td></tr>
-                                    <tr><td>15.0</td><td>58.48</td><td>52.88</td><td>33.64</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="texto-relatorio alert-box">
-                            <strong>Triggers de Alerta Operacional:</strong> O projeto evoluiu de uma simulação matemática exponencial simples para um ecossistema inteligente modularizado via dashboards interativos em Streamlit. Foram configurados alertas automatizados de segurança contra o fenômeno de <em>thermal throttling</em> quando a CPU atinge a barreira crítica dos 85°C.
-                        </div>
-
                         <div class="grid-visuals" style="grid-template-columns: 1fr;">
                             <div class="canvas-holder">
                                 <h5>Evolução Térmica Convectiva ao Longo do Tempo (Curva Transiente)</h5>
@@ -769,24 +649,25 @@ doc.save("analise_abastecimento.docx")</code></pre>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-projeto">Projeto</span>
-                        <span>Atividade 6: Acessibilidade Digital Assistida por IA — Portal Alegrete.org</span>
-                    </div>
+                    <div class="header-left"><span class="badge badge-projeto">Projeto 14</span><span>Mecanismos: Relação de Transmissão por Engrenagens</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
                     <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Otimizar a arquitetura e os padrões estruturais de acessibilidade do Portal Alegrete.org integrando inteligência artificial baseada em LLMs. O objetivo é reconstruir layouts complexos com semântica estrita HTML5 (padrões WCAG 2.1) e desenvolver algoritmos de backend capazes de gerar legendas e áudio descritivos dinâmicos para mídias ricas.</p>
+                        <h4>Contexto Técnico:</h4>
+                        <p>Calcular a razão de engrenamento e a rotação de saída (RPM) para um par de engrenagens cilíndricas retas acopladas.</p>
                     </div>
                     <div class="solucao">
-                        <h4>Metodologia e Arquitetura de Acessibilidade Implementada:</h4>
-                        <div class="texto-relatorio">
-                            <strong>Melhorias Estruturais Desenvolvidas:</strong>
-                            • <strong>Padrões WCAG / ARIA:</strong> Substituição de tags div genéricas por elementos semânticos estruturados (<main>, <nav>, <section>) e inclusão de mapeamento completo de atributos <code>aria-live</code>, <code>aria-expanded</code> e tags de contraste assistido por folha de estilos inteligente.
-                            • <strong>Automação de Descrição de Mídia por IA:</strong> Integração de pipeline local em Python (utilizando modelos transformers e APIs Open Source) para análise estática e processamento assíncrono de imagens, gerando de forma automatizada atributos <code>alt</code> dinâmicos em tempo de execução para os editores de conteúdo da plataforma.
-                        </div>
+                        <h4>Código Python Integrado:</h4>
+                        <pre><code>n_entrada = int(input("Número de dentes da engrenagem motriz (entrada): "))
+n_saida = int(input("Número de dentes da engrenagem movida (saída): "))
+rpm_entrada = float(input("Velocidade de entrada (RPM): "))
+
+i = n_saida / n_entrada
+rpm_saida = rpm_entrada / i
+
+print(f"Razão de transmissão (i): {i:.2f}")
+print(f"Velocidade angular de saída: {rpm_saida:.2f} RPM")</code></pre>
                     </div>
                 </div>
             </div>
@@ -800,188 +681,68 @@ doc.save("analise_abastecimento.docx")</code></pre>
     </footer>
 
     <script>
-        // --- 1. SCRIPT DO MENU ACCORDION ---
+        // --- SCRIPT DO MENU ACCORDION ---
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', () => {
                 const item = header.parentElement;
                 const content = item.querySelector('.accordion-content');
                 const isOpen = item.classList.contains('active');
 
-                // Fecha todos os itens abertos
                 document.querySelectorAll('.accordion-item').forEach(i => {
                     i.classList.remove('active');
                     i.querySelector('.accordion-content').style.display = 'none';
                 });
 
-                // Se o item clicado não estava aberto, abre-o
                 if (!isOpen) {
                     item.classList.add('active');
                     content.style.display = 'block';
-                    // Inicializa os gráficos contidos dentro daquele accordion se existirem
                     renderizarGraficos();
                 }
             });
         });
 
-        // --- 2. LOGICA DE RENDERIZAÇÃO DOS CANVAS NATIVOS ---
+        // --- LÓGICA DE RENDERIZAÇÃO DOS CANVAS NATIVOS ---
         function renderizarGraficos() {
-            // --- GRÁFICO 1: TRELIÇA PLANAS (Atividade 1) ---
+            // CANVAS 1: TRELIÇA
             const ctxTrelica = document.getElementById('canvasTrelica');
             if (ctxTrelica && ctxTrelica.offsetParent !== null) {
                 const ctx = ctxTrelica.getContext('2d');
                 ctx.clearRect(0,0,400,250);
-                
-                // Desenhar Barras da Treliça
-                ctx.strokeStyle = '#2563eb';
-                ctx.lineWidth = 3;
-                ctx.beginPath();
-                ctx.moveTo(50, 180);  ctx.lineTo(150, 60);
-                ctx.lineTo(250, 180); ctx.lineTo(50, 180);
-                ctx.lineTo(150, 180); ctx.lineTo(150, 60);
-                ctx.lineTo(350, 180); ctx.lineTo(250, 180);
-                ctx.lineTo(250, 60);  ctx.lineTo(150, 60);
-                ctx.lineTo(250, 60);  ctx.lineTo(350, 180);
-                ctx.stroke();
-
-                // Desenhar Apoios (Nós)
-                ctx.fillStyle = '#0f172a';
-                const nos = [[50,180], [150,60], [250,180], [150,180], [350,180], [250,60]];
-                nos.forEach(no => {
-                    ctx.beginPath();
-                    ctx.arc(no[0], no[1], 6, 0, Math.PI * 2);
-                    ctx.fill();
+                ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 3; ctx.beginPath();
+                ctx.moveTo(50, 180); ctx.lineTo(150, 60); ctx.lineTo(250, 180); ctx.lineTo(50, 180);
+                ctx.lineTo(150, 180); ctx.lineTo(150, 60); ctx.stroke();
+                ctx.fillStyle = '#f8fafc';
+                [[50,180], [150,60], [250,180], [150,180]].forEach(no => {
+                    ctx.beginPath(); ctx.arc(no[0], no[1], 5, 0, Math.PI * 2); ctx.fill();
                 });
-
-                // Setas de Cargas Externas (Exemplo)
-                ctx.strokeStyle = '#ef4444';
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                ctx.moveTo(150, 20); ctx.lineTo(150, 50);
-                ctx.lineTo(145, 45); ctx.moveTo(150, 50); ctx.lineTo(155, 45);
-                ctx.stroke();
-                ctx.fillStyle = '#ef4444';
-                ctx.font = 'bold 11px sans-serif';
-                ctx.fillText('50 kN', 160, 35);
             }
 
-            // --- GRÁFICO 2: HISTOGRAMA DE FORÇAS (Atividade 1) ---
+            // CANVAS 2: HISTOGRAMA
             const ctxHisto = document.getElementById('canvasHistogramaTrelica');
             if (ctxHisto && ctxHisto.offsetParent !== null) {
                 const ctx = ctxHisto.getContext('2d');
                 ctx.clearRect(0,0,400,250);
-                
-                // Dados das Barras: Tração (azul) vs Compressão (vermelho)
-                const barrasForcas = [45, -32, 12, -54, 25, 0, -15];
-                ctx.font = '10px sans-serif';
-                
+                const barrasForcas = [45, -32, 12, -54];
                 barrasForcas.forEach((f, idx) => {
                     ctx.fillStyle = f >= 0 ? '#2563eb' : '#ef4444';
-                    const h = Math.abs(f) * 2;
-                    const x = 40 + idx * 48;
-                    const y = f >= 0 ? 120 - h : 120;
-                    ctx.fillRect(x, y, 30, h);
-                    
-                    ctx.fillStyle = '#0f172a';
-                    ctx.fillText(`B${idx}`, x + 8, 230);
-                    ctx.fillText(`${f}k`, x, f >= 0 ? y - 5 : y + h + 12);
+                    const h = Math.abs(f) * 2; const x = 50 + idx * 60;
+                    ctx.fillRect(x, f >= 0 ? 120 - h : 120, 35, h);
                 });
-                
-                // Linha de Referência Zero
-                ctx.strokeStyle = '#cbd5e1';
-                ctx.beginPath(); ctx.moveTo(20, 120); ctx.lineTo(380, 120); ctx.stroke();
+                ctx.strokeStyle = '#334155'; ctx.beginPath(); ctx.moveTo(20, 120); ctx.lineTo(380, 120); ctx.stroke();
             }
 
-            // --- GRÁFICO 3: HIDRICO 1 - DEMANDA vs ENTREGUE (Atividade 3) ---
-            const ctxHid1 = document.getElementById('canvasHidrico1');
-            if (ctxHid1 && ctxHid1.offsetParent !== null) {
-                const ctx = ctxHid1.getContext('2d');
-                ctx.clearRect(0,0,400,230);
-                
-                // Bairros fictícios
-                const dados = [ {n: 'Centro', d: 150, e: 135}, {n: 'Nilo', d: 220, e: 170}, {n: 'Industrial', d: 310, e: 295} ];
-                ctx.font = '10px sans-serif';
-
-                dados.forEach((b, i) => {
-                    const xBase = 50 + i * 110;
-                    // Demanda (Cinza)
-                    ctx.fillStyle = '#cbd5e1';
-                    ctx.fillRect(xBase, 170 - b.d * 0.4, 25, b.d * 0.4);
-                    // Entregue (Azul Claro)
-                    ctx.fillStyle = '#0284c7';
-                    ctx.fillRect(xBase + 28, 170 - b.e * 0.4, 25, b.e * 0.4);
-
-                    ctx.fillStyle = '#0f172a';
-                    ctx.fillText(b.n, xBase, 190);
-                    ctx.font = '9px sans-serif';
-                    ctx.fillText(`D:${b.d}`, xBase, 165 - b.d * 0.4);
-                    ctx.fillText(`E:${b.e}`, xBase + 28, 165 - b.e * 0.4);
-                });
-            }
-
-            // --- GRÁFICO 4: HIDRICO 2 - CUSTO BOMBEAMENTO (Atividade 3) ---
-            const ctxHid2 = document.getElementById('canvasHidrico2');
-            if (ctxHid2 && ctxHid2.offsetParent !== null) {
-                const ctx = ctxHid2.getContext('2d');
-                ctx.clearRect(0,0,400,230);
-                
-                const custos = [450, 1200, 850];
-                const cores = ['#10b981', '#f59e0b', '#3b82f6'];
-                
-                custos.forEach((c, i) => {
-                    ctx.fillStyle = cores[i];
-                    ctx.fillRect(60 + i * 100, 180 - c * 0.12, 50, c * 0.12);
-                    ctx.fillStyle = '#0f172a';
-                    ctx.font = '11px sans-serif';
-                    ctx.fillText(`R$ ${c}`, 60 + i * 100, 170 - c * 0.12);
-                });
-            }
-
-            // --- GRÁFICO 5: EVOLUÇÃO TÉRMICA (Atividade 5) ---
+            // CANVAS 3: EVOLUÇÃO TÉRMICA TRANSIENTE
             const ctxTerm = document.getElementById('canvasTermico');
             if (ctxTerm && ctxTerm.offsetParent !== null) {
                 const ctx = ctxTerm.getContext('2d');
                 ctx.clearRect(0,0,600,250);
-
-                // Linha Guia de Grid
-                ctx.strokeStyle = '#f1f5f9';
-                ctx.lineWidth = 1;
-                for(let i=1; i<=4; i++) {
-                    ctx.beginPath(); ctx.moveTo(50, i*45); ctx.lineTo(550, i*45); ctx.stroke();
-                }
-
-                // Curva Simulada CPU (Exponencial Transiente)
-                ctx.strokeStyle = '#ef4444';
-                ctx.lineWidth = 3;
-                ctx.beginPath();
-                ctx.moveTo(50, 200); // 30 graus inicial
-                ctx.quadraticCurveTo(250, 120, 550, 80); // Transiente térmico curva
-                ctx.stroke();
-
-                // Curva Liquido
-                ctx.strokeStyle = '#3b82f6';
-                ctx.beginPath();
-                ctx.moveTo(50, 210);
-                ctx.lineTo(550, 170);
-                ctx.stroke();
-
-                // Eixos e Legendas
-                ctx.fillStyle = '#64748b';
-                ctx.font = '10px sans-serif';
-                ctx.fillText('0 min', 45, 230);
-                ctx.fillText('15 min', 530, 230);
-                ctx.fillText('30°C', 20, 205);
-                ctx.fillText('85°C (Crítico)', 20, 45);
-
-                ctx.fillStyle = '#ef4444';
-                ctx.fillText('• Temperatura CPU', 430, 25);
-                ctx.fillStyle = '#3b82f6';
-                ctx.fillText('• Temperatura Líquido', 430, 40);
+                ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 3; ctx.beginPath();
+                ctx.moveTo(50, 200); ctx.quadraticCurveTo(250, 120, 550, 80); ctx.stroke();
+                ctx.fillStyle = '#64748b'; ctx.font = '10px sans-serif';
+                ctx.fillText('0 min', 45, 230); ctx.fillText('15 min', 530, 230);
             }
         }
-
-        // Execução inicial ao abrir a página
         window.onload = renderizarGraficos;
     </script>
-
 </body>
 </html>
