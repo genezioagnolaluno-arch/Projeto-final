@@ -1,28 +1,38 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio de Algoritmos & Engenharia</title>
+    <title>Laboratório de Algoritmos & Engenharia</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <style>
-        .code-block {
-            font-family: 'Fira Code', Consolas, Monaco, monospace;
-        }
+        /* Ajustes finos de scrollbar e fontes */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #1f2937; }
+        ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+        .code-block { font-family: 'Fira Code', Consolas, Monaco, monospace !important; }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans leading-normal tracking-normal">
+<body class="bg-gray-900 text-gray-100 font-sans antialiased">
 
     <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="flex items-center space-x-3">
-                <i class="fa-solid : fa-microchip text-indigo-500 text-2xl"></i>
-                <span class="font-bold text-xl tracking-tight text-white">Laboratório de Algoritmos</span>
+                <div class="bg-indigo-600 p-2 rounded-lg text-white shadow-md shadow-indigo-500/20">
+                    <i class="fa-solid fa-laptop-code text-xl"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-xl tracking-tight text-white block">Portfólio Acadêmico</span>
+                    <span class="text-xs text-gray-400 block -mt-1">Resolução do Caderno de Exercícios</span>
+                </div>
             </div>
-            <div class="flex items-center space-x-2 text-sm text-gray-400">
-                <span class="bg-indigo-900/50 text-indigo-400 px-3 py-1 rounded-full border border-indigo-700/50">
-                    <i class="fa-brands fa-python mr-1"></i> Python 3.10+
+            <div class="flex items-center space-x-2 text-sm">
+                <span class="bg-indigo-950 text-indigo-400 px-3 py-1 rounded-full border border-indigo-800 font-mono text-xs">
+                    <i class="fa-brands fa-python mr-1"></i> Python 3.10+ Core & Data
                 </span>
             </div>
         </div>
@@ -30,258 +40,403 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 lg:grid-cols-4 gap-8">
         
-        <aside class="lg:col-span-1 space-y-2">
-            <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-3">Exercícios</h3>
-            <div class="space-y-1" id="exercise-menu">
-                </div>
+        <aside class="lg:col-span-1 space-y-6">
+            <div>
+                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-3">Unidade 1: Fundamentos</h3>
+                <div class="space-y-1" id="menu-u1"></div>
+            </div>
+            <div>
+                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-3">Unidade 2: Estruturados</h3>
+                <div class="space-y-1" id="menu-u2"></div>
+            </div>
+            <div>
+                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-3">Unidade 3: Avançados / Engenharia</h3>
+                <div class="space-y-1" id="menu-u3"></div>
+            </div>
         </aside>
 
-        <main class="lg:col-span-3 bg-gray-800 rounded-xl border border-gray-700 p-6 shadow-2xl">
+        <main class="lg:col-span-3 bg-gray-800 rounded-xl border border-gray-700 p-6 shadow-2xl transition-all duration-300 min-h-[500px]">
             <div id="exercise-display">
-                <div class="text-center py-20 text-gray-400">
-                    <i class="fa-solid fa-code text-5xl mb-4 text-indigo-500/30"></i>
-                    <p class="text-lg">Selecione um exercício na barra lateral para visualizar o enunciado e a solução em tempo real.</p>
+                <div class="text-center py-32 text-gray-400">
+                    <i class="fa-solid fa-terminal text-6xl mb-4 text-indigo-500/20 animate-pulse"></i>
+                    <p class="text-lg font-medium text-gray-300">Selecione um script na barra lateral</p>
+                    <p class="text-sm text-gray-500 max-w-xs mx-auto mt-1">Os algoritmos renderizarão os blocos de lógica de forma isolada.</p>
                 </div>
             </div>
         </main>
     </div>
 
-    <footer class="bg-gray-800 border-t border-gray-700 mt-20 py-6 text-center text-sm text-gray-500">
-        <p>© 2026 • Desenvolvido para fins acadêmicos e hospedado no GitHub Pages.</p>
+    <footer class="bg-gray-800 border-t border-gray-700 mt-20 py-8 text-center text-sm text-gray-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="font-medium text-gray-400">Ambiente de Testes Automatizado — Engenharia Integrada</p>
+            <p class="mt-2 text-xs text-gray-600">Hospedado via GitHub Pages com renderização reativa nativa.</p>
+        </div>
     </footer>
 
-    <script>
-        const exercicios = [
-            { id: 1, titulo: "01. Declaração de Variáveis", desc: "Armazenar dados de resistores, cabeamento e status elétricos.", code: `resistencia = 47\\nnum_fios = 12\\nnome_projeto = "Subestacao Norte"\\nesta_energizado = True\\n\\nprint(f"Projeto: {nome_projeto}")\\nprint(f"Resistência: {resistencia} Ω")` },
-            { id: 2, titulo: "02. Seção Transversal", desc: "Cálculo da área de um duto circular com raio r = 0.15m.", code: `pi = 3.14159\\nraio = 0.15\\narea = pi * (raio ** 2)\\nprint(f"Área: {area:.5f} m²")` },
-            { id: 3, titulo: "03. Consumo de Motor", desc: "Corrente consumida e resistência interna com carga de 3500W.", code: `p_ativa = 3500\\nv_fonte = 220\\ncorrente = p_ativa / v_fonte\\nr_eq = v_fonte / corrente` },
-            { id: 4, titulo: "04. Velocidade do Som", desc: "Tempo de propagação mecânica da onda sonora por 1500 metros.", code: `v_som = 343\\ndist = 1500\\ntempo = dist / v_som\\nprint(f"{tempo} s")` },
-            { id: 5, titulo: "05. Decomposição de Tempo", desc: "Conversão direta de segundos para formato estruturado H:MM:SS.", code: `segundos_totais = 3600\\nhoras = segundos_totais // 3600\\nresto = segundos_totais % 3600` },
-            { id: 6, titulo: "06. Tanque Cilíndrico", desc: "Cálculo de volume volumétrico e área de contato superficial de chapa.", code: `vol = 3.14159 * (2.0**2) * 5.0\\narea_lat = 2 * 3.14159 * 2.0 * 5.0` },
-            { id: 7, titulo: "07. Análise de Tipagem", desc: "Explicação sobre coerção implícita de tipos numéricos dinâmicos.", code: `freq = 60\\nperiodo = 1.0 / freq\\n# Divisão gera float por padrão` },
-            { id: 8, titulo: "08. Força Gravitacional", desc: "Interação gravitacional planetária expressa em notação científica.", code: `F = 6.674e-11 * 5.0e24 * 80.0 / (6.371e6 ** 2)` },
-            { id: 9, titulo: "09. Onda de Rádio", desc: "Frequência eletromagnética convertida em metros lineares.", code: `lambda_onda = 3e8 / 98.5e6` },
-            { id: 10, titulo: "10. Divisores Inteiros vs Reais", desc: "Análise comparativa de performance de tipos e comportamentos do interpretador.", code: `print(10 // 3) # Inteiro\\nprint(10 / 3)  # Flutuante` },
-            { id: 11, titulo: "11. Telemetria de Satélite", desc: "Conversão de marcos de tempo operacionais complexos (Dias, H:MM:SS).", code: `dias = t // 86400\\nhoras = (t % 86400) // 3600` },
-            { id: 12, titulo: "12. Ponte de Wheatstone", desc: "Tratamento de exceções físicas de divisão por zero e cálculo de balanço.", code: `Rx = (R3 * R2) / R1 if R1 != 0 else float('inf')` },
-            { id: 13, titulo: "13. Tributos em Cascata", desc: "Modelo financeiro de incidência sequencial de impostos (IPI, ICMS, PIS).", code: `base_icms = preco_fabrica + ipi\\nicms = base_icms * (aliq_icms / 100)` },
-            { id: 14, titulo: "14. Laudo Geotécnico", desc: "Classificação automática estrutural baseada em índices SPT de sondagem.", code: `if spt < 5 or cap_carga < 80:\\n    return "INAPTO"` },
-            { id: 15, titulo: "15. Inspeção Industrial", desc: "Validação estatística dimensional de soldagem mecânica robotizada.", code: `if -0.08 * nominal <= desvio <= 0.08 * nominal:\\n    return "APROVADO"` }
-        ];
+    <template id="ex-1">
+        <div class="badge">Variáveis e Operadores</div>
+        <h2>01. Declaração e Inicialização de Variáveis</h2>
+        <p class="desc">Declaração de variáveis tipadas dinamicamente em Python para caracterização física de componentes elétricos de subestação.</p>
+        <pre><code class="language-python"># Declarando variáveis físicas e de controle
+resistencia = 47          # Tipo: int (Valor em Ohms)
+num_fios = 12             # Tipo: int (Quantidade no cabo)
+nome_projeto = "Subestacao Norte"  # Tipo: str (Identificação)
+esta_energizado = True    # Tipo: bool (Estado lógico do circuito)
 
-        const menuContainer = document.getElementById('exercise-menu');
-        const displayContainer = document.getElementById('exercise-display');
+# Exibição formatada no console do interpretador
+print(f"Nome do Projeto de Engenharia: {nome_projeto}")
+print(f"Resistência de projeto medida: {resistencia} Ohms")
+print(f"Quantidade total de condutores (fios): {num_fios}")
+print(f"Status operacional - Linha Energizada: {esta_energizado}")</code></pre>
+    </template>
 
-        function renderMenu() {
-            menuContainer.innerHTML = exercicios.map(ex => `
-                <button onclick="renderExercise(${ex.id})" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all flex items-center justify-between text-gray-400 hover:bg-gray-700/50 hover:text-white group">
-                    <span class="truncate">${ex.titulo}</span>
-                    <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 text-indigo-400 transition-opacity"></i>
-                </button>
-            `).join('');
-        }
-
-        function renderExercise(id) {
-            const ex = exercicios.find(e => e.id === id);
-            displayContainer.innerHTML = `
-                <div class="animate-fade-in">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-gray-700 pb-4 mb-6">
-                        <div>
-                            <h2 class="text-2xl font-bold text-white">${ex.titulo}</h2>
-                            <p class="text-sm text-gray-400 mt-1">${ex.desc}</p>
-                        </div>
-                        <span class="bg-indigo-500/10 text-indigo-400 text-xs px-2.5 py-1 rounded border border-indigo-500/20 font-mono">ID: #${ex.id}</span>
-                    </div>
-                    
-                    <div class="mb-4 flex items-center justify-between text-xs text-gray-400 uppercase tracking-wider font-semibold">
-                        <span><i class="fa-solid fa-terminal mr-1"></i> Script Script Python</span>
-                    </div>
-                    <div class="bg-gray-900 rounded-lg p-4 border border-gray-700 overflow-x-auto shadow-inner">
-                        <pre class="code-block text-sm text-emerald-400"><code>${ex.code}</code></pre>
-                    </div>
-                </div>
-            `;
-        }
-
-        renderMenu();
-    </script>
-</body>
-</html>
-# ==========================================
-# EXERCÍCIO 1: Declaração de Variáveis
-# ==========================================
-resistencia = 47  # int (Ohms)
-num_fios = 12     # int
-nome_projeto = "Subestacao Norte"  # string
-esta_energizado = True  # bool
-
-print(f"Projeto: {nome_projeto}")
-print(f"Resistência: {resistencia} Ω | Fios: {num_fios}")
-print(f"Energizado: {esta_energizado}")
-
-# ==========================================
-# EXERCÍCIO 2: Área de Seção Circular
-# ==========================================
+    <template id="ex-2">
+        <div class="badge">Geometria Computacional</div>
+        <h2>02. Cálculo de Seção Transversal de Duto</h2>
+        <p class="desc">Cálculo de área de seção geométrica em elementos de infraestrutura utilizando representação decimal precisa.</p>
+        <pre><code class="language-python"># Constantes físicas do problema
 pi = 3.14159
-raio = 0.15  # metros
-area = pi * (raio ** 2)
-print(f"Área da seção transversal: {area:.5f} m²")
+raio = 0.15  # Dimensão em metros (m)
 
-# ==========================================
-# EXERCÍCIO 3: Potência e Corrente de Motor
-# ==========================================
-p_ativa = 3500  # Watts
-v_fonte = 220   # Volts
-corrente = p_ativa / v_fonte
-r_equivalente = v_fonte / corrente
-print(f"Corrente: {corrente:.2f} A | Resistência Equivalente: {r_equivalente:.2f} Ω")
+# Aplicação da fórmula analítica: A = pi * r^2
+area_secao = pi * (raio ** 2)
 
-# ==========================================
-# EXERCÍCIO 4: Velocidade do Som
-# ==========================================
-v_som = 343  # m/s
-distancia = 1500  # metros
-tempo_s = distancia / v_som
-tempo_ms = tempo_s * 1000
-print(f"Tempo de percurso: {tempo_s:.4f} s ({tempo_ms:.2f} ms)")
+# Exibição científica formatando precisão de casas decimais
+print(f"Raio nominal do duto de passagem: {raio} m")
+print(f"Área geométrica calculada da seção: {area_secao:.5f} m²")</code></pre>
+    </template>
 
-# ==========================================
-# EXERCÍCIO 5: Conversão de Tempo H:MM:SS
-# ==========================================
-total_segundos = 3600
-horas = total_segundos // 3600
-resto_min = total_segundos % 3600
-minutos = resto_min // 60
-segundos = resto_min % 60
-print(f"Tempo formatado: {horas}:{minutos:02d}:{segundos:02d}")
+    <template id="ex-3">
+        <div class="badge">Eletrotécnica</div>
+        <h2>03. Dimensionamento Elétrico de Motor Industrial</h2>
+        <p class="desc">Avaliação da corrente consumida e cálculo de resistência linear equivalente para cargas indutivas ativas.</p>
+        <pre><code class="language-python"># Dados nominais de placa do motor
+potencia_ativa = 3500.0  # Watts (W)
+tensao_nominal = 220.0   # Volts (V)
 
-# ==========================================
-# EXERCÍCIO 6: Volume de Tanque Cilíndrico
-# ==========================================
-r_tanque = 2.0
-h_tanque = 5.0
-vol_tanque = pi * (r_tanque ** 2) * h_tanque
-area_lat_tanque = 2 * pi * r_tanque * h_tanque
-print(f"Volume: {vol_tanque:.2f} m³ | Área Lateral: {area_lat_tanque:.2f} m²")
+# Cálculo de corrente de regime (I = P / V)
+corrente_regime = potencia_ativa / tensao_nominal
 
-# ==========================================
-# EXERCÍCIO 7: Frequência e Período
-# ==========================================
-freq = 60
+# Cálculo da impedância resistiva equivalente (R = V / I)
+resistencia_equivalente = tensao_nominal / corrente_regime
+
+print(f"Corrente nominal de operação: {corrente_regime:.2f} A")
+print(f"Resistência pura equivalente do enrolamento: {resistencia_equivalente:.2f} Ohms")</code></pre>
+    </template>
+
+    <template id="ex-4">
+        <div class="badge">Física Teórica</div>
+        <h2>04. Tempo de Propagação Acústica (Ondas)</h2>
+        <p class="desc">Mapeamento temporal de ondas mecânicas com conversão de escalas físicas e fracionamento de tempo.</p>
+        <pre><code class="language-python"># Parâmetros cinemáticos fornecidos
+velocidade_som = 343.0  # Constante física em m/s
+distancia_alvo = 1500.0 # Espaço em metros (m)
+
+# Determinação do tempo físico (t = d / v)
+tempo_segundos = distancia_alvo / velocidad_som
+
+# Conversão analítica de escala de tempo (Segundos para Milissegundos)
+tempo_milissegundos = tempo_segundos * 1000
+
+print(f"Tempo total computado para percurso: {tempo_segundos:.4f} s")
+print(f"Tempo total convertido para escala de laboratório: {tempo_milissegundos:.2f} ms")</code></pre>
+    </template>
+
+    <template id="ex-5">
+        <div class="badge">Estruturas de Dados</div>
+        <h2>05. Formatador Universal de Tempo Inteiro</h2>
+        <p class="desc">Decomposição estrutural de segundos absolutos aplicando operadores aritméticos de divisão inteira truncada e resto.</p>
+        <pre><code class="language-python"># Massa de dados de entrada
+segundos_totais = 3600
+
+# Lógica puramente aritmética por divisões inteiras sucessivas
+horas = segundos_totais // 3600
+resto_minutos = segundos_totais % 3600
+minutos = resto_minutos // 60
+segundos = resto_minutos % 60
+
+# Exibição estruturada utilizando formatação posicional com máscara de preenchimento (:02d)
+print(f"Janela de tempo formatada em padrão industrial: {horas}:{minutos:02d}:{segundos:02d}")</code></pre>
+    </template>
+
+    <template id="ex-6">
+        <div class="badge">Cálculo de Volumes</div>
+        <h2>06. Volumetria e Dimensionamento de Tanques</h2>
+        <p class="desc">Processamento volumétrico e estimativa de área de chapa metálica lateral para infraestrutura de reservatórios cilíndricos.</p>
+        <pre><code class="language-python">pi = 3.14159
+raio_base = 2.0  # Metros
+altura_tanque = 5.0  # Metros
+
+# Modelagem geométrica matemática
+volume_tanque = pi * (raio_base ** 2) * altura_tanque
+area_lateral = 2 * pi * raio_base * altura_tanque
+
+print(f"Capacidade cúbica volumétrica do tanque: {volume_tanque:.2f} m³")
+print(f"Área superficial da parede lateral do cilindro: {area_lateral:.2f} m²")</code></pre>
+    </template>
+
+    <template id="ex-7">
+        <div class="badge">Sistemas Digitais</div>
+        <h2>07. Tipagem Dinâmica e Coerção Implícita</h2>
+        <p class="desc">Estudo interpretativo sobre a conversão de tipos primitivos em operações de divisão real.</p>
+        <pre><code class="language-python">freq = 60
 periodo = 1.0 / freq
-print(f"Freq: {freq} Hz ({type(freq)}) | Período: {periodo} s ({type(periodo)})")
-# O período é float porque a divisão com '/' em Python sempre retorna um tipo flutuante (float),
-# mesmo que os operandos sejam inteiros, garantindo precisão matemática.
 
-# ==========================================
-# EXERCÍCIO 8: Força Gravitacional
-# ==========================================
+print(f"Valor de Frequência: {freq} -> Tipo Primitivo: {type(freq)}")
+print(f"Valor de Período: {periodo} -> Tipo Primitivo: {type(periodo)}")
+
+# NOTA EXPLICATIVA: O Python aplica coerção de tipo implícita para float sempre que o operador
+# de divisão real ('/') é invocado, independente se os números de entrada são inteiros,
+# de modo a preservar os valores decimais e evitar erros de truncamento numérico.</code></pre>
+    </template>
+
+    <template id="ex-8">
+        <div class="badge">Astrodinâmica</div>
+        <h2>08. Campo Gravitacional e Força Newtoniana</h2>
+        <p class="desc">Resolução da Equação Universal da Gravitação de Newton utilizando variáveis de dupla precisão em notação de engenharia.</p>
+        <pre><code class="language-python"># Constantes e massas em notação exponencial científica (E)
 G = 6.674e-11
 m1 = 5.0e24
 m2 = 80.0
-d = 6.371e6
-f_gravitacional = G * m1 * m2 / (d ** 2)
-print(f"Força Gravitacional: {f_gravitacional:.2f} N")
+distancia_centros = 6.371e6
 
-# ==========================================
-# EXERCÍCIO 9: Comprimento de Onda de Rádio
-# ==========================================
-c_luz = 3e8  # m/s
-f_radio = 98.5e6  # Hz
-lambda_onda = c_luz / f_radio
-print(f"Comprimento de onda (λ): {lambda_onda:.4f} metros")
+# Equação fundamental da atração gravitacional
+forca_gravitacional = G * m1 * m2 / (distancia_centros ** 2)
 
-# ==========================================
-# EXERCÍCIO 10: Operadores de Divisão
-# ==========================================
-div_inteira = 10 // 3
-div_real = 10 / 3
-print(f"10 // 3 = {div_inteira} ({type(div_inteira)})")
-print(f"10 / 3 = {div_real} ({type(div_real)})")
-# EXPLICAÇÃO: '//' realiza a divisão inteira (truncando as casas decimais e retornando int),
-# enquanto '/' realiza a divisão real/padrão, gerando uma dízima periódica do tipo float.
-# ==========================================
-# EXERCÍCIO 11 (Problema 1): Telemetria de Voo
-# ==========================================
-def telemetria_voo(t):
-    dias = t // 86400
-    resto1 = t % 86400
-    horas = resto1 // 3600
-    resto2 = resto1 % 3600
-    minutos = resto2 // 60
-    segundos = resto2 % 60
-    return f"{dias} dias, {horas}:{minutos:02d}:{segundos:02d}"
+print(f"Módulo da força gravitacional calculada: {forca_gravitacional:.2f} Newtons (N)")</code></pre>
+    </template>
 
-print("Ex 11 (Telemetria):", telemetria_voo(90125))
+    <template id="ex-9">
+        <div class="badge">Telecomunicações</div>
+        <h2>09. Cálculo de Comprimento de Onda de Rádio</h2>
+        <p class="desc">Processamento de radiofrequência eletromagnética para conversão de espectro em dimensões mecânicas de antenas.</p>
+        <pre><code class="language-python"># Constantes de propagação no vácuo/ar
+velocidade_luz = 3e8  # m/s
+frequencia_sinal = 98.5e6  # 98.5 MHz expressos em Hz
 
-# ==========================================
-# EXERCÍCIO 12 (Problema 2): Ponte de Wheatstone
-# ==========================================
-def wheatstone_bridge(R1, R2, R3, Vfonte):
-    if R1 == 0:
-        return "Erro: R1 não pode ser zero (divisão por zero)."
+# Relação física (lambda = c / f)
+comprimento_onda = velocidade_luz / frequencia_sinal
+
+print(f"Frequência sintonizada de teste: {frequencia_sinal / 1e6} MHz")
+print(f"Comprimento físico real da onda linear (λ): {comprimento_onda:.4f} metros")</code></pre>
+    </template>
+
+    <template id="ex-10">
+        <div class="badge">Lógica de Programação</div>
+        <h2>10. Divergência Operacional: Divisão Inteira vs Real</h2>
+        <p class="desc">Estudo exato da diferença de alocação de memória e retorno de operadores aritméticos estruturais.</p>
+        <pre><code class="language-python">resultado_inteiro = 10 // 3
+resultado_real = 10 / 3
+
+print(f"Operação 10 // 3: Resultado = {resultado_inteiro} | Classe Alocada = {type(resultado_inteiro)}")
+print(f"Operação 10 / 3:  Resultado = {resultado_real} | Classe Alocada = {type(resultado_real)}")
+
+# EXPLICAÇÃO NO CÓDIGO:
+# O operador double slash '//' executa a divisão inteira (piso da divisão), descartando a parte
+# fracionária inteira sem arredondamento. O operador '/' força o interpretador CPython a instanciar
+# um float de precisão dupla de 64 bits para representar a dízima periódica.</code></pre>
+    </template>
+
+    <template id="ex-11">
+        <div class="badge">Sistemas Aeroespaciais</div>
+        <h2>11. Telemetria de Voo: Conversão de Missão</h2>
+        <p class="desc">Algoritmo clássico de decomposição cronológica para computadores de bordo sem bibliotecas externas.</p>
+        <pre><code class="language-python"># Entrada simulada (segundos totais de operação)
+tempo_total_segundos = 90125
+
+# Processamento aritmético puro por cascata de módulos e divisões inteiras
+dias = tempo_total_segundos // 86400
+resto_dias = tempo_total_segundos % 86400
+
+horas = resto_dias // 3600
+resto_horas = resto_dias % 3600
+
+minutos = resto_horas // 60
+segundos = resto_horas % 60
+
+print(f"Telemetria Consolidada de Missão: {dias} dias, {horas}:{minutos:02d}:{segundos:02d}")
+
+# TRACE MANUAL DESAFIO EXTRA:
+# t = 86400 -> dias = 1, resto1 = 0, horas = 0, minutos = 0, segundos = 0 -> Saída: "1 dias, 0:00:00"
+# t = 0     -> dias = 0, resto1 = 0, horas = 0, minutos = 0, segundos = 0 -> Saída: "0 dias, 0:00:00"</code></pre>
+    </template>
+
+    <template id="ex-12">
+        <div class="badge">Engenharia Elétrica</div>
+        <h2>12. Ponte de Wheatstone: Cálculo Analítico de Malha</h2>
+        <p class="desc">Validação matemática e circuitos de instrumentação elétrica com proteção de divisão.</p>
+        <pre><code class="language-python"># Parâmetros de Entrada coletados nos ramos da ponte
+R1, R2, R3 = 120.0, 240.0, 180.0
+Vfonte = 9.0
+
+# Tratamento preventivo e segurança matemática contra divisões por zero
+if R1 == 0:
+    print("ERRO DE HARDWARE CRÍTICO: R1 igual a zero impede a convergência do circuito!")
+else:
+    # Cálculo analítico das variáveis elétricas
     Rx = (R3 * R2) / R1
+    
+    # Impedância equivalente da malha série-paralelo da ponte
     R_total = ((R1 + Rx) * (R2 + R3)) / (R1 + Rx + R2 + R3)
     I_total = Vfonte / R_total
     P_total = Vfonte * I_total
-    equilibrio = (R1 * Rx == R2 * R3)
-    return {"Rx": Rx, "I_total": I_total, "P_total": P_total, "Equilibrada": equilibrio}
-
-print("Ex 12 (Wheatstone):", wheatstone_bridge(120, 240, 180, 9))
-
-# ==========================================
-# EXERCÍCIO 13 (Problema 3): Tributos em Cascata
-# ==========================================
-def calcular_nota_fiscal(preco_fabrica, aliq_ipi, aliq_icms, aliq_pis_cofins):
-    ipi = preco_fabrica * (aliq_ipi / 100)
-    base_icms = preco_fabrica + ipi
-    icms = base_icms * (aliq_icms / 100)
-    base_pc = base_icms + icms
-    pis_cofins = base_pc * (aliq_pis_cofins / 100)
-    preco_final = base_pc + pis_cofins
-    carga_total_pct = ((preco_final - preco_fabrica) / preco_fabrica) * 100
-    return preco_final, carga_total_pct
-
-pf, carga = calcular_nota_fiscal(850.00, 10, 12, 3.65)
-print(f"Ex 13 (Impostos): Preço Final: R${pf:.2f} | Carga: {carga:.2f}%")
-
-# ==========================================
-# EXERCÍCIO 14 (Problema 4): Laudo Geotécnico (Solos)
-# ==========================================
-def laudo_geotecnico(spt, cap_carga):
-    if spt < 5 or cap_carga < 80:
-        return "INAPTO: solo muito fraco — reforço necessário"
-    elif spt < 10 or cap_carga < 150:
-        limite = "SPT" if spt < 10 else "Capacidade de Carga"
-        return f"RESTRITO: fundação especial recomendada (Parâmetro no limite: {limite})"
-    elif spt >= 30 and cap_carga >= 300:
-        return "EXCELENTE: solo de alta capacidade"
-    else:
-        return "ADEQUADO: fundação convencional viável"
-
-print("Ex 14 (Geotecnia):", laudo_geotecnico(15, 120))
-
-# ==========================================
-# EXERCÍCIO 15 (Problema 5): Inspeção de Solda e Esteira
-# ==========================================
-def inspecao_linha(res_nominal, res_medida, vel_atual, vel_alvo):
-    # Parte A: Solda (Sem usar variavel intermediaria absoluta, conforme desafio extra)
-    desvio = res_medida - res_nominal
-    pct_desvio = (desvio / res_nominal) * 100
     
-    if -0.08 * res_nominal <= desvio <= 0.08 * res_nominal:
-        laudo_solda = "SOLDA APROVADA"
-    else:
-        laudo_solda = f"SOLDA REPROVADA | Desvio: {desvio:+.2f} MPa ({pct_desvio:+.2f}%)"
-        
-    # Parte B: Esteira
-    if vel_atual > vel_alvo * 1.10:
-        laudo_esteira = "VELOCIDADE ALTA — risco de posicionamento incorreto"
-    elif vel_atual < vel_alvo * 0.90:
-        laudo_esteira = "VELOCIDADE BAIXA — gargalo na produção"
-    else:
-        laudo_esteira = "VELOCIDADE OK"
-        
-    return laudo_solda, laudo_esteira
+    # Validação do equilíbrio físico da malha de ensaio
+    ponte_equilibrada = (R1 * Rx == R2 * R3)
+    
+    print(f"Resistência Desconhecida Calculada Rx: {Rx:.2f} Ohms")
+    print(f"Corrente Total extraída da Fonte de Tensão: {I_total:.4f} A")
+    print(f"Potência Térmica Total Dissipada na Rede: {P_total:.4f} W")
+    print(f"Status do Equilíbrio do Galvanômetro: {ponte_equilibrada}")</code></pre>
+    </template>
 
-print("Ex 15 (Fábrica):", inspecao_linha(420, 390, 14.5, 12))
+    <template id="ex-13">
+        <div class="badge">Engenharia de Produção</div>
+        <h2>13. Nota Fiscal Industrial: Tributação em Cascata</h2>
+        <p class="desc">Simulador fiscal de engenharia econômica modelando incidências e bases cumulativas de impostos industriais.</p>
+        <pre><code class="language-python"># Parâmetros de custos e alíquotas fiscais
+preco_fabrica = 850.00
+aliq_ipi, aliq_icms, aliq_pis_cofins = 10.0, 12.0, 3.65
+
+# Cadeia de cálculo cumulativa em cascata
+ipi_calculado = preco_fabrica * (aliq_ipi / 100.0)
+base_calculo_icms = preco_fabrica + ipi_calculado
+
+icms_calculado = base_calculo_icms * (aliq_icms / 100.0)
+base_calculo_pis_cofins = base_calculo_icms + icms_calculado
+
+pis_cofins_calculado = base_calculo_pis_cofins * (aliq_pis_cofins / 100.0)
+preco_final_consumidor = base_calculo_pis_cofins + pis_cofins_calculado
+
+carga_tributaria_total_pct = ((preco_final_consumidor - preco_fabrica) / preco_fabrica) * 100.0
+
+print(f"Preço de Saída da Fábrica: R$ {preco_fabrica:.2f}")
+print(f"Preço Final com Impostos Incorporados: R$ {preco_final_consumidor:.2f}")
+print(f"Carga Tributária Efetiva sobre a Operação: {carga_tributaria_total_pct:.2f}%")</code></pre>
+    </template>
+
+    <template id="ex-14">
+        <div class="badge">Engenharia Civil</div>
+        <h2>14. Laudo Geotécnico Dinâmico de Solos</h2>
+        <p class="desc">Estruturação de lógica condicional booleana para tomada de decisão em segurança de fundações civis.</p>
+        <pre><code class="language-python"># Variáveis de ensaio mecânico de campo de solos
+spt_golpes = 15
+capacidade_carga_kpa = 120.0
+
+# Avaliação sequencial baseada nas matrizes de normas técnicas
+if spt_golpes < 5 or capacidade_carga_kpa < 80.0:
+    print("LAUDO EMITIDO -> INAPTO: Solo com baixa resistência mecânica. Reforço estrutural obrigatório.")
+elif spt_golpes < 10 or capacidade_carga_kpa < 150.0:
+    parametro_limite = "Índice de Golpes SPT" if spt_golpes < 10 else "Capacidade de Carga Admissível"
+    print(f"LAUDO EMITIDO -> RESTRITO: Exige fundação especial profunda. Parâmetro em desconformidade: {parametro_limite}")
+elif spt_golpes >= 30 and capacidade_carga_kpa >= 300.0:
+    print("LAUDO EMITIDO -> EXCELENTE: Alta capacidade de suporte de carga para edificações verticais.")
+else:
+    print("LAUDO EMITIDO -> ADEQUADO: Viável para assentamento de fundações convencionais diretas (sapatas).")</code></pre>
+    </template>
+
+    <template id="ex-15">
+        <div class="badge">Automação</div>
+        <h2>15. Inspeção de Linha de Produção Automatizada</h2>
+        <p class="desc">Algoritmo de varredura dupla em tempo real executando controle estatístico e mecânico simultâneos.</p>
+        <pre><code class="language-python"># PARTE A: Avaliação Metalúrgica da Resistência de Soldas
+res_nominal, res_medida = 420.0, 390.0
+
+desvio_absoluto = res_medida - res_nominal
+desvio_percentual = (desvio_absoluto / res_nominal) * 100.0
+
+# Resolução sem uso de variáveis intermediárias absolutas (Conforme Desafio Extra)
+if (-0.08 * res_nominal) <= desvio_absoluto <= (0.08 * res_nominal):
+    print("STATUS DA INSPEÇÃO METALÚRGICA: SOLDA APROVADA")
+else:
+    print(f"STATUS DA INSPEÇÃO METALÚRGICA: SOLDA REPROVADA | Variação: {desvio_absoluto:+.2f} MPa ({desvio_percentual:+.2f}%)")
+
+# PARTE B: Dinâmica e Cinemática de Esteira Transportadora
+velocidade_atual, velocidade_alvo = 14.5, 12.0
+
+if velocidade_atual > (velocidade_alvo * 1.10):
+    print("ALERTA DE SISTEMA: VELOCIDADE CRÍTICA ALTA - Risco severo de desalinhamento de peças!")
+elif velocidade_atual < (velocidade_alvo * 0.90):
+    print("ALERTA DE SISTEMA: VELOCIDADE CRÍTICA BAIXA - Gargalo logístico na linha de fluxo detectado.")
+else:
+    print("STATUS DA ESTEIRA: OPERAÇÃO EM RITMO NOMINAL OK")</code></pre>
+    </template>
+
+    <script>
+        // Mapeamento completo dos IDs dos exercícios com agrupamento estrutural por Unidades
+        const exerciciosData = [
+            { id: 1, unidade: 1, menu: "01. Inicialização de Variáveis" },
+            { id: 2, unidade: 1, menu: "02. Área de Seção Circular" },
+            { id: 3, unidade: 1, menu: "03. Dimensionamento de Motor" },
+            { id: 4, unidade: 1, menu: "04. Propagação de Ondas" },
+            { id: 5, unidade: 1, menu: "05. Conversor de Tempo" },
+            { id: 6, unidade: 2, menu: "06. Volumetria de Tanques" },
+            { id: 7, unidade: 2, menu: "07. Tipos e Coerção Dinâmica" },
+            { id: 8, unidade: 2, menu: "08. Atração Gravitacional" },
+            { id: 9, unidade: 2, menu: "09. Comprimento de Onda" },
+            { id: 10, unidade: 2, menu: "10. Operadores de Divisão" },
+            { id: 11, unidade: 3, menu: "11. Telemetria de Satélites" },
+            { id: 12, unidade: 3, menu: "12. Ponte de Wheatstone" },
+            { id: 13, unidade: 3, menu: "13. Impostos Industriais" },
+            { id: 14, unidade: 3, menu: "14. Laudos Geotécnicos" },
+            { id: 15, unidade: 3, menu: "15. Inspeções de Fábrica" }
+        ];
+
+        // Função injetora dinâmica para construir as listas de menus laterais de forma modular
+        function gerarMenus() {
+            exerciciosData.forEach(ex => {
+                const button = document.createElement('button');
+                button.className = "w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center justify-between text-gray-400 hover:bg-gray-700/50 hover:text-white group border border-transparent hover:border-gray-700";
+                button.innerHTML = `
+                    <span class="truncate">${ex.menu}</span>
+                    <i class="fa-solid fa-code text-xs opacity-0 group-hover:opacity-100 text-indigo-400 transition-opacity"></i>
+                `;
+                button.onclick = () => carregarCodigoExercicios(ex.id, button);
+                
+                document.getElementById(`menu-u${ex.unidade}`).appendChild(button);
+            });
+        }
+
+        // Função reativa que lê o template HTML interno e renderiza com sintaxe destacada
+        function carregarCodigoExercicios(id, element) {
+            // Remove o destaque ativo de todos os botões do menu
+            document.querySelectorAll('aside button').forEach(b => b.classList.remove('bg-indigo-600/20', 'text-indigo-400', 'border-indigo-500/30'));
+            
+            // Adiciona destaque visual de ativo ao botão selecionado
+            element.classList.add('bg-indigo-600/20', 'text-indigo-400', 'border-indigo-500/30');
+
+            const display = document.getElementById('exercise-display');
+            const template = document.getElementById(`ex-${id}`);
+            
+            if (template) {
+                // Clona o conteúdo do template correspondente e injeta no container
+                const clone = template.content.cloneNode(true);
+                display.innerHTML = "";
+                display.appendChild(clone);
+                
+                // Aplica estilos CSS dinâmicos via injeção no componente renderizado
+                const heading = display.querySelector('h2');
+                heading.className = "text-2xl font-bold text-white mt-2 mb-2";
+                
+                const desc = display.querySelector('.desc');
+                desc.className = "text-sm text-gray-400 mb-6";
+                
+                const badge = display.querySelector('.badge');
+                badge.className = "inline-block bg-indigo-500/10 text-indigo-400 text-xs px-2.5 py-1 rounded border border-indigo-500/20 font-mono tracking-wide uppercase font-semibold";
+
+                const wrapper = display.querySelector('pre');
+                wrapper.className = "rounded-xl overflow-hidden border border-gray-700 !bg-gray-900 shadow-inner p-1";
+
+                // Força o interpretador PrismJS a colorir a sintaxe do bloco injetado
+                Prism.highlightElement(display.querySelector('code'));
+            }
+        }
+
+        // Inicializa a montagem do site no carregamento da janela
+        window.onload = gerarMenus;
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
