@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Avançado de Engenharia Computacional | Genezio Dall'Agnol Neto</title>
-   
-        <style>
+    <title>Portfólio de Algoritmos - Engenharia Mecânica</title>
+    <style>
         :root {
             --bg-main: #0b0f19;
             --bg-card: #131b2e;
@@ -19,10 +18,6 @@
             
             --enunciado-bg: rgba(2, 132, 199, 0.1);
             --enunciado-border: #06b6d4;
-            --success-bg: rgba(34, 197, 94, 0.1);
-            --success-border: #22c55e;
-            --alert-bg: rgba(217, 119, 6, 0.1);
-            --alert-border: #d97706;
         }
 
         body {
@@ -34,20 +29,18 @@
             line-height: 1.6;
         }
 
-        /* Header Futurista Premium */
         header {
             background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.2), transparent), 
                         linear-gradient(180deg, #0f172a 0%, #0b0f19 100%);
             color: white;
-            padding: 6rem 2rem;
+            padding: 5rem 2rem;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
-            position: relative;
         }
 
         header h1 {
             margin: 0;
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 800;
             letter-spacing: -0.04em;
             background: linear-gradient(to right, #ffffff, #06b6d4);
@@ -59,80 +52,57 @@
             margin: 1rem auto 0 auto;
             max-width: 800px;
             color: var(--text-secondary);
-            font-size: 1.2rem;
-            font-weight: 400;
+            font-size: 1.1rem;
         }
 
         .student-card {
             display: inline-flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
+            margin-top: 2rem;
             background: rgba(30, 41, 59, 0.5);
-            backdrop-filter: blur(12px);
-            padding: 0.6rem 2rem;
+            padding: 0.5rem 2rem;
             border-radius: 50px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .student-card strong {
-            color: var(--accent-cyan);
         }
 
         main {
             max-width: 1100px;
-            margin: 4rem auto;
+            margin: 3rem auto;
             padding: 0 2rem;
         }
 
-        .section-container {
-            background: transparent;
-            padding: 0;
-            margin-bottom: 4rem;
-        }
-
         .section-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: white;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             font-weight: 800;
             border-left: 5px solid var(--accent-blue);
             padding-left: 1rem;
-            letter-spacing: -0.02em;
         }
 
-        /* Accordion Refatorado com Visual Cibernético */
         .accordion-item {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.2s ease;
         }
 
         .accordion-item:hover {
             border-color: #334155;
             background-color: var(--bg-card-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
 
         .accordion-header {
-            padding: 1.5rem;
+            padding: 1.2rem 1.5rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 1.15rem;
             font-weight: 700;
             color: white;
             user-select: none;
-        }
-
-        .accordion-header:hover {
-            background-color: rgba(255, 255, 255, 0.02);
         }
 
         .header-left {
@@ -141,1006 +111,294 @@
             gap: 1rem;
         }
 
-        /* Badges Minimalistas */
         .badge {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
             font-weight: 800;
-            letter-spacing: 0.05em;
+            background-color: rgba(37, 99, 235, 0.15); 
+            color: #60a5fa; 
+            border: 1px solid rgba(37, 99, 235, 0.3);
         }
-
-        .badge-projeto { background-color: rgba(37, 99, 235, 0.15); color: #60a5fa; border: 1px solid rgba(37, 99, 235, 0.3); }
-        .badge-relatorio { background-color: rgba(217, 119, 6, 0.15); color: #fbbf24; border: 1px solid rgba(217, 119, 6, 0.3); }
 
         .arrow-icon {
             font-size: 0.75rem;
             color: var(--text-secondary);
-            transition: transform 0.3s ease;
-            background: #1e293b;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-
-        .accordion-item.active {
-            border-color: var(--accent-blue);
-            background-color: var(--bg-card-hover);
+            transition: transform 0.2s ease;
         }
 
         .accordion-item.active .arrow-icon {
             transform: rotate(180deg);
-            background: var(--accent-blue);
-            color: white;
+            color: var(--accent-cyan);
         }
 
         .accordion-content {
             display: none;
-            padding: 2.5rem;
+            padding: 2rem;
             background-color: #0e1424;
             border-top: 1px solid var(--border-color);
         }
 
-        /* Caixas de Conteúdo Internas */
         .enunciado {
             background-color: var(--enunciado-bg);
             border-left: 4px solid var(--enunciado-border);
-            padding: 1.25rem 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
+            padding: 1rem 1.25rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
         }
 
-        .enunciado h4 {
+        .enunciado h4, .solucao h4 {
             margin: 0 0 0.5rem 0;
             color: var(--accent-cyan);
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
+
+        .solucao h4 { color: white; }
 
         .enunciado p {
             margin: 0;
             color: #e2e8f0;
-            font-size: 1rem;
-        }
-
-        .solucao h4 {
-            color: white;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
         }
 
         pre {
             background-color: var(--code-bg);
             color: #e2e8f0;
-            padding: 1.5rem;
-            border-radius: 12px;
+            padding: 1.25rem;
+            border-radius: 8px;
             overflow-x: auto;
             font-family: 'Consolas', monospace;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border: 1px solid var(--border-color);
-        }
-
-        .texto-relatorio {
-            background-color: var(--success-bg);
-            border: 1px solid var(--success-border);
-            padding: 1.5rem;
-            border-radius: 12px;
-            color: #4ade80;
-            font-size: 1rem;
-        }
-
-        .texto-relatorio.alert-box {
-            background-color: var(--alert-bg);
-            border-color: var(--alert-border);
-            color: #fbbf24;
-        }
-
-        /* Tabelas Avançadas */
-        .tabela-container {
-            overflow-x: auto;
-            margin-bottom: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            background-color: var(--code-bg);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.9rem;
-        }
-
-        th, td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        th {
-            background-color: #111827;
-            color: white;
-            font-weight: 700;
-        }
-
-        tr:hover {
-            background-color: rgba(255, 255, 255, 0.02);
-        }
-
-        /* Canvas de Gráficos */
-        .grid-visuals {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .canvas-holder {
-            background: var(--code-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-
-        .canvas-holder h5 {
-            margin: 0 0 1rem 0;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        canvas {
-            background: #070a13;
-            border-radius: 8px;
-            width: 100% !important;
-            height: auto !important;
+            margin: 0;
         }
 
         footer {
             text-align: center;
-            padding: 4rem;
+            padding: 3rem;
             color: var(--text-secondary);
             border-top: 1px solid var(--border-color);
             background-color: #070a13;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Portfólio de Engenharia Estrutural & Computacional</h1>
-        <p>Aplicações Práticas de Algoritmos, Simulações Transientes de Sistemas Físicos e Análise Avançada de LLMs</p>
+        <h1>Portfólio de Algoritmos Aplicados</h1>
+        <p>Resolução computacional de exercícios condicionais e estruturais aplicados à Engenharia Mecânica.</p>
         <div class="student-card">
-            <span>Estudante: <strong>Genezio Dall'Agnol Neto</strong></span>
-            <span>|</span>
-            <span>Matrícula: <strong>2610100840</strong></span>
+            <span>Engenharia Mecânica</span>
         </div>
     </header>
 
     <main>
-
         <div class="section-container">
-            <h2 class="section-title">📂 1. Sistemas Estruturais & Relatórios Comparativos Industriais</h2>
+            <h2 class="section-title">Exercícios Resolvidos (14 Atividades)</h2>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-projeto">Projeto</span>
-                        <span>Atividade 1: Análise Estrutural Computacional de Treliças Planas</span>
-                    </div>
+                    <div class="header-left"><span class="badge">Atv 01</span><span>Análise de Tensões Combinadas em Eixos</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Desenvolver um programa completo em Python focado no cálculo estrutural clássico de treliças isostáticas lineares de grande escala. O script deve receber coordenadas de nós e barras, montar dinamicamente as matrizes de equilíbrio com os cossenos diretores e realizar a resolução do sistema linear de forças através do método de eliminação de Gauss-Jordan desenvolvido manualmente de raiz (sem uso de pacotes de álgebra linear prontos de alto nível).</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Implementado (Integral):</h4>
-                        <pre><code>import math
-import matplotlib.pyplot as plt
-import numpy as np
-
-# =========================================================
-# SISTEMA DE ANÁLISE DE TRELIÇAS PLANAS ISOSTÁTICAS
-# =========================================================
-
-N = int(input('Número de nós: '))
-x = []
-y = []
-
-print('\n--- Coordenadas dos Nós ---')
-for i in range(N):
-    xi = float(input(f'Coordenada X do nó {i}: '))
-    yi = float(input(f'Coordenada Y do nó {i}: '))
-    x.append(xi)
-    y.append(yi)
-
-B = int(input('\nNúmero de barras: '))
-barras = []
-print('\n--- Definição das Barras ---')
-for i in range(B):
-    no_i = int(input(f'Nó inicial da barra {i}: '))
-    no_j = int(input(f'Nó final da barra {i}: '))
-    barras.append((no_i, no_j))
-
-R = int(input('\nNúmero de reações de apoio (R): '))
-apoios = []
-print('\n--- Definição dos Apoios ---')
-for i in range(R):
-    no_apoio = int(input(f'Nó do apoio {i}: '))
-    direcao = input(f'Direção da restrição (X ou Y) no nó {no_apoio}: ').upper()
-    apoios.append((no_apoio, direcao))
-
-# Inicialização das matrizes do sistema linear Ax = b
-total_equacoes = 2 * N
-A = [[0.0] * total_equacoes for _ in range(total_equacoes)]
-b = [0.0] * total_equacoes
-
-# Aplicação de cargas externas nos nós
-print('\n--- Cargas Externas ---')
-for i in range(N):
-    fx = float(input(f'Carga horizontal Fx no nó {i} (0 se nenhuma): '))
-    fy = float(input(f'Carga vertical Fy no nó {i} (0 se nenhuma): '))
-    b[2 * i] = -fx
-    b[2 * i + 1] = -fy
-
-# Montagem dos cossenos diretores nas equações de equilíbrio dos nós
-for idx, (no_i, no_j) in enumerate(barras):
-    dx = x[no_j] - x[no_i]
-    dy = y[no_j] - y[no_i]
-    L = math.sqrt(dx**2 + dy**2)
-    cos_x = dx / L
-    cos_y = dy / L
-    
-    A[2 * no_i][idx] = cos_x
-    A[2 * no_i + 1][idx] = cos_y
-    A[2 * no_j][idx] = -cos_x
-    A[2 * no_j + 1][idx] = -cos_y
-
-# Inclusão das reações na matriz global
-col_apoio = B
-for no_apoio, direcao in apoios:
-    if direcao == 'X':
-        A[2 * no_apoio][col_apoio] = 1.0
-    elif direcao == 'Y':
-        A[2 * no_apoio + 1][col_apoio] = 1.0
-    col_apoio += 1
-
-# Algoritmo de Eliminação de Gauss-Jordan desenvolvido manualmente
-n = len(b)
-for i in range(n):
-    pivot = A[i][i]
-    if pivot == 0:
-        for k in range(i+1, n):
-            if A[k][i] != 0:
-                A[i], A[k] = A[k], A[i]
-                b[i], b[k] = b[k], b[i]
-                pivot = A[i][i]
-                break
-    if pivot == 0:
-        continue
-    for j in range(n):
-        A[i][j] = A[i][j] / pivot
-    b[i] = b[i] / pivot
-    for k in range(n):
-        if k != i:
-            fator = A[k][i]
-            for j in range(n):
-                A[k][j] = A[k][j] - fator * A[i][j]
-            b[k] = b[k] - fator * b[i]
-
-print('\n================ RESULTADOS ================')
-for i in range(B):
-    F = b[i]
-    if abs(F) < 1e-6:
-        tipo = 'Nula'
-    elif F > 0:
-        tipo = 'Tração'
-    else:
-        tipo = 'Compressão'
-    print(f'Barra {i}: {F:.2f} -> {tipo}')
-
-print('\n=============== REAÇÕES ===============')
-for i in range(R):
-    print(f'Reação de Apoio {i}: {b[B + i]:.2f}')</code></pre>
-                        
-                        <div class="grid-visuals">
-                            <div class="canvas-holder">
-                                <h5>Visualização da Treliça e Forças Estruturais (Simulação Dinâmica)</h5>
-                                <canvas id="canvasTrelica" width="400" height="250"></canvas>
-                            </div>
-                            <div class="canvas-holder">
-                                <h5>Magnitude e Intensidade do Esforço por Barra</h5>
-                                <canvas id="canvasHistogramaTrelica" width="400" height="250"></canvas>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Determinar as tensões normais e de cisalhamento combinadas em um eixo sob torção e flexão simultâneas, validando o fator de segurança.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>import math
+def verificar_eixo(M, T, d, Sy):
+    sigma = (32 * M) / (math.pi * d**3)
+    tau = (16 * T) / (math.pi * d**3)
+    sigma_vm = math.sqrt(sigma**2 + 3*(tau**2))
+    return sigma_vm, Sy / sigma_vm</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-relatorio">Relatório</span>
-                        <span>Atividade 2: Avaliação Comparativa de Modelos de Linguagem (Treliças)</span>
-                    </div>
+                    <div class="header-left"><span class="badge">Atv 02</span><span>Dilatação Térmica Linear de Materiais</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Redigir uma análise crítica e comparativa dos códigos e gráficos produzidos pelas LLMs (ChatGPT, Copilot e Gemini) focado no comportamento de resolução numérica de estruturas de grande escala, robustez para N=32 e conformidade com a engenharia.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Relatório Crítico e Tabela Comparativa de Desempenho:</h4>
-                        
-                        <div class="tabela-container">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Critério Analítico</th>
-                                        <th>Copilot Treliças</th>
-                                        <th>ChatGPT (Trabalho Completo)</th>
-                                        <th>Gemini Análise Gráfica</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Corretude Numérica</strong></td>
-                                        <td>Aproxima forças internas via deslocamentos (qualitativo).</td>
-                                        <td>Fiel ao cálculo clássico (cossenos diretores, reações de apoio). Batem com cálculo manual.</td>
-                                        <td>Correto para exemplo pequeno (N=3), mas não generaliza bem.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Robustez (N=4, 8, 16, 32)</strong></td>
-                                        <td>Aceita N arbitrário, mas pode falhar em casos muito complexos.</td>
-                                        <td>Escala perfeitamente para N grandes, desde que as entradas estruturadas sejam fornecidas.</td>
-                                        <td>Limitado a N=3; falha para casos maiores sem alterações diretas no código.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Qualidade Gráfica</strong></td>
-                                        <td>Básicos, sem legenda de apoios, mas distinguem tração/compressão por cor.</td>
-                                        <td>Gráficos completos: apoios, cores por intensidade, espessura proporcional e legendas de fácil compreensão.</td>
-                                        <td>Didáticos e claros, porém extremamente simplificados.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Aderência ao Prompt</strong></td>
-                                        <td>Implementa Gauss-Jordan de forma manual.</td>
-                                        <td>Implementa Gauss-Jordan puramente manual sem bibliotecas prontas de álgebra linear.</td>
-                                        <td>Usa Gauss-Jordan manual em versão excessivamente simplificada.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="texto-relatorio">
-                            <strong>Conclusão do Relatório:</strong> Com base nos resultados estruturais obtidos, determinou-se que todas as LLMs possuíram resultados corretos envolvendo a física básica do problema, mas o ChatGPT se sobressaiu por apresentar resultados muito mais robustos e corretos numericamente sob malhas de grande escala. 
-
-                            O ChatGPT cometeu erros pontuais na estruturação de loops em scripts longos, o Copilot apresentou erros na renderização tridimensional dos gráficos visuais dos resultados e o Gemini gerou um código python com lacunas internas de generalização que impediam que ele fosse aplicado diretamente a estruturas complexas N=32 sem intervenções diretas de refatoração manual do código. Portanto, o ChatGPT apresentou a melhor resposta consolidada.
-                        </div>
-                    </div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Calcular a variação dimensional de componentes estruturais submetidos a gradientes térmicos operacionais.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>def dilatacao_linear(L0, alpha, dT):
+    dL = L0 * alpha * dT
+    return L0 + dL</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-projeto">Projeto</span>
-                        <span>Atividade 3: Gestão Computacional Hídrica de Sistemas Urbanos</span>
-                    </div>
+                    <div class="header-left"><span class="badge">Atv 03</span><span>Eficiência Térmica de Motores de Combustão</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Construir um simulador em Python que avalie o abastecimento hídrico e calcule perdas e custos associados por bairro. O programa deve processar as variáveis via objetos estruturados ou vetores e gerar um relatório automatizado em formato executável estruturado (.docx).</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código de Simulação Integrada (Base de Desenvolvimento):</h4>
-                        <pre><code>import pandas as pd
-import matplotlib.pyplot as plt
-from docx import Document
-
-def calcular_risco(autonomia):
-    if autonomia > 3: return "Baixo"
-    elif autonomia >= 1: return "Médio"
-    else: return "Alto"
-
-def analisar_bairro(nome, demanda, volume, perda, custo):
-    volume_perdido = demanda * (perda / 100)
-    volume_entregue = demanda - volume_perdido
-    custo_diario = demanda * custo
-    autonomia = volume / demanda
-    risco = calcular_risco(autonomia)
-    return {
-        "Bairro": nome, "Demanda": demanda, "Volume Entregue": volume_entregue,
-        "Volume Perdido": volume_perdido, "Custo Diário": custo_diario,
-        "Autonomia": autonomy, "Risco": risco
-    }
-
-N = int(input("Quantidade de bairros: "))
-dados = []
-for i in range(N):
-    print(f"\n--- Bairro {i+1} ---")
-    nome = input("Nome: ")
-    demanda = float(input("Demanda diária (m³): "))
-    volume = float(input("Volume disponível (m³): "))
-    perda = float(input("Perda na tubulação (%): "))
-    custo = float(input("Custo bombeamento por m³: "))
-    dados.append(analisar_bairro(nome, demanda, volume, perda, custo))
-
-df = pd.DataFrame(dados)
-bairro_critico = df.loc[df["Autonomia"].idxmin(), "Bairro"]
-
-# Geração do Documento Estruturado Oficial .docx
-doc = Document()
-doc.add_heading('Análise do Sistema de Abastecimento de Água', level=1)
-doc.add_paragraph(f"Bairro mais crítico identificado automaticamente: {bairro_critico}")
-doc.save("analise_abastecimento.docx")</code></pre>
-                        
-                        <div class="grid-visuals">
-                            <div class="canvas-holder">
-                                <h5>Gráfico 1: Demanda Diária vs Volume Efetivamente Entregue (m³)</h5>
-                                <canvas id="canvasHidrico1" width="400" height="230"></canvas>
-                            </div>
-                            <div class="canvas-holder">
-                                <h5>Gráfico 2: Custo Diário de Bombeamento por Área (R$)</h5>
-                                <canvas id="canvasHidrico2" width="400" height="230"></canvas>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Avaliar o rendimento e perdas energéticas de um motor com base no calor fornecido e trabalho realizado.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>def eficiencia_motor(W_liquido, Q_entrada):
+    return (W_liquido / Q_entrada) * 100</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-relatorio">Relatório</span>
-                        <span>Atividade 4: Análise de Estrutura de Vetores Hídricos pelas LLMs</span>
-                    </div>
+                    <div class="header-left"><span class="badge">Atv 04</span><span>Perda de Carga Distribuída em Tubulações</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Mapear analiticamente a forma como as diferentes IAs abordaram o armazenamento de dados estruturais na modelagem fluido-mecânica urbana e apresentar a matriz de classificação.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Matriz de Desempenho Computacional Hídrico:</h4>
-                        <div class="tabela-container">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>LLM</th>
-                                        <th>Execução</th>
-                                        <th>Uso de Vetores</th>
-                                        <th>Corretude</th>
-                                        <th>Qualidade Geral</th>
-                                        <th>Legibilidade</th>
-                                        <th>Simulação Dinâmica</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>ChatGPT (GPT)</strong></td>
-                                        <td>Bom</td>
-                                        <td>Médio</td>
-                                        <td>Sim</td>
-                                        <td>Muito Bom</td>
-                                        <td>Médio</td>
-                                        <td>Sim</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Copilot</strong></td>
-                                        <td>Bom</td>
-                                        <td>Bom</td>
-                                        <td>Sim</td>
-                                        <td>Bom</td>
-                                        <td>Muito Bom</td>
-                                        <td>Sim</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Gemini</strong></td>
-                                        <td>Muito Bom</td>
-                                        <td>Médio</td>
-                                        <td>Sim</td>
-                                        <td>Médio</td>
-                                        <td>Muito Bom</td>
-                                        <td>Sim</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="texto-relatorio">
-                            <strong>Análise Técnica Comparativa:</strong> 
-                            • O <strong>ChatGPT</strong> se destacou no resultado gráfico, gerando saídas visuais de fácil entendimento e integrando perfeitamente a manipulação de DataFrames com a biblioteca externa python-docx.
-                            • O <strong>Copilot</strong> destacou-se principalmente pela facilidade de compreensão do código gerado, modularizando o sistema em dicionários independentes e limpos.
-                            • O <strong>Gemini</strong> baseou o processamento hídrico na declaração de múltiplos vetores e listas independentes em paralelo. Embora eficiente em pequenos volumes, essa estratégia baseada em vetores desalinhados reduz drasticamente a escalabilidade do código à medida que novas variáveis operacionais são adicionadas ao sistema de engenharia.
-                        </div>
-                    </div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Calcular o fator de atrito e a perda de energia por atrito viscoso em escoamentos turbulentos de fluidos.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>def perda_carga_simples(f, L, D, v, g=9.81):
+    return f * (L / D) * (v**2 / (2 * g))</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-projeto">Projeto</span>
-                        <span>Atividade 5: Simulação Térmica Transiente de Sistemas de Resfriamento Líquido</span>
-                    </div>
+                    <div class="header-left"><span class="badge">Atv 05</span><span>Verificação da Lei de Hooke Uniaxial</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Desenvolver um modelo transiente para estimar por convecção forçada a evolução temporal da temperatura de uma CPU, GPU e líquido de arrefecimento em um sistema fechado submetido a altas cargas, gerando dados experimentais e triggers de alerta.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Dados Convectivos Transientes Industriais e Gráficos:</h4>
-                        <div class="tabela-container">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Tempo (min)</th>
-                                        <th>Temp CPU (°C)</th>
-                                        <th>Temp GPU (°C)</th>
-                                        <th>Temp Líquido (°C)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>0.0</td><td>30.00</td><td>30.00</td><td>28.00</td></tr>
-                                    <tr><td>1.0</td><td>33.20</td><td>32.41</td><td>28.54</td></tr>
-                                    <tr><td>2.0</td><td>36.14</td><td>34.66</td><td>29.05</td></tr>
-                                    <tr><td>3.0</td><td>38.85</td><td>36.75</td><td>29.54</td></tr>
-                                    <tr><td>4.0</td><td>41.34</td><td>38.70</td><td>29.99</td></tr>
-                                    <tr><td>5.0</td><td>43.63</td><td>40.51</td><td>30.43</td></tr>
-                                    <tr><td>10.0</td><td>52.62</td><td>47.87</td><td>32.26</td></tr>
-                                    <tr><td>15.0</td><td>58.48</td><td>52.88</td><td>33.64</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="texto-relatorio alert-box">
-                            <strong>Triggers de Alerta Operacional:</strong> O projeto evoluiu de uma simulação matemática exponencial simples para um ecossistema inteligente modularizado via dashboards interativos em Streamlit. Foram configurados alertas automatizados de segurança contra o fenômeno de <em>thermal throttling</em> quando a CPU atinge a barreira crítica dos 85°C.
-                        </div>
-
-                        <div class="grid-visuals" style="grid-template-columns: 1fr;">
-                            <div class="canvas-holder">
-                                <h5>Evolução Térmica Convectiva ao Longo do Tempo (Curva Transiente)</h5>
-                                <canvas id="canvasTermico" width="600" height="250"></canvas>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Validar se a deformação de um corpo de prova permanece na região elástica linear do material.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>def lei_hooke(sigma, E):
+    deformacao = sigma / E
+    return deformacao</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-projeto">Projeto</span>
-                        <span>Atividade 6: Acessibilidade Digital Assistida por IA — Portal Alegrete.org</span>
-                    </div>
+                    <div class="header-left"><span class="badge">Atv 06</span><span>Monitoramento Térmico de Rolamentos Industriais</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Identificar lacunas no portal municipal de transportes e conceber uma solução algorítmica injetável em JavaScript que promova acessibilidade via rotinas de tradução de linguagem e mecanismos robustos de leitura de voz com parâmetros ajustáveis.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Resultados da Engenharia de Solução Frontend:</h4>
-                        <div class="texto-relatorio">
-                            <strong>Objetivos da Solução:</strong> Prover acessibilidade integral nas páginas institucionais de mobilidade para deficientes visuais e utilizadores de fora do país que encontram barreiras na leitura das linhas de ônibus da cidade.
-                            
-                            <strong>Resultados Obtidos:</strong> Foi criado um widget interativo injetável em JavaScript que faz a varredura das strings HTML da página e consome a API de síntese de voz nativa dos navegadores (Web Speech API). O painel desenvolvido permite que o usuário alterne dinamicamente o idioma da tradução (Português, Inglês e Espanhol), configure a velocidade de reprodução da fala, ajuste o volume ou pare a leitura a qualquer momento por meio de comandos simples. As dificuldades consistiram em garantir que as IAs gerassem o código JavaScript puro e sem acoplamento nocivo em variáveis de escopo global.
-                        </div>
-                    </div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Algoritmo condicional para disparar alarmes visuais ou interrupções baseadas na temperatura operacional de mancais.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>def verificar_temperatura_mancal(temp):
+    if temp > 80: return "CRÍTICO: Desligamento Imediato!"
+    elif temp > 65: return "ALERTA: Monitorar de perto"
+    return "Normal"</pre></div>
                 </div>
             </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge">Atv 07</span><span>Cálculo Paramétrico de Potência Elétrica</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado"><h4>Enunciado</h4><p>Determinar o consumo e a potência de motores elétricos industriais associados a bombas de fluido.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>def potencia_eletrica(V, I, cos_phi=0.85):
+    return V * I * cos_phi # Watts (Monofásico)</pre></div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge">Atv 08</span><span>Otimização Básica de Rotas Logísticas</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado"><h4>Enunciado</h4><p>Algoritmo de tomada de decisão para seleção do trajeto com menor perda energética ou menor distância de entrega.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>def selecionar_rota(dist_A, dist_B):
+    return "Rota A" if dist_A < dist_B else "Rota B"</pre></div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge">Atv 09</span><span>Análise Hierárquica de Abastecimento de Água</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado"><h4>Enunciado</h4><p>Controle lógico para balanceamento e distribuição de vazão em reservatórios industriais.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>def status_reservatorio(nivel_percentual):
+    if nivel_percentual < 20: return "Bomba LIGADA - Nível Crítico"
+    if nivel_percentual > 90: return "Bomba DESLIGADA - Limite Máximo"
+    return "Operação Estável"</pre></div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge">Atv 10</span><span>Cálculo Estrutural de Treliças Planas</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado"><h4>Enunciado</h4><p>Determinar as forças nos nós de uma treliça isostática elementar utilizando trigonometria e equilíbrio estático.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>import math
+def forca_no_trelica(carga, angulo_deg):
+    rad = math.radians(angulo_deg)
+    # Somatório de forças verticais
+    forca_membro = carga / math.sin(rad)
+    return forca_membro</pre></div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge">Atv 11</span><span>Método de Eliminação de Gauss-Jordan</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado"><h4>Enunciado</h4><p>Solução manual de sistemas lineares de equações simultâneas para cálculo de reações de apoio.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>def gauss_jordan_2x2(A, b):
+    # Solução explícita simplificada para sistemas estruturais 2x2
+    det = A[0][0]*A[1][1] - A[0][1]*A[1][0]
+    if det == 0: return None
+    x = (b[0]*A[1][1] - b[1]*A[0][1]) / det
+    y = (A[0][0]*b[1] - A[1][0]*b[0]) / det
+    return [x, y]</pre></div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge">Atv 12</span><span>Monitoramento de Resfriamento Líquido</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado"><h4>Enunciado</h4><p>Gerenciamento da vazão da bomba hidráulica baseado no calor dissipado por trocadores de calor de alta performance.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>def vazao_bomba_resfriamento(temperatura_fluido):
+    if temperatura_fluido > 50: return "Vazão Máxima (100%)"
+    return "Vazão Econômica (50%)"</pre></div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge">Atv 13</span><span>Transferência de Calor por Convecção</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado"><h4>Enunciado</h4><p>Determinar a taxa de transferência térmica de uma parede aquecida para um fluido em movimento (Lei de Resfriamento de Newton).</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>def calor_conveccao(h, A, Ts, Tinf):
+    return h * A * (Ts - Tinf)</pre></div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge">Atv 14</span><span>Mecanismos: Cálculo de Razão de Transmissão</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado"><h4>Enunciado</h4><p>Calcular a velocidade angular de saída e torque estático em um sistema de engrenagens acopladas.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>def razao_transmissao(N_entrada, N_saida, rpm_entrada):
+    i = N_saida / N_entrada
+    rpm_saida = rpm_entrada / i
+    return i, rpm_saida</pre></div>
+                </div>
+            </div>
+
         </div>
-
-        <div class="section-container">
-            <h2 class="section-title">⚡ 2. Modularização Avançada e Algoritmos de Otimização</h2>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-codigo">Código</span>
-                        <span>Atividade 7: Monitoramento Modular e Classificação de Rolamentos Industriais</span>
-                    </div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Construir um programa em Python altamente modular para classificação térmica contínua de rolamentos mecânicos operando entre 20 °C e 200 °C, implementando funções com responsabilidade única baseadas em boas práticas de engenharia de software.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Estruturado Modular (Integral):</h4>
-                        <pre><code>def verificarFaixaValida(temperatura):
-    if temperatura < 20 or temperatura > 200:
-        return False
-    return True
-
-def classificarTemperatura(temperatura):
-    if verificarFaixaValida(temperatura) == False:
-        return "Leitura inválida"
-    elif temperatura >= 20 and temperatura <= 90:
-        return "Status: NORMAL"
-    elif temperatura > 90 and temperatura <= 120:
-        return "Status: ALERTA"
-    elif temperatura > 120 and temperatura <= 200:
-        return "Status: CRÍTICO"
-
-# Função Principal Organizadora do Fluxo Operacional
-def main():
-    temperatura_teste = float(input("Digite a temperatura do rolamento industrial (°C): "))
-    resultado = classificarTemperatura(temperatura_teste)
-    print(resultado)
-
-if __name__ == "__main__":
-    main()</code></pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-codigo">Código</span>
-                        <span>Atividade 8: Roteamento Inteligente e Heurística do Vizinho Mais Próximo</span>
-                    </div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Desenvolver as rotinas e iterações completas para calcular distâncias geométricas de caminhos e aplicar a heurística do Vizinho Mais Próximo para otimização de rotas logísticas e estimativa de combustível associado (Versões de 1 a 5).</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Implementação de todas as 5 Versões do Algoritmo:</h4>
-                        <pre><code>import math
-
-# Versão 1 — Cálculo simples da distância total da rota linear original
-def distancia(p1, p2):
-    return math.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)
-
-def rota_original(pontos):
-    atual = (0, 0)
-    total = 0
-    for p in pontos:
-        total += distancia(atual, p)
-        atual = p
-    total += distancia(atual, (0, 0)) # Volta à origem
-    return total
-
-# Versão 2 — Otimização combinatória via Algoritmo do Vizinho Mais Próximo
-def vizinho_mais_proximo(pontos):
-    nao_visitados = pontos[:]
-    atual = (0, 0)
-    rota = []
-    total = 0
-    while nao_visitados:
-        proximo = min(nao_visitados, key=lambda p: distancia(atual, p))
-        total += distancia(atual, proximo)
-        rota.append(proximo)
-        atual = proximo
-        nao_visitados.remove(proximo)
-    total += distancia(atual, (0, 0))
-    return rota, total
-
-# Versão 3 — Cálculo de consumo de combustível associado
-CONSUMO_POR_KM = 0.35
-def consumo(distancia_total):
-    return distancia_total * CONSUMO_POR_KM
-
-# Versão 4 — Verificação de necessidade de reabastecimento logístico
-CAPACIDADE_TANQUE = 80
-def precisa_reabastecer(distancia_total):
-    consumo_total = consumo(distancia_total)
-    return consumo_total > CAPACIDADE_TANQUE
-
-# Versão 5 — Execução Integrada com Saída Industrial Completa
-if __name__ == "__main__":
-    pontos_entrega = [(2, 5), (8, 3), (1, 9), (6, 4)]
-    
-    dist_original = rota_original(pontos_entrega)
-    rota_otim, dist_otim = vizinho_mais_proximo(pontos_entrega)
-    
-    print(f"Distância Original: {dist_original:.2f} km")
-    print(f"Distância Otimizada pelo Vizinho Próximo: {dist_otim:.2f} km")
-    print(f"Consumo Otimizado: {consumo(dist_otim):.2f} Litros")
-    print(f"Necessita realizar reabastecimento na rota? {precisa_reabastecer(dist_otim)}")</code></pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left">
-                        <span class="badge badge-codigo">Código</span>
-                        <span>Atividade 9: Algoritmo Iterativo para Potência Ohmica Dissipada</span>
-                    </div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Elaborar funções e laços estruturados em Python para solucionar e monitorar potências dissipadas por resistores elétricos sob variações sequenciais contínuas (P = V x I).</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Implementações Progressivas Desenvolvidas:</h4>
-                        <pre><code># Abordagem 1 — Código simples e direto
-V = float(input("Digite a tensão elétrica (V): "))
-I = float(input("Digite a corrente elétrica (A): "))
-P = V * I
-print(f"Potência elétrica = {P} W")
-
-# Abordagem 2 — Utilizando Sub-rotinas (Função Modular)
-def calcular_potencia(tensao, corrente):
-   return tensao * corrente
-
-V = float(input("Digite a tensão (V): "))
-I = float(input("Digite a corrente (A): "))
-resultado = calcular_potencia(V, I)
-print(f"A potência elétrica calculada é: {resultado} W")
-
-# Abordagem 3 — Utilizando Estrutura de Repetição Contínua
-continuar = "s"
-while continuar == "s":
-   V = float(input("Digite a tensão elétrica (V): "))
-   I = float(input("Digite a corrente elétrica (A): "))
-   P = V * I
-   print(f"Potência elétrica calculada: {P} W")
-   continuar = input("Deseja realizar outro cálculo? (s/n): ").lower()</code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-container">
-            <h2 class="section-title">📋 3. Lista de Exercícios de Fixação Computacional (Manipulação de Listas)</h2>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 1</span><span>Extremos Térmicos de Fornos Industriais</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Ler uma lista de temperaturas e exibir os limites máximos e mínimos operacionais registrados.</p></div>
-                    <pre><code>temperaturas = []
-leituras = [820, 835, 848, 791, 812, 856]
-for t in leituras:
-    temperaturas.append(t)
-print("Leituras:", temperaturas)
-print("Máximo:", max(temperaturas), "°C")
-print("Mínimo:", min(temperaturas), "°C")</code></pre>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 2</span><span>Filtro de Faixa Segura de Tensões</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Calcular a média de tensões elétricas e emitir um alerta em tempo de execução para valores fora da faixa.</p></div>
-                    <pre><code>amostras = [11.9, 12.1, 12.0, 13.5, 11.7, 12.3, 10.5, 12.0]
-leituras = []
-for v in amostras:
-    leituras.append(v)
-media = sum(leituras) / len(leituras)
-print(f"Média: {media:.2f} V")
-for v in leituras:
-    if v < 10.8 or v > 13.2:
-        print(f"ALERTA: {v} V fora da faixa!")</code></pre>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 3</span><span>Processamento de Buffer de Pacotes de Rede</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Analisar tamanhos de pacotes armazenados em um buffer e quantificar a incidência de quadros Jumbo (acima de 1500 bytes).</p></div>
-                    <pre><code>tamanhos = [512, 1024, 1500, 1518, 256, 1500, 2048, 64, 1500, 1024]
-buffer = []
-for t in tamanhos:
-    buffer.append(t)
-total_pacotes = len(buffer)
-total_bytes = sum(buffer)
-jumbo = 0
-for t in buffer:
-    if t > 1500:
-        jumbo += 1
-print(f"Total de pacotes: {total_pacotes}")
-print(f"Volume de dados : {total_bytes} bytes")
-print(f"Pacotes Jumbo   : {jumbo}")</code></pre>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 4</span><span>Controle de Presença em Linhas de Montagem</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Verificar se IDs específicos de operadores estão presentes no turno de trabalho atual utilizando operadores de associação.</p></div>
-                    <pre><code>operadores = [201, 205, 210, 211, 218, 222, 230]
-supervisor = 215
-tecnico = 211
-if supervisor in operadores:
-    print(f"Supervisor {supervisor} está na área.")
-else:
-    print(f"Supervisor {supervisor} AUSENTE.")
-if tecnico in operadores:
-    print(f"Técnico {tecnico} está na área.")</code></pre>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 5</span><span>Filtro de Log de Erros de Planta Industrial</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Separar de forma automatizada códigos de erro críticos (acima de 400) e mensagens normais de telemetria.</p></div>
-                    <pre><code>logs = [102, 200, 404, 201, 500, 403, 100, 503]
-criticos = []
-for code in logs:
-    if code >= 400:
-        criticos.append(code)
-print("Logs analisados    :", logs)
-print("Erros críticos (>=400):", criticos)</code></pre>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 6</span><span>Monitoramento de Sensores de Pressão Hidráulica</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Realizar a contagem e filtragem de leituras de pressão que violam os limites operacionais estipulados.</p></div>
-                    <pre><code>pressao = [32.1, 34.5, 45.0, 29.8, 31.2, 48.3, 33.0, 28.5]
-anomalas = []
-for p in pressao:
-    if p < 30.0 or p > 40.0:
-        anomalas.append(p)
-print(f"Quantidade de leituras anômalas: {len(anomalas)}")
-print("Valores fora da faixa de segurança:", anomalas)</code></pre>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 7</span><span>Inversão de Vetor de Comandos Mecânicos</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Inverter a sequência de execução de instruções de movimentação enviadas a um braço robótico.</p></div>
-                    <pre><code>comandos = ["Subir", "Avançar", "Rotacionar", "Prender", "Recuar", "Descer"]
-reverso = []
-for i in range(len(comandos)-1, -1, -1):
-    reverso.append(comandos[i])
-print("Sequência original:", comandos)
-print("Sequência reversa :", reverso)</code></pre>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 8</span><span>Mapeamento de IDs e Atribuição de Máquinas</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Gerar um mapeamento sequencial e estruturado associando cada ID de máquina ao seu respectivo posto físico.</p></div>
-                    <pre><code>maquinas = [1020, 1024, 1050, 1082, 1100]
-for i in range(len(maquinas)):
-    print(f"Posto {i+1} -> Monitorando Máquina ID {maquinas[i]}")</code></pre>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 9</span><span>Auditoria de Sensores Ativos em Redes</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Verificar se um determinado ID de transdutor está contido na lista de sensores conectados ao barramento mestre.</p></div>
-                    <pre><code>dispositivos = [55, 62, 77, 88, 91, 104, 120]
-buscar = 88
-encontrado = False
-for d in dispositivos:
-    if d == buscar:
-        encontrado = True
-        break
-if encontrado:
-    print(f"Dispositivo {buscar} ativo e respondendo.")
-else:
-    print(f"Dispositivo {buscar} não foi localizado.")</code></pre>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 10</span><span>Filtro de Vazão e Expansão Hídrica</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Mapear e contar fluxos hídricos que superam uma vazão de corte volumétrica determinada.</p></div>
-                    <pre><code>vazoes = [12.5, 8.2, 15.0, 6.4, 19.1, 11.0, 7.5, 14.2]
-corte = 10.0
-altas = []
-for v in vazoes:
-    if v > corte:
-        altas.append(v)
-print(f"Vazões acima de {corte} L/s: {altas}")
-print(f"Total de pontos críticos: {len(altas)}")</code></pre>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 11</span><span>Controle de Qualidade por Descarte por Amostragem</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Remover elementos defeituosos identificados por leituras negativas de integridade estrutural.</p></div>
-                    <pre><code>amostras = [0.95, -0.12, 0.98, 0.92, -0.05, 0.99, 0.89]
-limpas = []
-for a in amostras:
-    if a >= 0:
-        limpas.append(a)
-print("Amostras originais:", amostras)
-print("Amostras limpas (sem falhas):", limpas)</code></pre>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 12</span><span>Análise de Sinais e Atenuação RF</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Analisar o nível de atenuação de antenas RF e apontar o índice físico do pior canal transmissor.</p></div>
-                    <pre><code>sinais = [-65, -70, -62, -78, -85, -68, -72]
-taxa = (len([s for s in sinais if s > -75]) / len(sinais)) * 100
-pior = min(sinais)
-indice = sinais.index(pior)
-media = sum(sinais) / len(sinais)
-print(f"Eficiência da antena : {taxa:.1f}%")
-print(f"Pior sinal          : {pior} dBm (índice {indice})")
-print(f"Média               : {media:.1f} dBm")</code></pre>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 13</span><span>Controle Estatístico e Tolerâncias Dimensionais</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Analisar desvios dimensionais de eixos retificados com base em uma medida nominal e sua respectiva tolerância milimétrica simétrica, calculando a eficiência final da linha de produção.</p></div>
-                    <pre><code>medidas = [50.02, 49.97, 50.06, 49.94, 50.00, 50.08, 49.99, 50.01, 49.92, 50.04]
-aprovadas = []
-reprovadas = []
-nominal = 50.00
-tol = 0.05
-
-for m in medidas:
-    if abs(m - nominal) <= tol:
-        aprovadas.append(round(m, 2))
-    else:
-        reprovadas.append(m)
-
-print("Aprovadas :", aprovadas)
-print("Reprovadas:", reprovadas)
-indice = (len(aprovadas) / len(medidas)) * 100
-print(f"Índice de aprovação: {indice:.0f}%")</code></pre>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header"><div class="header-left"><span class="badge badge-exercicio">Exercício 14</span><span>Simulação de Demanda em Redes Elétricas Expandidas</span></div><div class="arrow-icon">▼</div></div>
-                <div class="accordion-content">
-                    <div class="enunciado"><p>Simular cenários futuros de demanda em plantas geradoras, calculando consumo agregado, médias aritméticas e picos de carga decorrentes da introdução de novas subestações.</p></div>
-                    <pre><code>atual = [15.0, 22.5, 8.0, 40.0, 12.5, 30.0]
-novas = [55.0, 18.0, 75.0]
-futuro = atual.copy()
-futuro.extend(novas)
-
-print("--- Cenário atual ---\")
-print("Total :", sum(atual), "kW")
-print("Média :", round(sum(atual)/len(atual), 1), "kW")
-print("Maior :", max(atual), "kW")
-
-print("\n--- Cenário futuro expandido ---")
-print("Total futuro :", sum(futuro), "kW")
-print("Nova média   :", round(sum(futuro)/len(futuro), 1), "kW")
-print("Maior futuro :", max(futuro), "kW")</code></pre>
-                </div>
-            </div>
-        </div>
-
     </main>
 
     <footer>
-        <p>&copy; 2026 - Repositório Acadêmico Digital de Algoritmos Aplicados à Engenharia. Desenvolvido para apresentação acadêmica oficial.</p>
+        <p>&copy; 2026 Portfólio Acadêmico de Engenharia Mecânica. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        // Lógica de Ativação do Accordion Sanfona Interativo
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', () => {
                 const item = header.parentElement;
-                const content = header.nextElementSibling;
+                const content = item.querySelector('.accordion-content');
                 
                 document.querySelectorAll('.accordion-item').forEach(otherItem => {
                     if (otherItem !== item && otherItem.classList.contains('active')) {
@@ -1149,109 +407,15 @@ print("Maior futuro :", max(futuro), "kW")</code></pre>
                     }
                 });
 
-                item.classList.toggle('active');
-                content.style.display = item.classList.contains('active') ? 'block' : 'none';
-                
-                // Força a renderização dos gráficos dinâmicos ao abrir o respectivo card
-                if(item.classList.contains('active')) {
-                    renderizarGraficos();
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    content.style.display = 'none';
+                } else {
+                    item.classList.add('active');
+                    content.style.display = 'block';
                 }
             });
         });
-
-        // SISTEMA DE RENDERIZAÇÃO DE GRÁFICOS COMPUTAÇÃO VIA CANVAS NATIVO HTML
-        function renderizarGraficos() {
-            // 1. Gráfico da Treliça (Nós e Forças)
-            const canvasTrelica = document.getElementById('canvasTrelica');
-            if (canvasTrelica) {
-                const ctx = canvasTrelica.getContext('2d');
-                ctx.clearRect(0, 0, 400, 250);
-                // Desenhar Barras de Tração (Azul) e Compressão (Vermelho)
-                ctx.lineWidth = 3;
-                ctx.strokeStyle = '#ef4444'; // Compressão
-                ctx.beginPath(); ctx.moveTo(50, 200); ctx.lineTo(200, 50); ctx.stroke();
-                ctx.beginPath(); ctx.moveTo(200, 50); ctx.lineTo(350, 200); ctx.stroke();
-                ctx.strokeStyle = '#2563eb'; // Tração
-                ctx.beginPath(); ctx.moveTo(50, 200); ctx.lineTo(350, 200); ctx.stroke();
-                ctx.beginPath(); ctx.moveTo(200, 50); ctx.lineTo(200, 200); ctx.stroke();
-                // Nós
-                ctx.fillStyle = '#0f172a';
-                const nos = [[50,200], [200,50], [350,200], [200,200]];
-                nos.forEach((no, idx) => {
-                    ctx.beginPath(); ctx.arc(no[0], no[1], 6, 0, 2*Math.PI); ctx.fill();
-                    ctx.fillStyle = '#334155'; ctx.fillText('Nó '+idx, no[0]-10, no[1]-12); ctx.fillStyle = '#0f172a';
-                });
-            }
-
-            // 2. Histograma Treliça
-            const canvasHisto = document.getElementById('canvasHistogramaTrelica');
-            if (canvasHisto) {
-                const ctx = canvasHisto.getContext('2d');
-                ctx.clearRect(0,0,400,250);
-                ctx.fillStyle = '#2563eb'; ctx.fillRect(60, 50, 40, 130);
-                ctx.fillStyle = '#ef4444'; ctx.fillRect(130, 90, 40, 90);
-                ctx.fillStyle = '#2563eb'; ctx.fillRect(200, 70, 40, 110);
-                ctx.fillStyle = '#ef4444'; ctx.fillRect(270, 30, 40, 150);
-                // Linha Base
-                ctx.strokeStyle = '#334155'; ctx.lineWidth = 2;
-                ctx.beginPath(); ctx.moveTo(40, 180); ctx.lineTo(360, 180); ctx.stroke();
-                ctx.fillStyle = '#334155'; ctx.fillText('B1', 72, 195); ctx.fillText('B2', 142, 195); ctx.fillText('B3', 212, 195); ctx.fillText('B4', 282, 195);
-            }
-
-            // 3. Gráfico Hídrico 1
-            const canvasHid1 = document.getElementById('canvasHidrico1');
-            if (canvasHid1) {
-                const ctx = canvasHid1.getContext('2d');
-                ctx.clearRect(0,0,400,230);
-                // Barras Demanda vs Entregue
-                ctx.fillStyle = '#2563eb'; ctx.fillRect(50, 40, 30, 130); // Centro Demanda
-                ctx.fillStyle = '#60a5fa'; ctx.fillRect(85, 60, 30, 110); // Centro Entregue
-                ctx.fillStyle = '#2563eb'; ctx.fillRect(160, 70, 30, 100); // V.Nova
-                ctx.fillStyle = '#60a5fa'; ctx.fillRect(195, 110, 30, 60);  // V.Nova Entregue
-                ctx.fillStyle = '#2563eb'; ctx.fillRect(270, 30, 30, 140); // Ind
-                ctx.fillStyle = '#60a5fa'; ctx.fillRect(305, 50, 30, 120);  // Ind Entregue
-                ctx.strokeStyle = '#475569'; ctx.beginPath(); ctx.moveTo(30,170); ctx.lineTo(370,170); ctx.stroke();
-                ctx.fillStyle = '#334155'; ctx.fillText('Centro', 65, 185); ctx.fillText('Vila Nova', 170, 185); ctx.fillText('Industrial', 280, 185);
-            }
-
-            // 4. Gráfico Hídrico 2 (Custos)
-            const canvasHid2 = document.getElementById('canvasHidrico2');
-            if (canvasHid2) {
-                const ctx = canvasHid2.getContext('2d');
-                ctx.clearRect(0,0,400,230);
-                ctx.fillStyle = '#d97706'; ctx.fillRect(70, 80, 40, 90);
-                ctx.fillRect(170, 110, 40, 60);
-                ctx.fillRect(270, 50, 40, 120);
-                ctx.strokeStyle = '#475569'; ctx.beginPath(); ctx.moveTo(40,170); ctx.lineTo(360,170); ctx.stroke();
-                ctx.fillStyle = '#334155'; ctx.fillText('Centro', 72, 185); ctx.fillText('Vila Nova', 172, 185); ctx.fillText('Industrial', 272, 185);
-            }
-
-            // 5. Gráfico Térmico Transiente
-            const canvasTerm = document.getElementById('canvasTermico');
-            if (canvasTerm) {
-                const ctx = canvasTerm.getContext('2d');
-                ctx.clearRect(0,0,600,250);
-                // Linhas de Tendência Exponencial
-                ctx.lineWidth = 3;
-                // CPU (Vermelho)
-                ctx.strokeStyle = '#ef4444';
-                ctx.beginPath(); ctx.moveTo(50, 200); ctx.bezierCurveTo(150, 150, 350, 80, 550, 60); ctx.stroke();
-                // GPU (Laranja)
-                ctx.strokeStyle = '#f97316';
-                ctx.beginPath(); ctx.moveTo(50, 200); ctx.bezierCurveTo(150, 160, 350, 100, 550, 85); ctx.stroke();
-                // Líquido (Azul)
-                ctx.strokeStyle = '#3b82f6';
-                ctx.beginPath(); ctx.moveTo(50, 210); ctx.bezierCurveTo(150, 195, 350, 175, 550, 160); ctx.stroke();
-                // Eixos
-                ctx.strokeStyle = '#475569'; ctx.lineWidth = 1;
-                ctx.beginPath(); ctx.moveTo(50, 30); ctx.lineTo(50, 210); ctx.lineTo(570, 210); ctx.stroke();
-                ctx.fillStyle = '#475569'; ctx.fillText('0 min', 40, 225); ctx.fillText('15 min', 530, 225);
-                ctx.fillText('30°C', 15, 205); ctx.fillText('60°C', 15, 65);
-            }
-        }
-        
-        // Inicializa os gráficos ao carregar a página
-        window.onload = renderizarGraficos;
     </script>
 </body>
 </html>
