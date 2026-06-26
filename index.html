@@ -159,6 +159,7 @@
         .enunciado p {
             margin: 0;
             color: #e2e8f0;
+            white-space: pre-line;
         }
 
         pre {
@@ -199,191 +200,247 @@
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 01</span><span>Análise de Tensões Combinadas em Eixos</span></div>
+                    <div class="header-left"><span class="badge">Atv 01</span><span>Cálculo de Tensão em um Eixo de Transmissão</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Determinar as tensões normais e de cisalhamento combinadas em um eixo sob torção e flexão simultâneas, validando o fator de segurança.</p></div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Um engenheiro precisa verificar se a tensão normal em um eixo circular está dentro dos limites de segurança após a aplicação de uma carga axial.</p></div>
                     <div class="solucao"><h4>Código Python</h4><pre>import math
-def verificar_eixo(M, T, d, Sy):
-    sigma = (32 * M) / (math.pi * d**3)
-    tau = (16 * T) / (math.pi * d**3)
-    sigma_vm = math.sqrt(sigma**2 + 3*(tau**2))
-    return sigma_vm, Sy / sigma_vm</pre></div>
+
+forca = float(input("Força axial (N): "))
+diametro = float(input("Diâmetro do eixo (mm): "))
+
+area = math.pi * (diametro / 2)**2
+tensao = forca / area
+
+print(f"A tensão normal é de {tensao:.2f} MPa")</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 02</span><span>Dilatação Térmica Linear de Materiais</span></div>
+                    <div class="header-left"><span class="badge">Atv 02</span><span>Conversão de Temperatura de Pré-aquecimento</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Calcular a variação dimensional de componentes estruturais submetidos a gradientes térmicos operacionais.</p></div>
-                    <div class="solucao"><h4>Código Python</h4><pre>def dilatacao_linear(L0, alpha, dT):
-    dL = L0 * alpha * dT
-    return L0 + dL</pre></div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Em processos de soldagem, a temperatura de pré-aquecimento é dada em Fahrenheit em manuais americanos, mas o sensor da oficina lê em Celsius.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>celsius = float(input("Temperatura em Celsius: "))
+
+fahrenheit = (celsius * 9/5) + 32
+
+print(f"Temperatura: {fahrenheit:.2f} °F")</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 03</span><span>Eficiência Térmica de Motores de Combustão</span></div>
+                    <div class="header-left"><span class="badge">Atv 03</span><span>Seleção de Rolamento por Vida Útil</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Avaliar o rendimento e perdas energéticas de um motor com base no calor fornecido e trabalho realizado.</p></div>
-                    <div class="solucao"><h4>Código Python</h4><pre>def eficiencia_motor(W_liquido, Q_entrada):
-    return (W_liquido / Q_entrada) * 100</pre></div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Verificar se um rolamento suportará o número de ciclos desejado antes da falha por fadiga.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>c = float(input("Capacidade de carga dinâmica (N): "))
+p = float(input("Carga dinâmica equivalente (N): "))
+
+vida_l10 = (c / p)**3
+
+print(f"Vida nominal L10: {vida_l10:.2f} milhões de revoluções")</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 04</span><span>Perda de Carga Distribuída em Tubulações</span></div>
+                    <div class="header-left"><span class="badge">Atv 04</span><span>Dilatação Térmica de uma Tubulação</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Calcular o fator de atrito e a perda de energia por atrito viscoso em escoamentos turbulentos de fluidos.</p></div>
-                    <div class="solucao"><h4>Código Python</h4><pre>def perda_carga_simples(f, L, D, v, g=9.81):
-    return f * (L / D) * (v**2 / (2 * g))</pre></div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Calcular a variação no comprimento de uma tubulação de vapor de aço inoxidável devido ao aumento de temperatura.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>l0 = float(input("Comprimento inicial (m): "))
+alfa = 17.3e-6 # Aço Inox
+ti = float(input("Temperatura inicial (°C): "))
+tf = float(input("Temperatura final (°C): "))
+
+delta_l = l0 * alfa * (tf - ti)
+
+print(f"A variação de comprimento é: {delta_l*1000:.2f} mm")</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 05</span><span>Verificação da Lei de Hooke Uniaxial</span></div>
+                    <div class="header-left"><span class="badge">Atv 05</span><span>Eficiência de um Motor de Combustão</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Validar se a deformação de um corpo de prova permanece na região elástica linear do material.</p></div>
-                    <div class="solucao"><h4>Código Python</h4><pre>def lei_hooke(sigma, E):
-    deformacao = sigma / E
-    return deformacao</pre></div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Determinar a eficiência térmica de um motor a partir do trabalho útil produzido e do calor fornecido pelo combustível.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>w_util = float(input("Trabalho útil produzido (kJ): "))
+q_in = float(input("Calor fornecido pelo combustível (kJ): "))
+
+eficiencia = (w_util / q_in) * 100
+
+print(f"Eficiência térmica do motor: {eficiencia:.2f}%")</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 06</span><span>Monitoramento Térmico de Rolamentos Industriais</span></div>
+                    <div class="header-left"><span class="badge">Atv 06</span><span>Velocidade de Corte em Torneamento</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Algoritmo condicional para disparar alarmes visuais ou interrupções baseadas na temperatura operacional de mancais.</p></div>
-                    <div class="solucao"><h4>Código Python</h4><pre>def verificar_temperatura_mancal(temp):
-    if temp > 80: return "CRÍTICO: Desligamento Imediato!"
-    elif temp > 65: return "ALERTA: Monitorar de perto"
-    return "Normal"</pre></div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 07</span><span>Cálculo Paramétrico de Potência Elétrica</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Determinar o consumo e a potência de motores elétricos industriais associados a bombas de fluido.</p></div>
-                    <div class="solucao"><h4>Código Python</h4><pre>def potencia_eletrica(V, I, cos_phi=0.85):
-    return V * I * cos_phi # Watts (Monofásico)</pre></div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 08</span><span>Otimização Básica de Rotas Logísticas</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Algoritmo de tomada de decisão para seleção do trajeto com menor perda energética ou menor distância de entrega.</p></div>
-                    <div class="solucao"><h4>Código Python</h4><pre>def selecionar_rota(dist_A, dist_B):
-    return "Rota A" if dist_A < dist_B else "Rota B"</pre></div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 09</span><span>Análise Hierárquica de Abastecimento de Água</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Controle lógico para balanceamento e distribuição de vazão em reservatórios industriais.</p></div>
-                    <div class="solucao"><h4>Código Python</h4><pre>def status_reservatorio(nivel_percentual):
-    if nivel_percentual < 20: return "Bomba LIGADA - Nível Crítico"
-    if nivel_percentual > 90: return "Bomba DESLIGADA - Limite Máximo"
-    return "Operação Estável"</pre></div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 10</span><span>Cálculo Estrutural de Treliças Planas</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Determinar as forças nos nós de uma treliça isostática elementar utilizando trigonometria e equilíbrio estático.</p></div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Um operador de torno precisa calcular a velocidade de corte (Vc) para ajustar a rotação da máquina.</p></div>
                     <div class="solucao"><h4>Código Python</h4><pre>import math
-def forca_no_trelica(carga, angulo_deg):
-    rad = math.radians(angulo_deg)
-    # Somatório de forças verticais
-    forca_membro = carga / math.sin(rad)
-    return forca_membro</pre></div>
+
+d = float(input("Diâmetro da peça (mm): "))
+n = float(input("Rotação (RPM): "))
+
+vc = (math.pi * d * n) / 1000
+
+print(f"Velocidade de corte: {vc:.2f} m/min")</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 11</span><span>Método de Eliminação de Gauss-Jordan</span></div>
+                    <div class="header-left"><span class="badge">Atv 07</span><span>Perda de Carga em Tubulação</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Solução manual de sistemas lineares de equações simultâneas para cálculo de reações de apoio.</p></div>
-                    <div class="solucao"><h4>Código Python</h4><pre>def gauss_jordan_2x2(A, b):
-    # Solução explícita simplificada para sistemas estruturais 2x2
-    det = A[0][0]*A[1][1] - A[0][1]*A[1][0]
-    if det == 0: return None
-    x = (b[0]*A[1][1] - b[1]*A[0][1]) / det
-    y = (A[0][0]*b[1] - A[1][0]*b[0]) / det
-    return [x, y]</pre></div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Calcular a queda de pressão em uma tubulação horizontal para dimensionar uma bomba hidráulica.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>f = float(input("Fator de atrito: "))
+l = float(input("Comprimento (m): "))
+d = float(input("Diâmetro interno (m): "))
+rho = float(input("Densidade do fluido (kg/m³): "))
+v = float(input("Velocidade do fluido (m/s): "))
+
+delta_p = f * (l / d) * (rho * v**2 / 2)
+
+print(f"Queda de pressão: {delta_p:.2f} Pa")</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 12</span><span>Monitoramento de Resfriamento Líquido</span></div>
+                    <div class="header-left"><span class="badge">Atv 08</span><span>Torque em Parafuso de Fixação</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Gerenciamento da vazão da bomba hidráulica baseado no calor dissipado por trocadores de calor de alta performance.</p></div>
-                    <div class="solucao"><h4>Código Python</h4><pre>def vazao_bomba_resfriamento(temperatura_fluido):
-    if temperatura_fluido > 50: return "Vazão Máxima (100%)"
-    return "Vazão Econômica (50%)"</pre></div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Determinar o torque necessário para atingir uma força de união específica em um parafuso de fixação.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>k = 0.2 # Coeficiente de atrito padrão
+d = float(input("Diâmetro nominal do parafuso (m): "))
+f_pre = float(input("Força de protensão desejada (N): "))
+
+torque = k * d * f_pre
+
+print(f"Torque de aperto necessário: {torque:.2f} Nm")</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 13</span><span>Transferência de Calor por Convecção</span></div>
+                    <div class="header-left"><span class="badge">Atv 09</span><span>Volume de Material em um Fundido</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Determinar a taxa de transferência térmica de uma parede aquecida para um fluido em movimento (Lei de Resfriamento de Newton).</p></div>
-                    <div class="solucao"><h4>Código Python</h4><pre>def calor_conveccao(h, A, Ts, Tinf):
-    return h * A * (Ts - Tinf)</pre></div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Calcular o volume de metal necessário para preencher um molde cilíndrico de fundição com base no raio e altura.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>import math
+
+raio = float(input("Raio do molde (m): "))
+altura = float(input("Altura do molde (m): "))
+
+volume = math.pi * (raio**2) * altura
+
+print(f"Volume necessário de metal: {volume:.4f} m³")</pre></div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="header-left"><span class="badge">Atv 14</span><span>Mecanismos: Cálculo de Razão de Transmissão</span></div>
+                    <div class="header-left"><span class="badge">Atv 10</span><span>Monitoramento Térmico de Rolamentos Industriais</span></div>
                     <div class="arrow-icon">▼</div>
                 </div>
                 <div class="accordion-content">
-                    <div class="enunciado"><h4>Enunciado</h4><p>Calcular a velocidade angular de saída e torque estático em um sistema de engrenagens acopladas.</p></div>
-                    <div class="solucao"><h4>Código Python</h4><pre>def razao_transmissao(N_entrada, N_saida, rpm_entrada):
-    i = N_saida / N_entrada
-    rpm_saida = rpm_entrada / i
-    return i, rpm_saida</pre></div>
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Algoritmo condicional para verificar a temperatura de operação de rolamentos industriais e emitir alertas de segurança.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>temp = float(input("Temperatura do rolamento (°C): "))
+
+if temp > 80:
+    print("CRÍTICO: Risco de quebra. Desligamento imediato!")
+elif temp > 65:
+    print("ALERTA: Temperatura elevada. Monitorar componente.")
+else:
+    print("Temperatura operacional normal.")</pre></div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge">Atv 11</span><span>Análise de Abastecimento e Reservatórios</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Algoritmo condicional para gerenciamento automatizado de bombas de fluido com base no nível percentual do reservatório industrial.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>nivel = float(input("Nível atual do reservatório (%): "))
+
+if nivel < 20:
+    print("Bomba LIGADA - Nível Crítico")
+elif nivel > 90:
+    print("Bomba DESLIGADA - Limite Máximo Atingido")
+else:
+    print("Operação Estável - Bomba em Standby")</pre></div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge">Atv 12</span><span>Cálculo Estrutural de Treliças Planas</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Determinar as reações internas em um nó de uma treliça plana isostática com base na carga e inclinação angular.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>import math
+
+carga = float(input("Carga aplicada no nó (N): "))
+angulo_deg = float(input("Ângulo de inclinação do membro (graus): "))
+
+rad = math.radians(angulo_deg)
+forca_membro = carga / math.sin(rad)
+
+print(f"Força resultante no membro da treliça: {forca_membro:.2f} N")</pre></div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge">Atv 13</span><span>Monitoramento de Resfriamento Líquido</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Controle condicional da vazão de uma bomba em sistemas de refrigeração industrial de alta performance.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>temp_fluido = float(input("Temperatura do fluido de resfriamento (°C): "))
+
+if temp_fluido > 50:
+    print("Acionar Vazão Máxima (100% da capacidade da bomba)")
+else:
+    print("Acionar Vazão Econômica (50% da capacidade da bomba)")</pre></div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="header-left"><span class="badge">Atv 14</span><span>Mecanismos: Relação de Transmissão por Engrenagens</span></div>
+                    <div class="arrow-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="enunciado"><h4>Enunciado</h4><p>Contexto: Calcular a razão de engrenamento e a rotação de saída (RPM) para um par de engrenagens cilíndricas retas acopladas.</p></div>
+                    <div class="solucao"><h4>Código Python</h4><pre>n_entrada = int(input("Número de dentes da engrenagem motriz (entrada): "))
+n_saida = int(input("Número de dentes da engrenagem movida (saída): "))
+rpm_entrada = float(input("Velocidade de entrada (RPM): "))
+
+i = n_saida / n_entrada
+rpm_saida = rpm_entrada / i
+
+print(f"Razão de transmissão (i): {i:.2f}")
+print(f"Velocidade angular de saída: {rpm_saida:.2f} RPM")</pre></pre></div>
                 </div>
             </div>
 
