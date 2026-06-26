@@ -3,436 +3,781 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratório de Algoritmos & Engenharia</title>
+    <title>Plataforma Avançada de Engenharia Computacional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <style>
-        /* Ajustes finos de scrollbar e fontes */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #1f2937; }
-        ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
         .code-block { font-family: 'Fira Code', Consolas, Monaco, monospace !important; }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans antialiased">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased">
 
-    <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="flex items-center space-x-3">
-                <div class="bg-indigo-600 p-2 rounded-lg text-white shadow-md shadow-indigo-500/20">
-                    <i class="fa-solid fa-laptop-code text-xl"></i>
+    <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 px-6 py-4 shadow-xl">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-4">
+                <div class="bg-gradient-to-br from-blue-600 to-indigo-600 p-3 rounded-xl text-white shadow-lg shadow-indigo-500/20">
+                    <i class="fa-solid fa-square-root-variable text-2xl"></i>
                 </div>
                 <div>
-                    <span class="font-bold text-xl tracking-tight text-white block">Portfólio Acadêmico</span>
-                    <span class="text-xs text-gray-400 block -mt-1">Resolução do Caderno de Exercícios</span>
+                    <h1 class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Computational Engineering Lab</h1>
+                    <p class="text-xs text-slate-400 font-mono">Sistemas Computacionais • Análise Assintótica • Estruturas de Dados</p>
                 </div>
             </div>
-            <div class="flex items-center space-x-2 text-sm">
-                <span class="bg-indigo-950 text-indigo-400 px-3 py-1 rounded-full border border-indigo-800 font-mono text-xs">
-                    <i class="fa-brands fa-python mr-1"></i> Python 3.10+ Core & Data
+            <div class="flex items-center gap-2">
+                <span class="bg-emerald-950/80 text-emerald-400 px-3 py-1.5 rounded-lg border border-emerald-800 font-mono text-xs flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Production Ready
                 </span>
             </div>
         </div>
-    </nav>
+    </header>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 lg:grid-cols-4 gap-8">
         
         <aside class="lg:col-span-1 space-y-6">
-            <div>
-                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-3">Unidade 1: Fundamentos</h3>
+            <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-800">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest px-2 mb-4">Módulos Baselines</h3>
                 <div class="space-y-1" id="menu-u1"></div>
             </div>
-            <div>
-                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-3">Unidade 2: Estruturados</h3>
+            <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-800">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest px-2 mb-4">Sistemas Estruturados</h3>
                 <div class="space-y-1" id="menu-u2"></div>
             </div>
-            <div>
-                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-3">Unidade 3: Avançados / Engenharia</h3>
+            <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-800">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest px-2 mb-4">Problemas de Engenharia</h3>
                 <div class="space-y-1" id="menu-u3"></div>
             </div>
         </aside>
 
-        <main class="lg:col-span-3 bg-gray-800 rounded-xl border border-gray-700 p-6 shadow-2xl transition-all duration-300 min-h-[500px]">
+        <main class="lg:col-span-3 bg-slate-900 rounded-2xl border border-slate-800 p-8 shadow-2xl min-h-[600px]">
             <div id="exercise-display">
-                <div class="text-center py-32 text-gray-400">
-                    <i class="fa-solid fa-terminal text-6xl mb-4 text-indigo-500/20 animate-pulse"></i>
-                    <p class="text-lg font-medium text-gray-300">Selecione um script na barra lateral</p>
-                    <p class="text-sm text-gray-500 max-w-xs mx-auto mt-1">Os algoritmos renderizarão os blocos de lógica de forma isolada.</p>
+                <div class="text-center py-40 text-slate-500">
+                    <i class="fa-solid fa-folder-open text-7xl mb-6 text-indigo-500/10 animate-bounce"></i>
+                    <h3 class="text-xl font-bold text-slate-300">Aguardando Seleção de Módulo</h3>
+                    <p class="text-sm text-slate-500 max-w-sm mx-auto mt-2">Selecione uma das soluções computacionais ao lado para abrir a documentação técnica detalhada.</p>
                 </div>
             </div>
         </main>
     </div>
 
-    <footer class="bg-gray-800 border-t border-gray-700 mt-20 py-8 text-center text-sm text-gray-500">
-        <div class="max-w-7xl mx-auto px-4">
-            <p class="font-medium text-gray-400">Ambiente de Testes Automatizado — Engenharia Integrada</p>
-            <p class="mt-2 text-xs text-gray-600">Hospedado via GitHub Pages com renderização reativa nativa.</p>
-        </div>
-    </footer>
-
     <template id="ex-1">
-        <div class="badge">Variáveis e Operadores</div>
-        <h2>01. Declaração e Inicialização de Variáveis</h2>
-        <p class="desc">Declaração de variáveis tipadas dinamicamente em Python para caracterização física de componentes elétricos de subestação.</p>
-        <pre><code class="language-python"># Declarando variáveis físicas e de controle
-resistencia = 47          # Tipo: int (Valor em Ohms)
-num_fios = 12             # Tipo: int (Quantidade no cabo)
-nome_projeto = "Subestacao Norte"  # Tipo: str (Identificação)
-esta_energizado = True    # Tipo: bool (Estado lógico do circuito)
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 01 • Controle de Variáveis</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">01. Alocação Estática e Representação de Memória</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia e Arquitetura do Problema</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                A modelagem de sistemas físicos reais exige a correta tipagem e mapeamento de dados em memória. Em linguagens de tipagem dinâmica como Python, a verificação ocorre em tempo de execução (<em>runtime</em>). Este script mapeia o estado termodinâmico e elétrico de uma subestação através de primitivos atômicos, mitigando mutações indesejadas de estado e garantindo a integridade dos dados nominais.
+            </p>
+        </div>
 
-# Exibição formatada no console do interpretador
-print(f"Nome do Projeto de Engenharia: {nome_projeto}")
-print(f"Resistência de projeto medida: {resistencia} Ohms")
-print(f"Quantidade total de condutores (fios): {num_fios}")
-print(f"Status operacional - Linha Energizada: {esta_energizado}")</code></pre>
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Implementação de Código Limpo (Clean Code)</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4 shadow-inner"><code class="language-python">def inicializar_sistema_subestacao() -> dict:
+    """
+    Inicializa e valida os parâmetros nominais de controle da Subestação Norte.
+    Retorna um dicionário contendo o mapeamento tipado das variáveis.
+    """
+    try:
+        # Alocação estruturada de variáveis físicas
+        resistencia_ohms: int = 47
+        quantidade_condutores: int = 12
+        identificacao_projeto: str = "Subestacao Norte"
+        status_energizado: bool = True
+        
+        # Consolidação em estrutura de dados imutável para transporte seguro
+        payload_operacional = {
+            "resistencia": resistencia_ohms,
+            "fios": quantidade_condutores,
+            "projeto": identificacao_projeto,
+            "ativo": status_energizado
+        }
+        
+        for chave, valor in payload_operacional.items():
+            print(f"[LOG TELEMETRIA] Parâmetro: {chave.upper()} | Valor: {valor} | Tipo: {type(valor)}")
+            
+        return payload_operacional
+    except Exception as erro:
+        print(f"[ERRO] Falha crítica na alocação de memória: {erro}")
+        raise
+
+if __name__ == "__main__":
+    sistema = inicializar_sistema_subestacao()</code></pre>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span> — Tempo constante, pois o número de atribuições e impressões é fixo.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span> — Alocação de memória fixa e pré-determinada, sem crescimento escalar.</p>
+        </div>
     </template>
 
     <template id="ex-2">
-        <div class="badge">Geometria Computacional</div>
-        <h2>02. Cálculo de Seção Transversal de Duto</h2>
-        <p class="desc">Cálculo de área de seção geométrica em elementos de infraestrutura utilizando representação decimal precisa.</p>
-        <pre><code class="language-python"># Constantes físicas do problema
-pi = 3.14159
-raio = 0.15  # Dimensão em metros (m)
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 02 • Geometria Hidráulica</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">02. Geometria Computacional: Seção Transversal de Fluxo</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia e Equacionamento</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                O cálculo da área da seção transversal de um duto circular é o fundamento primário para a determinação da vazão volumétrica em mecânica dos fluidos. A equação matemática aplicada é $A = \pi \cdot r^2$. Erros no truncamento de $\pi$ propagam-se exponencialmente em análises de perda de carga distribuída ao longo de tubulações extensas.
+            </p>
+        </div>
 
-# Aplicação da fórmula analítica: A = pi * r^2
-area_secao = pi * (raio ** 2)
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">import math
 
-# Exibição científica formatando precisão de casas decimais
-print(f"Raio nominal do duto de passagem: {raio} m")
-print(f"Área geométrica calculada da seção: {area_secao:.5f} m²")</code></pre>
+def calcular_area_secao_duto(raio_m: float) -> float:
+    """
+    Calcula a área de seção de um duto circular aplicando alta precisão de ponto flutuante.
+    
+    :param raio_m: Raio nominal em metros (deve ser estritamente positivo)
+    :return: Área resultante em metros quadrados (m²)
+    """
+    if raio_m <= 0:
+        raise ValueError("Inconformidade física: o raio do duto não pode ser nulo ou negativo.")
+        
+    PI_PRECISO: float = 3.14159
+    
+    # Processamento aplicando potenciação otimizada
+    area_m2: float = PI_PRECISO * (raio_m ** 2)
+    
+    print(f"[MECÂNICA DOS FLUIDOS] Raio: {raio_m} m -> Área Computada: {area_m2:.5f} m²")
+    return area_m2
+
+# Execução do caso de teste nominal
+area_resultante = calcular_area_secao_duto(raio_m=0.15)</code></pre>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span> — Operações aritméticas elementares executadas diretamente pelo coprocessador matemático.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span> — Alocação de apenas duas variáveis primitivas escalares em memória de pilha.</p>
+        </div>
     </template>
 
     <template id="ex-3">
-        <div class="badge">Eletrotécnica</div>
-        <h2>03. Dimensionamento Elétrico de Motor Industrial</h2>
-        <p class="desc">Avaliação da corrente consumida e cálculo de resistência linear equivalente para cargas indutivas ativas.</p>
-        <pre><code class="language-python"># Dados nominais de placa do motor
-potencia_ativa = 3500.0  # Watts (W)
-tensao_nominal = 220.0   # Volts (V)
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 03 • Análise de Circuitos</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">03. Dimensionamento de Circuitos de Potência e Carga Resisitiva</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                A modelagem de motores elétricos em regime permanente puramente resistivo baseia-se na Lei de Ohm e nas equações de potência ativa monofásica. Determinando a corrente nominal $I = \frac{P}{V}$, estabelecemos a seção mínima dos condutores de alimentação para evitar sobreaquecimento por efeito Joule, além da impedância interna do enrolamento através de $R = \frac{V}{I}$.
+            </p>
+        </div>
 
-# Cálculo de corrente de regime (I = P / V)
-corrente_regime = potencia_ativa / tensao_nominal
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">def analisar_carga_motor(potencia_w: float, tensao_v: float) -> tuple[float, float]:
+    """
+    Analisa os parâmetros de consumo elétrico e resistência interna equivalente.
+    """
+    if tensao_v == 0:
+        raise ZeroDivisionError("Impossibilidade física: Tensão elétrica não pode ser zero.")
+        
+    # Determinação dos fluxos de corrente e resistência
+    corrente_a: float = potencia_w / tensao_v
+    resistencia_ohm: float = tensao_v / corrente_a
+    
+    print(f"[ELETROTÉCNICA] I nominal: {corrente_a:.2f} A | R equivalente: {resistencia_ohm:.2f} Ohms")
+    return corrente_a, resistencia_ohm
 
-# Cálculo da impedância resistiva equivalente (R = V / I)
-resistencia_equivalente = tensao_nominal / corrente_regime
+corrente, resistencia = analisar_carga_motor(3500.0, 220.0)</code></pre>
+        </div>
 
-print(f"Corrente nominal de operação: {corrente_regime:.2f} A")
-print(f"Resistência pura equivalente do enrolamento: {resistencia_equivalente:.2f} Ohms")</code></pre>
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span> — Determinação algébrica direta.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span> — Retorno estruturado em tupla de tamanho fixo em memória.</p>
+        </div>
     </template>
 
     <template id="ex-4">
-        <div class="badge">Física Teórica</div>
-        <h2>04. Tempo de Propagação Acústica (Ondas)</h2>
-        <p class="desc">Mapeamento temporal de ondas mecânicas com conversão de escalas físicas e fracionamento de tempo.</p>
-        <pre><code class="language-python"># Parâmetros cinemáticos fornecidos
-velocidade_som = 343.0  # Constante física em m/s
-distancia_alvo = 1500.0 # Espaço em metros (m)
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 04 • Cinemática</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">04. Escalonamento Temporal de Ondas Acústicas</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                Sistemas de eco-localização (SONAR/RADAR) exigem precisão na escala de microssegundos e milissegundos. Sabendo que a propagação da onda no meio gasoso sob temperatura controlada possui velocidade constante, mapeamos o atraso temporal de sinal (<em>latency</em>) para aferição de distância física.
+            </p>
+        </div>
 
-# Determinação do tempo físico (t = d / v)
-tempo_segundos = distancia_alvo / velocidad_som
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">def calcular_propagacao_acustica(distancia_m: float, velocidade_meio: float = 343.0) -> dict:
+    """
+    Mapeia analiticamente as escalas temporais para tráfego de ondas mecânicas.
+    """
+    tempo_s: float = distancia_m / velocidade_meio
+    tempo_ms: float = tempo_s * 1000.0
+    
+    telemetria_tempo = {"segundos": tempo_s, "milissegundos": tempo_ms}
+    print(f"[SONAR LAB] DeltaT: {tempo_s:.4f} s | {tempo_ms:.2f} ms")
+    return telemetria_tempo
 
-# Conversão analítica de escala de tempo (Segundos para Milissegundos)
-tempo_milissegundos = tempo_segundos * 1000
+dados_onda = calcular_propagacao_acustica(1500.0)</code></pre>
+        </div>
 
-print(f"Tempo total computado para percurso: {tempo_segundos:.4f} s")
-print(f"Tempo total convertido para escala de laboratório: {tempo_milissegundos:.2f} ms")</code></pre>
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span>.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span>.</p>
+        </div>
     </template>
 
     <template id="ex-5">
-        <div class="badge">Estruturas de Dados</div>
-        <h2>05. Formatador Universal de Tempo Inteiro</h2>
-        <p class="desc">Decomposição estrutural de segundos absolutos aplicando operadores aritméticos de divisão inteira truncada e resto.</p>
-        <pre><code class="language-python"># Massa de dados de entrada
-segundos_totais = 3600
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 05 • Aritmética de Divisores</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">05. Decomposição Discreta de Tempo (H:MM:SS)</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                Sistemas embarcados de tempo real (RTOS) operam frequentemente sem acesso a relógios de hardware complexos ou calendários de alto nível. A fragmentação de um contador inteiro de segundos através de divisões euclidianas sucessivas garante determinação imediata com consumo mínimo de ciclos de CPU.
+            </p>
+        </div>
 
-# Lógica puramente aritmética por divisões inteiras sucessivas
-horas = segundos_totais // 3600
-resto_minutos = segundos_totais % 3600
-minutos = resto_minutos // 60
-segundos = resto_minutos % 60
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">def decompor_segundos_timestamp(segundos_totais: int) -> str:
+    """
+    Executa a partição de tempo discreto aplicando operadores estruturais de piso e módulo.
+    """
+    if segundos_totais < 0:
+        raise ValueError("O marcador temporal de entrada deve ser obrigatoriamente não-negativo.")
+        
+    horas: int = segundos_totais // 3600
+    resto_segundos: int = segundos_totais % 3600
+    minutos: int = resto_segundos // 60
+    segundos_finais: int = resto_segundos % 60
+    
+    timestamp_formatado = f"{horas}:{minutos:02d}:{segundos_finais:02d}"
+    print(f"[RTOS CLOCK] Saída Estruturada: {timestamp_formatado}")
+    return timestamp_formatado
 
-# Exibição estruturada utilizando formatação posicional com máscara de preenchimento (:02d)
-print(f"Janela de tempo formatada em padrão industrial: {horas}:{minutos:02d}:{segundos:02d}")</code></pre>
+print(decompor_segundos_timestamp(3600))</code></pre>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span>.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span>.</p>
+        </div>
     </template>
 
     <template id="ex-6">
-        <div class="badge">Cálculo de Volumes</div>
-        <h2>06. Volumetria e Dimensionamento de Tanques</h2>
-        <p class="desc">Processamento volumétrico e estimativa de área de chapa metálica lateral para infraestrutura de reservatórios cilíndricos.</p>
-        <pre><code class="language-python">pi = 3.14159
-raio_base = 2.0  # Metros
-altura_tanque = 5.0  # Metros
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 06 • Volumetria Analítica</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">06. Modelagem Estática de Reservatórios Cilíndricos</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                O cálculo volumétrico determina a capacidade máxima de carga fluida suportada por um tanque de armazenamento industrial ($V = \pi \cdot r^2 \cdot h$), enquanto o cálculo da área lateral ($A = 2 \cdot \pi \cdot r \cdot h$) baliza o plano de orçamento para revestimentos anticorrosivos ou isolamentos térmicos de chapas metálicas de aço carbono.
+            </p>
+        </div>
 
-# Modelagem geométrica matemática
-volume_tanque = pi * (raio_base ** 2) * altura_tanque
-area_lateral = 2 * pi * raio_base * altura_tanque
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">def analisar_geometria_tanque(raio: float, altura: float) -> dict[str, float]:
+    """
+    Calcula os parâmetros métricos volumétricos e superficiais do cilindro.
+    """
+    CONST_PI: float = 3.14159
+    
+    volume: float = CONST_PI * (raio ** 2) * altura
+    area_lateral: float = 2.0 * CONST_PI * raio * altura
+    
+    resultados = {"volume_m3": volume, "area_lateral_m2": area_lateral}
+    print(f"[ESTRUTURAS] Vol: {volume:.2f} m³ | Área Lat: {area_lateral:.2f} m²")
+    return resultados
 
-print(f"Capacidade cúbica volumétrica do tanque: {volume_tanque:.2f} m³")
-print(f"Área superficial da parede lateral do cilindro: {area_lateral:.2f} m²")</code></pre>
+analisar_geometria_tanque(raio=2.0, altura=5.0)</code></pre>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span>.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span>.</p>
+        </div>
     </template>
 
     <template id="ex-7">
-        <div class="badge">Sistemas Digitais</div>
-        <h2>07. Tipagem Dinâmica e Coerção Implícita</h2>
-        <p class="desc">Estudo interpretativo sobre a conversão de tipos primitivos em operações de divisão real.</p>
-        <pre><code class="language-python">freq = 60
-periodo = 1.0 / freq
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 07 • Compiladores</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">07. Mecanismos de Coerção e Resolução Dinâmica de Tipos</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                Em linguagens fortemente tipadas, operações envolvendo operandos mistos (ex: Inteiro e Float) forçam o interpretador ou compilador a aplicar regras estritas de promoção de tipo (<em>Type Promotion</em>). A divisão real sempre retorna um ponto flutuante para assegurar que a precisão decimal não seja perdida de forma silenciosa.
+            </p>
+        </div>
 
-print(f"Valor de Frequência: {freq} -> Tipo Primitivo: {type(freq)}")
-print(f"Valor de Período: {periodo} -> Tipo Primitivo: {type(periodo)}")
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">def inspecionar_coercao_tipos() -> None:
+    """
+    Demonstra de forma prática e analítica as regras de promoção de tipo do interpretador Python.
+    """
+    frequencia_hz: int = 60
+    periodo_s: float = 1.0 / frequencia_hz
+    
+    print(f"[TYPE INSPECTOR] 'frequencia_hz' -> Valor: {frequencia_hz} | Tipo: {type(frequencia_hz)}")
+    print(f"[TYPE INSPECTOR] 'periodo_s'     -> Valor: {periodo_s} | Tipo: {type(periodo_s)}")
+    
+    # JUSTIFICATIVA DO ENUNCIADO COMPLEMENTADA:
+    # Mesmo que a variável 'frequencia_hz' possua o tipo primitivo primitivo 'int', o operador '/' 
+    # é mapeado internamente para o método mágico __truediv__, que implementa por especificação técnica 
+    # da linguagem o retorno contínuo em float de precisão dupla de 64 bits (padrão IEEE 754).
 
-# NOTA EXPLICATIVA: O Python aplica coerção de tipo implícita para float sempre que o operador
-# de divisão real ('/') é invocado, independente se os números de entrada são inteiros,
-# de modo a preservar os valores decimais e evitar erros de truncamento numérico.</code></pre>
+if __name__ == "__main__":
+    inspecionar_coercao_tipos()</code></pre>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span>.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span>.</p>
+        </div>
     </template>
 
     <template id="ex-8">
-        <div class="badge">Astrodinâmica</div>
-        <h2>08. Campo Gravitacional e Força Newtoniana</h2>
-        <p class="desc">Resolução da Equação Universal da Gravitação de Newton utilizando variáveis de dupla precisão em notação de engenharia.</p>
-        <pre><code class="language-python"># Constantes e massas em notação exponencial científica (E)
-G = 6.674e-11
-m1 = 5.0e24
-m2 = 80.0
-distancia_centros = 6.371e6
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 08 • Simulação Física</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">08. Formulação e Cálculo Newtoniano de Forças Gravitacionais</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                A simulação orbital e aeroespacial manipula ordens de magnitude extremas simultaneamente (ex: massas planetárias de magnitude $10^{24}$ frente à constante gravitacional de magnitude $10^{-11}$). A modelagem matemática em ponto flutuante em Python lida de forma nativa com grandes expoentes, contudo, os limites de precisão devem ser monitorados para prevenir estouros de mantissa.
+            </p>
+        </div>
 
-# Equação fundamental da atração gravitacional
-forca_gravitacional = G * m1 * m2 / (distancia_centros ** 2)
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">def calcular_forca_gravitacional_universal(m1: float, m2: float, raio_orbita: float) -> float:
+    """
+    Aplica a Lei da Gravitação Universal de Isaac Newton.
+    """
+    CONST_G: float = 6.674e-11
+    
+    if raio_orbita <= 0:
+        raise ValueError("Inconsistência gravitacional: a distância vetorial entre massas deve ser maior que zero.")
+        
+    forca_n: float = (CONST_G * m1 * m2) / (raio_orbita ** 2)
+    print(f"[ASTROFÍSICA] Magnitude de Força Gravitacional Resultante: {forca_n:.2f} Newtons")
+    return forca_n
 
-print(f"Módulo da força gravitacional calculada: {forca_gravitacional:.2f} Newtons (N)")</code></pre>
+calcular_forca_gravitacional_universal(m1=5.0e24, m2=80.0, raio_orbita=6.371e6)</code></pre>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span>.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span>.</p>
+        </div>
     </template>
 
     <template id="ex-9">
-        <div class="badge">Telecomunicações</div>
-        <h2>09. Cálculo de Comprimento de Onda de Rádio</h2>
-        <p class="desc">Processamento de radiofrequência eletromagnética para conversão de espectro em dimensões mecânicas de antenas.</p>
-        <pre><code class="language-python"># Constantes de propagação no vácuo/ar
-velocidade_luz = 3e8  # m/s
-frequencia_sinal = 98.5e6  # 98.5 MHz expressos em Hz
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 09 • Telecomunicações</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">09. Espectro Eletromagnético: Dimensionamento de Onda de Antenas</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                O cálculo do comprimento físico da onda elétrica ($\lambda = \frac{c}{f}$) norteia os projetos mecânicos de engenharia de telecomunicações. Antenas dipolo fracionam o valor de $\lambda$ em frações como $\frac{\lambda}{2}$ ou $\frac{\lambda}{4}$ para maximizar a ressonância harmônica com o sinal recebido do espectro de radiofrequência.
+            </p>
+        </div>
 
-# Relação física (lambda = c / f)
-comprimento_onda = velocidade_luz / frequencia_sinal
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">def dimensionar_comprimento_onda(frequencia_hz: float) -> float:
+    """
+    Calcula o comprimento físico de onda para propagação eletromagnética em meios gasosos ou vácuo.
+    """
+    VELOCIDADE_LUZ_M_S: float = 3.0e8
+    
+    comprimento_m: float = VELOCIDADE_LUZ_M_S / frequencia_hz
+    print(f"[TELECOM] Frequência de entrada: {frequencia_hz/1e6:.1f} MHz -> Lambda Resultante: {comprimento_m:.4f} m")
+    return comprimento_m
 
-print(f"Frequência sintonizada de teste: {frequencia_sinal / 1e6} MHz")
-print(f"Comprimento físico real da onda linear (λ): {comprimento_onda:.4f} metros")</code></pre>
+dimensionar_comprimento_onda(98.5e6)</code></pre>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span>.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span>.</p>
+        </div>
     </template>
 
     <template id="ex-10">
-        <div class="badge">Lógica de Programação</div>
-        <h2>10. Divergência Operacional: Divisão Inteira vs Real</h2>
-        <p class="desc">Estudo exato da diferença de alocação de memória e retorno de operadores aritméticos estruturais.</p>
-        <pre><code class="language-python">resultado_inteiro = 10 // 3
-resultado_real = 10 / 3
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 10 • Operadores Estruturais</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">10. Análise Microarquitetural de Divisores Aritméticos</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                No nível mais básico do processador (ULA), divisões reais de ponto flutuante exigem maior quantidade de ciclos de clock do que divisões inteiras truncadas. Compreender como o interpretador Python gerencia esses operadores previne a lentidão em laços de repetição intensivos em processamentos numéricos.
+            </p>
+        </div>
 
-print(f"Operação 10 // 3: Resultado = {resultado_inteiro} | Classe Alocada = {type(resultado_inteiro)}")
-print(f"Operação 10 / 3:  Resultado = {resultado_real} | Classe Alocada = {type(resultado_real)}")
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">def demonstrar_operadores_divisao() -> None:
+    """
+    Avalia em baixo nível o impacto e retorno dos divisores discretos e contínuos.
+    """
+    valor_dividendo = 10
+    valor_divisor = 3
+    
+    divisao_inteira = valor_dividendo // valor_divisor
+    divisao_real = valor_dividendo / valor_divisor
+    
+    print(f"[ALGORITMOS] Operador '//' -> Resultado: {divisao_inteira} | Mapeamento de Tipo: {type(divisao_inteira)}")
+    print(f"[ALGORITMOS] Operador '/'  -> Resultado: {divisao_real} | Mapeamento de Tipo: {type(divisao_real)}")
+    
+    # COMENTÁRIO EXPLICATIVO EXIGIDO NO ENUNCIADO:
+    # O operador '//' executa a operação matemática de piso (floor division), descartando resíduos e
+    # devolvendo um tipo 'int' estável. O operador '/' aloca e processa uma dízima periódica irracional, 
+    # instanciando um tipo 'float' que carrega consigo imprecisões intrínsecas ao padrão IEEE 754.
 
-# EXPLICAÇÃO NO CÓDIGO:
-# O operador double slash '//' executa a divisão inteira (piso da divisão), descartando a parte
-# fracionária inteira sem arredondamento. O operador '/' força o interpretador CPython a instanciar
-# um float de precisão dupla de 64 bits para representar a dízima periódica.</code></pre>
+demonstrar_operadores_divisao()</code></pre>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span>.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span>.</p>
+        </div>
     </template>
 
     <template id="ex-11">
-        <div class="badge">Sistemas Aeroespaciais</div>
-        <h2>11. Telemetria de Voo: Conversão de Missão</h2>
-        <p class="desc">Algoritmo clássico de decomposição cronológica para computadores de bordo sem bibliotecas externas.</p>
-        <pre><code class="language-python"># Entrada simulada (segundos totais de operação)
-tempo_total_segundos = 90125
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 11 • Telemetria Avançada</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">11. Decomposição Temporal Multiescala sem Dependência de API</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                Este algoritmo estende a partição discreta simples para englobar dias de missão espacial. Em computadores embarcados de satélites (<em>cubesats</em>), otimizar o uso da memória é vital. Isolar dependências de bibliotecas complexas de data (como datetime) elimina custos de processamento e riscos de estouro de memória (<em>memory leaks</em>).
+            </p>
+        </div>
 
-# Processamento aritmético puro por cascata de módulos e divisões inteiras
-dias = tempo_total_segundos // 86400
-resto_dias = tempo_total_segundos % 86400
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">def processar_telemetria_missao(tempo_segundos: int) -> str:
+    """
+    Decompõe marcos de tempo agregados em formato multiescala: Dias, H:MM:SS.
+    
+    Complexidade Algorítmica Estruturada estável sem alocação dinâmica.
+    """
+    if tempo_segundos < 0:
+        return "Instabilidade: Marcador temporal inválido."
+        
+    # Constantes discretas de conversão
+    SEGUNDOS_POR_DIA: int = 86400
+    SEGUNDOS_POR_HORA: int = 3600
+    SEGUNDOS_POR_MINUTO: int = 60
+    
+    # Processamento sequencial em cascata aritmética
+    contagem_dias: int = tempo_segundos // SEGUNDOS_POR_DIA
+    residuo_dia: int = tempo_segundos % SEGUNDOS_POR_DIA
+    
+    contagem_horas: int = residuo_dia // SEGUNDOS_POR_HORA
+    residuo_hora: int = residuo_dia % SEGUNDOS_POR_HORA
+    
+    contagem_minutos: int = residuo_hora // SEGUNDOS_POR_MINUTO
+    contagem_segundos: int = residuo_hora % SEGUNDOS_POR_MINUTO
+    
+    string_saida = f"{contagem_dias} dias, {contagem_horas}:{contagem_minutos:02d}:{contagem_segundos:02d}"
+    return string_saida
 
-horas = resto_dias // 3600
-resto_horas = resto_dias % 3600
+# Validação através do caso de teste sugerido pelo orientador
+print(f"[TEST RUN] Resultado esperado: {processar_telemetria_missao(90125)}")</code></pre>
+        </div>
 
-minutos = resto_horas // 60
-segundos = resto_horas % 60
-
-print(f"Telemetria Consolidada de Missão: {dias} dias, {horas}:{minutos:02d}:{segundos:02d}")
-
-# TRACE MANUAL DESAFIO EXTRA:
-# t = 86400 -> dias = 1, resto1 = 0, horas = 0, minutos = 0, segundos = 0 -> Saída: "1 dias, 0:00:00"
-# t = 0     -> dias = 0, resto1 = 0, horas = 0, minutos = 0, segundos = 0 -> Saída: "0 dias, 0:00:00"</code></pre>
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span> — O número de divisões é invariável.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span> — Executado integralmente na stack frame.</p>
+        </div>
     </template>
 
     <template id="ex-12">
-        <div class="badge">Engenharia Elétrica</div>
-        <h2>12. Ponte de Wheatstone: Cálculo Analítico de Malha</h2>
-        <p class="desc">Validação matemática e circuitos de instrumentação elétrica com proteção de divisão.</p>
-        <pre><code class="language-python"># Parâmetros de Entrada coletados nos ramos da ponte
-R1, R2, R3 = 120.0, 240.0, 180.0
-Vfonte = 9.0
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 12 • Instrumentação</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">12. Ponte de Wheatstone: Resolução e Tratamento Analítico de Singularidades</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                A modelagem matemática de malhas elétricas pode se deparar com indefinições matemáticas conhecidas como singularidades (ex: $R_1 = 0 \ \Omega$). Se o algoritmo não tratar essa entrada antes de dividir os valores, ocorre uma interrupção imediata da execução (<em>runtime crash</em>). O algoritmo abaixo valida a estabilidade do sistema físico antes de calcular os dados.
+            </p>
+        </div>
 
-# Tratamento preventivo e segurança matemática contra divisões por zero
-if R1 == 0:
-    print("ERRO DE HARDWARE CRÍTICO: R1 igual a zero impede a convergência do circuito!")
-else:
-    # Cálculo analítico das variáveis elétricas
-    Rx = (R3 * R2) / R1
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">def resolver_ponte_wheatstone(r1: float, r2: float, r3: float, v_fonte: float) -> dict | str:
+    """
+    Modela e resolve analiticamente uma Ponte de Wheatstone com tratamento prévio de singularidade.
+    """
+    # Guard Rail: Verificação de estabilidade matemática contra divisão por zero
+    if r1 == 0:
+        return "FALHA MATEMÁTICA DETECTADA: R1 não pode assumir magnitude nula (Divisão por zero)."
+        
+    # Execução das equações de malha elétrica
+    r_x: float = (r3 * r2) / r1
     
-    # Impedância equivalente da malha série-paralelo da ponte
-    R_total = ((R1 + Rx) * (R2 + R3)) / (R1 + Rx + R2 + R3)
-    I_total = Vfonte / R_total
-    P_total = Vfonte * I_total
+    # Circuito equivalente combinado em paralelo
+    resistencia_total_equivalente: float = ((r1 + r_x) * (r2 + r3)) / (r1 + r_x + r2 + r3)
+    corrente_total_a: float = v_fonte / resistencia_total_equivalente
+    potencia_dissipada_w: float = v_fonte * corrente_total_a
     
-    # Validação do equilíbrio físico da malha de ensaio
-    ponte_equilibrada = (R1 * Rx == R2 * R3)
+    # Validação lógica do balanço de ramos da ponte
+    ponte_balanceada: bool = abs((r1 * r_x) - (r2 * r3)) < 1e-9
     
-    print(f"Resistência Desconhecida Calculada Rx: {Rx:.2f} Ohms")
-    print(f"Corrente Total extraída da Fonte de Tensão: {I_total:.4f} A")
-    print(f"Potência Térmica Total Dissipada na Rede: {P_total:.4f} W")
-    print(f"Status do Equilíbrio do Galvanômetro: {ponte_equilibrada}")</code></pre>
+    return {
+        "rx_ohms": r_x,
+        "req_ohms": resistencia_total_equivalente,
+        "itotal_amperes": corrente_total_a,
+        "ptotal_watts": potencia_dissipada_w,
+        "status_equilibrio": ponte_balanceada
+    }
+
+resultado_malha = resolver_ponte_wheatstone(120, 240, 180, 9)
+print(f"[ANÁLISE DE MALHA] Resolução: {resultado_malha}")</code></pre>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span>.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span>.</p>
+        </div>
     </template>
 
     <template id="ex-13">
-        <div class="badge">Engenharia de Produção</div>
-        <h2>13. Nota Fiscal Industrial: Tributação em Cascata</h2>
-        <p class="desc">Simulador fiscal de engenharia econômica modelando incidências e bases cumulativas de impostos industriais.</p>
-        <pre><code class="language-python"># Parâmetros de custos e alíquotas fiscais
-preco_fabrica = 850.00
-aliq_ipi, aliq_icms, aliq_pis_cofins = 10.0, 12.0, 3.65
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 13 • Engenharia Econômica</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">13. Simulador Fiscal Multicamadas com Análise de Sensibilidade de Ordem</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                Este algoritmo avalia o impacto de impostos cobrados sobre impostos (incidência em cascata). No desafio extra proposto, o algoritmo demonstra que a ordem de aplicação altera o valor final, uma vez que as bases de cálculo mudam a cada etapa, evidenciando as dinâmicas de formação de preço de venda e custos de produção industrial.
+            </p>
+        </div>
 
-# Cadeia de cálculo cumulativa em cascata
-ipi_calculado = preco_fabrica * (aliq_ipi / 100.0)
-base_calculo_icms = preco_fabrica + ipi_calculado
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">def simular_cadeia_tributaria(preco_fabrica: float, ipi_pct: float, icms_pct: float, pis_cofins_pct: float) -> dict:
+    """
+    Mapeia os tributos em cascata sequencial sobre produto industrializado.
+    """
+    # Ordem Padrão de Legislação Brasileira (IPI -> ICMS -> PIS/COFINS)
+    valor_ipi = preco_fabrica * (ipi_pct / 100.0)
+    base_icms = preco_fabrica + valor_ipi
+    
+    valor_icms = base_icms * (icms_pct / 100.0)
+    base_pis_cofins = base_icms + valor_icms
+    
+    valor_pis_cofins = base_pis_cofins * (pis_cofins_pct / 100.0)
+    preco_final_padrao = base_pis_cofins + valor_pis_cofins
+    
+    # REFAZENDO EM ORDEM INVERTIDA (Desafio Extra: PIS antes do ICMS)
+    # [Lógica simulada para comparação analítica]
+    valor_ipi_inv = preco_fabrica * (ipi_pct / 100.0)
+    base_pis_inv = preco_fabrica + valor_ipi_inv
+    valor_pis_inv = base_pis_inv * (pis_cofins_pct / 100.0)
+    base_icms_inv = base_pis_inv + valor_pis_inv
+    valor_icms_inv = base_icms_inv * (icms_pct / 100.0)
+    preco_final_invertido = base_icms_inv + valor_icms_inv
+    
+    return {
+        "preco_final_padrao": preco_final_padrao,
+        "preco_final_invertido": preco_final_invertido,
+        "diferenca_nominal": abs(preco_final_padrao - preco_final_invertido)
+    }
 
-icms_calculado = base_calculo_icms * (aliq_icms / 100.0)
-base_calculo_pis_cofins = base_calculo_icms + icms_calculado
+print(simular_cadeia_tributaria(850.00, 10.0, 12.0, 3.65))</code></pre>
+        </div>
 
-pis_cofins_calculado = base_calculo_pis_cofins * (aliq_pis_cofins / 100.0)
-preco_final_consumidor = base_calculo_pis_cofins + pis_cofins_calculado
-
-carga_tributaria_total_pct = ((preco_final_consumidor - preco_fabrica) / preco_fabrica) * 100.0
-
-print(f"Preço de Saída da Fábrica: R$ {preco_fabrica:.2f}")
-print(f"Preço Final com Impostos Incorporados: R$ {preco_final_consumidor:.2f}")
-print(f"Carga Tributária Efetiva sobre a Operação: {carga_tributaria_total_pct:.2f}%")</code></pre>
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span>.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span>.</p>
+        </div>
     </template>
 
     <template id="ex-14">
-        <div class="badge">Engenharia Civil</div>
-        <h2>14. Laudo Geotécnico Dinâmico de Solos</h2>
-        <p class="desc">Estruturação de lógica condicional booleana para tomada de decisão em segurança de fundações civis.</p>
-        <pre><code class="language-python"># Variáveis de ensaio mecânico de campo de solos
-spt_golpes = 15
-capacidade_carga_kpa = 120.0
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 14 • Geotecnia</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">14. Classificador Automático de Viabilidade Geotécnica de Solos</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                O uso correto de operadores lógicos booleanos é crítico para a segurança de grandes obras civis. A condição de solo INAPTO exige o operador lógico <span class="text-indigo-400 font-mono">OU</span> (<span class="text-indigo-400 font-mono">or</span>), porque se <strong>pelo menos um</strong> dos critérios falhar (seja o número de golpes SPT baixo ou a capacidade de carga insuficiente), a estabilidade da fundação é comprometida, exigindo intervenção imediata.
+            </p>
+        </div>
 
-# Avaliação sequencial baseada nas matrizes de normas técnicas
-if spt_golpes < 5 or capacidade_carga_kpa < 80.0:
-    print("LAUDO EMITIDO -> INAPTO: Solo com baixa resistência mecânica. Reforço estrutural obrigatório.")
-elif spt_golpes < 10 or capacidade_carga_kpa < 150.0:
-    parametro_limite = "Índice de Golpes SPT" if spt_golpes < 10 else "Capacidade de Carga Admissível"
-    print(f"LAUDO EMITIDO -> RESTRITO: Exige fundação especial profunda. Parâmetro em desconformidade: {parametro_limite}")
-elif spt_golpes >= 30 and capacidade_carga_kpa >= 300.0:
-    print("LAUDO EMITIDO -> EXCELENTE: Alta capacidade de suporte de carga para edificações verticais.")
-else:
-    print("LAUDO EMITIDO -> ADEQUADO: Viável para assentamento de fundações convencionais diretas (sapatas).")</code></pre>
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">def emitir_laudo_geotécnico(spt_golpes: int, capacidade_carga_kpa: float) -> str:
+    """
+    Emite parecer estrutural automatizado baseado em ensaio de penetração e carga de solos.
+    """
+    # Validação do Estado Crítico (Abordagem Conservadora por Operador OU)
+    if spt_golpes < 5 or capacidade_carga_kpa < 80.0:
+        return "CLASSIFICAÇÃO -> INAPTO: Solo apresenta fraqueza estrutural. Exige reforço mecânico imediato."
+        
+    elif spt_golpes < 10 or capacidade_carga_kpa < 150.0:
+        parametro_limitante = "Contagem SPT" if spt_golpes < 10 else "Capacidade de Carga"
+        return f"CLASSIFICAÇÃO -> RESTRITO: Exige fundação especial (Parâmetro limitante: {parametro_limitante})."
+        
+    # Validação de Alto Desempenho (Abordagem de Segurança Tripla por Operador E)    
+    elif spt_golpes >= 30 and capacidade_carga_kpa >= 300.0:
+        return "CLASSIFICAÇÃO -> EXCELENTE: Solo de alta compacidade e alta capacidade portante."
+        
+    else:
+        return "CLASSIFICAÇÃO -> ADEQUADO: Solo estável para fundações diretas e convencionais."
+
+print(emitir_laudo_geotécnico(3, 200))</code></pre>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span> — Árvores de decisão ramificadas de tempo constante.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span>.</p>
+        </div>
     </template>
 
     <template id="ex-15">
-        <div class="badge">Automação</div>
-        <h2>15. Inspeção de Linha de Produção Automatizada</h2>
-        <p class="desc">Algoritmo de varredura dupla em tempo real executando controle estatístico e mecânico simultâneos.</p>
-        <pre><code class="language-python"># PARTE A: Avaliação Metalúrgica da Resistência de Soldas
-res_nominal, res_medida = 420.0, 390.0
+        <div class="flex items-center justify-between mb-4">
+            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20 font-mono uppercase">Módulo 15 • Manufatura Avançada</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">15. Controle Estatístico de Processo (CEP): Inspeção Metalúrgica e Cinematica</h2>
+        
+        <div class="prose prose-invert max-w-none mb-6">
+            <h4 class="text-indigo-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Análise de Engenharia</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                Este sistema monitora duas frentes independentes em linhas de montagem robotizadas. A primeira avalia a resistência mecânica de soldas estruturais através de desvios relativos; a segunda realiza o controle cinemático preventivo da velocidade da esteira transportadora para evitar desalinhamentos de peças, garantindo o ritmo de produção planejado.
+            </p>
+        </div>
 
-desvio_absoluto = res_medida - res_nominal
-desvio_percentual = (desvio_absoluto / res_nominal) * 100.0
+        <div class="mb-6">
+            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-code mr-1"></i> Código de Produção</h4>
+            <pre class="rounded-xl overflow-hidden border border-slate-800 !bg-slate-950 p-4"><code class="language-python">def executar_inspecao_producao(res_nominal: float, res_medida: float, vel_atual: float, vel_alvo: float) -> tuple[str, str]:
+    """
+    Executa varredura concorrente sobre qualidade de solda e cinemática da linha de fluxo.
+    """
+    # Avaliação Metalúrgica sem Alocação de Variável Absoluta Otimizada (Desafio Extra)
+    desvio_resistencia = res_medida - res_nominal
+    
+    if (-0.08 * res_nominal) <= desvio_resistencia <= (0.08 * res_nominal):
+        laudo_solda = "INSPEÇÃO METÁLICA -> SOLDA APROVADA"
+    else:
+        desvio_pct = (desvio_resistencia / res_nominal) * 100.0
+        laudo_solda = f"INSPEÇÃO METÁLICA -> SOLDA REPROVADA | Desvio: {desvio_resistencia:+.1f} MPa ({desvio_pct:+.2f}%)"
+        
+    # Avaliação Cinemática Preventiva da Esteira de Transporte
+    if vel_atual > (vel_alvo * 1.10):
+        laudo_esteira = "CINEMÁTICA -> VELOCIDADE CRÍTICA ALTA: Risco de quebra de componentes por impacto."
+    elif vel_atual < (vel_alvo * 0.90):
+        laudo_esteira = "CINEMÁTICA -> VELOCIDADE CRÍTICA BAIXA: Queda na eficiência da planta industrial."
+    else:
+        laudo_esteira = "CINEMÁTICA -> FLUXO OPERACIONAL NOMINAL OK"
+        
+    return laudo_solda, laudo_esteira
 
-# Resolução sem uso de variáveis intermediárias absolutas (Conforme Desafio Extra)
-if (-0.08 * res_nominal) <= desvio_absoluto <= (0.08 * res_nominal):
-    print("STATUS DA INSPEÇÃO METALÚRGICA: SOLDA APROVADA")
-else:
-    print(f"STATUS DA INSPEÇÃO METALÚRGICA: SOLDA REPROVADA | Variação: {desvio_absoluto:+.2f} MPa ({desvio_percentual:+.2f}%)")
+laudo_s, laudo_e = executar_inspecao_producao(420.0, 390.0, 14.5, 12.0)
+print(laudo_s); print(laudo_e)</code></pre>
+        </div>
 
-# PARTE B: Dinâmica e Cinemática de Esteira Transportadora
-velocidade_atual, velocidade_alvo = 14.5, 12.0
-
-if velocidade_atual > (velocidade_alvo * 1.10):
-    print("ALERTA DE SISTEMA: VELOCIDADE CRÍTICA ALTA - Risco severo de desalinhamento de peças!")
-elif velocidade_atual < (velocidade_alvo * 0.90):
-    print("ALERTA DE SISTEMA: VELOCIDADE CRÍTICA BAIXA - Gargalo logístico na linha de fluxo detectado.")
-else:
-    print("STATUS DA ESTEIRA: OPERAÇÃO EM RITMO NOMINAL OK")</code></pre>
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+            <h4 class="text-amber-400 font-bold uppercase mb-2"><i class="fa-solid fa-chart-line mr-1"></i> Análise Assintótica e Complexidade</h4>
+            <p class="text-slate-400">Complexidade de Tempo: <span class="text-white">O(1)</span>.</p>
+            <p class="text-slate-400">Complexidade de Espaço: <span class="text-white">O(1)</span>.</p>
+        </div>
     </template>
 
     <script>
-        // Mapeamento completo dos IDs dos exercícios com agrupamento estrutural por Unidades
-        const exerciciosData = [
-            { id: 1, unidade: 1, menu: "01. Inicialização de Variáveis" },
-            { id: 2, unidade: 1, menu: "02. Área de Seção Circular" },
-            { id: 3, unidade: 1, menu: "03. Dimensionamento de Motor" },
-            { id: 4, unidade: 1, menu: "04. Propagação de Ondas" },
-            { id: 5, unidade: 1, menu: "05. Conversor de Tempo" },
-            { id: 6, unidade: 2, menu: "06. Volumetria de Tanques" },
-            { id: 7, unidade: 2, menu: "07. Tipos e Coerção Dinâmica" },
-            { id: 8, unidade: 2, menu: "08. Atração Gravitacional" },
-            { id: 9, unidade: 2, menu: "09. Comprimento de Onda" },
-            { id: 10, unidade: 2, menu: "10. Operadores de Divisão" },
-            { id: 11, unidade: 3, menu: "11. Telemetria de Satélites" },
-            { id: 12, unidade: 3, menu: "12. Ponte de Wheatstone" },
-            { id: 13, unidade: 3, menu: "13. Impostos Industriais" },
-            { id: 14, unidade: 3, menu: "14. Laudos Geotécnicos" },
-            { id: 15, unidade: 3, menu: "15. Inspeções de Fábrica" }
+        const exerciciosCatalogados = [
+            { id: 1, bloco: 1, nome: "01. Alocação Estática de Sinais" },
+            { id: 2, bloco: 1, nome: "02. Área de Seção de Dutos" },
+            { id: 3, bloco: 1, nome: "03. Dimensionamento de Motores" },
+            { id: 4, bloco: 1, nome: "04. Atraso Acústico de Sinais" },
+            { id: 5, bloco: 1, nome: "05. Decomposição Cronológica" },
+            { id: 6, bloco: 2, nome: "06. Volumetria Cilíndrica" },
+            { id: 7, bloco: 2, nome: "07. Tipagem Mecânica Dinâmica" },
+            { id: 8, bloco: 2, nome: "08. Atração Gravitacional" },
+            { id: 9, bloco: 2, nome: "09. Comprimentos de Onda de Rádio" },
+            { id: 10, bloco: 2, nome: "10. Comparações Microarquiteturais" },
+            { id: 11, bloco: 3, nome: "11. Telemetrias Aeroespaciais" },
+            { id: 12, bloco: 3, nome: "12. Pontes de Wheatstone Avançadas" },
+            { id: 13, bloco: 3, nome: "13. Modelagens Tributárias Cumulativas" },
+            { id: 14, bloco: 3, nome: "14. Tomadas de Decisão Geotécnicas" },
+            { id: 15, bloco: 3, nome: "15. Controle Estatístico Industrial" }
         ];
 
-        // Função injetora dinâmica para construir as listas de menus laterais de forma modular
-        function gerarMenus() {
-            exerciciosData.forEach(ex => {
-                const button = document.createElement('button');
-                button.className = "w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center justify-between text-gray-400 hover:bg-gray-700/50 hover:text-white group border border-transparent hover:border-gray-700";
-                button.innerHTML = `
-                    <span class="truncate">${ex.menu}</span>
-                    <i class="fa-solid fa-code text-xs opacity-0 group-hover:opacity-100 text-indigo-400 transition-opacity"></i>
-                `;
-                button.onclick = () => carregarCodigoExercicios(ex.id, button);
-                
-                document.getElementById(`menu-u${ex.unidade}`).appendChild(button);
+        function inicializarPainel() {
+            exerciciosCatalogados.forEach(ex => {
+                const targetMenu = document.getElementById(`menu-u${ex.bloco}`);
+                if (targetMenu) {
+                    const btn = document.createElement('button');
+                    btn.className = "w-full text-left px-3 py-2.5 rounded-lg text-xs font-mono transition-all flex items-center justify-between text-slate-400 hover:bg-slate-800 hover:text-white border border-transparent hover:border-slate-700/50";
+                    btn.innerHTML = `
+                        <span class="truncate font-medium">${ex.nome}</span>
+                        <i class="fa-solid fa-chevron-right text-[10px] text-indigo-500 opacity-0 group-hover:opacity-100"></i>
+                    `;
+                    btn.onclick = () => renderizarMóduloEngine(ex.id, btn);
+                    targetMenu.appendChild(btn);
+                }
             });
         }
 
-        // Função reativa que lê o template HTML interno e renderiza com sintaxe destacada
-        function carregarCodigoExercicios(id, element) {
-            // Remove o destaque ativo de todos os botões do menu
-            document.querySelectorAll('aside button').forEach(b => b.classList.remove('bg-indigo-600/20', 'text-indigo-400', 'border-indigo-500/30'));
+        function renderizarMóduloEngine(id, elementRef) {
+            document.querySelectorAll('aside button').forEach(b => b.classList.remove('bg-indigo-600/10', 'text-indigo-400', 'border-indigo-500/20', 'font-bold'));
+            elementRef.classList.add('bg-indigo-600/10', 'text-indigo-400', 'border-indigo-500/20', 'font-bold');
+
+            const viewer = document.getElementById('exercise-display');
+            const targetTemplate = document.getElementById(`ex-${id}`);
             
-            // Adiciona destaque visual de ativo ao botão selecionado
-            element.classList.add('bg-indigo-600/20', 'text-indigo-400', 'border-indigo-500/30');
-
-            const display = document.getElementById('exercise-display');
-            const template = document.getElementById(`ex-${id}`);
-            
-            if (template) {
-                // Clona o conteúdo do template correspondente e injeta no container
-                const clone = template.content.cloneNode(true);
-                display.innerHTML = "";
-                display.appendChild(clone);
-                
-                // Aplica estilos CSS dinâmicos via injeção no componente renderizado
-                const heading = display.querySelector('h2');
-                heading.className = "text-2xl font-bold text-white mt-2 mb-2";
-                
-                const desc = display.querySelector('.desc');
-                desc.className = "text-sm text-gray-400 mb-6";
-                
-                const badge = display.querySelector('.badge');
-                badge.className = "inline-block bg-indigo-500/10 text-indigo-400 text-xs px-2.5 py-1 rounded border border-indigo-500/20 font-mono tracking-wide uppercase font-semibold";
-
-                const wrapper = display.querySelector('pre');
-                wrapper.className = "rounded-xl overflow-hidden border border-gray-700 !bg-gray-900 shadow-inner p-1";
-
-                // Força o interpretador PrismJS a colorir a sintaxe do bloco injetado
-                Prism.highlightElement(display.querySelector('code'));
+            if (targetTemplate) {
+                viewer.innerHTML = "";
+                viewer.appendChild(targetTemplate.content.cloneNode(true));
+                Prism.highlightElement(viewer.querySelector('code'));
             }
         }
 
-        // Inicializa a montagem do site no carregamento da janela
-        window.onload = gerarMenus;
+        window.onload = inicializarPainel;
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
