@@ -3,746 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Avançado de Engenharia Computacional | Genezio Dall'Agnol Neto</title>
+    <title>Portfólio de Algoritmos & Engenharia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
-            --bg: #0b0f19;
-            --card-bg: #131b2e;
-            --card-hover: #1e2942;
-            --border-color: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --code-bg: #020813;
-            --enunciado-bg: rgba(2, 132, 199, 0.1);
-            --enunciado-border: #06b6d4;
-            --success-bg: rgba(34, 197, 94, 0.1);
-            --success-border: #22c55e;
-            --alert-bg: rgba(217, 119, 6, 0.1);
-            --alert-border: #d97706;
-        }
-
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg);
-            color: var(--text-primary);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        header {
-            background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.2), transparent), 
-                        linear-gradient(180deg, #0f172a 0%, #0b0f19 100%);
-            color: white;
-            padding: 5rem 2rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            background: linear-gradient(to right, #ffffff, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header p {
-            margin: 1rem auto 0 auto;
-            max-width: 800px;
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-        }
-
-        .student-card {
-            display: inline-flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            background: rgba(30, 41, 59, 0.5);
-            backdrop-filter: blur(12px);
-            padding: 0.6rem 2rem;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .student-card strong {
-            color: var(--accent-cyan);
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .section-container {
-            background: transparent;
-            padding: 0;
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            color: white;
-            margin-bottom: 2.5rem;
-            font-weight: 800;
-            border-left: 5px solid var(--accent);
-            padding-left: 1rem;
-        }
-
-        .accordion-item {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            margin-bottom: 1.2rem;
-            overflow: hidden;
-            transition: all 0.2s ease;
-        }
-
-        .accordion-item:hover {
-            border-color: #334155;
-            background-color: var(--card-hover);
-        }
-
-        .accordion-header {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: white;
-            user-select: none;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-        }
-
-        .badge-projeto { background-color: rgba(37, 99, 235, 0.15); color: #60a5fa; border: 1px solid rgba(37, 99, 235, 0.3); }
-        .badge-relatorio { background-color: rgba(217, 119, 6, 0.15); color: #fbbf24; border: 1px solid rgba(217, 119, 6, 0.3); }
-
-        .arrow-icon {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            transition: transform 0.3s ease;
-            background: #1e293b;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-
-        .accordion-item.active {
-            border-color: var(--accent);
-            background-color: var(--card-hover);
-        }
-
-        .accordion-item.active .arrow-icon {
-            transform: rotate(180deg);
-            background: var(--accent);
-            color: white;
-        }
-
-        .accordion-content {
-            display: none;
-            padding: 2.5rem;
-            background-color: #0e1424;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .enunciado {
-            background-color: var(--enunciado-bg);
-            border-left: 4px solid var(--enunciado-border);
-            padding: 1.25rem 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-
-        .enunciado h4, .solucao h4 {
-            margin: 0 0 0.5rem 0;
-            color: #06b6d4;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .solucao h4 { color: white; margin-top: 1.5rem; }
-
-        .enunciado p {
-            margin: 0;
-            color: #e2e8f0;
-        }
-
-        .grid-visuals {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 900px) {
-            .grid-visuals { grid-template-columns: 1fr; }
-        }
-
-        pre {
-            background-color: var(--code-bg);
-            color: #e2e8f0;
-            padding: 1.5rem;
-            border-radius: 12px;
-            overflow-x: auto;
-            font-family: 'Consolas', monospace;
-            font-size: 0.9rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .texto-relatorio {
-            background-color: var(--success-bg);
-            border: 1px solid var(--success-border);
-            padding: 1.5rem;
-            border-radius: 12px;
-            color: #4ade80;
-            font-size: 1rem;
-            white-space: pre-line;
-        }
-
-        .texto-relatorio.alert-box {
-            background-color: var(--alert-bg);
-            border-color: var(--alert-border);
-            color: #fbbf24;
-        }
-
-        .tabela-container {
-            overflow-x: auto;
-            margin-bottom: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            background-color: var(--code-bg);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.9rem;
-        }
-
-        th, td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        th {
-            background-color: #111827;
-            color: white;
-            font-weight: 700;
-        }
-
-        tr:hover {
-            background-color: rgba(255, 255, 255, 0.02);
-        }
-
-        .canvas-holder {
-            background: var(--code-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-
-        .canvas-holder h5 {
-            margin: 0 0 1rem 0;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        canvas {
-            background: #070a13;
-            border-radius: 8px;
-            width: 100% !important;
-            height: auto !important;
-        }
-
-        footer {
-            text-align: center;
-            padding: 4rem;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border-color);
-            background-color: #070a13;
+        .code-block {
+            font-family: 'Fira Code', Consolas, Monaco, monospace;
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-900 text-gray-100 font-sans leading-normal tracking-normal">
 
-    <header>
-        <h1>Portfólio de Engenharia Estrutural & Computacional</h1>
-        <p>Aplicações Práticas de Algoritmos, Simulações Transientes de Sistemas Físicos e Análise Avançada de LLMs</p>
-        <div class="student-card">
-            <span>Estudante: <strong>Genezio Dall'Agnol Neto</strong></span>
-            <span>|</span>
-            <span>Matrícula: <strong>2610100840</strong></span>
+    <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid : fa-microchip text-indigo-500 text-2xl"></i>
+                <span class="font-bold text-xl tracking-tight text-white">Laboratório de Algoritmos</span>
+            </div>
+            <div class="flex items-center space-x-2 text-sm text-gray-400">
+                <span class="bg-indigo-900/50 text-indigo-400 px-3 py-1 rounded-full border border-indigo-700/50">
+                    <i class="fa-brands fa-python mr-1"></i> Python 3.10+
+                </span>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <div class="section-container">
-            <h2 class="section-title">📂 Projetos & Exercícios Desenvolvidos</h2>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-projeto">Projeto 01</span><span>Cálculo de Tensão em um Eixo de Transmissão</span></div>
-                    <div class="arrow-icon">▼</div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <aside class="lg:col-span-1 space-y-2">
+            <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-3">Exercícios</h3>
+            <div class="space-y-1" id="exercise-menu">
                 </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Contexto Técnico:</h4>
-                        <p>Um engenheiro precisa verificar se a tensão normal em um eixo circular está dentro dos limites de segurança após a aplicação de uma carga axial.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Integrado:</h4>
-                        <pre><code>import math
+        </aside>
 
-forca = float(input("Força axial (N): "))
-diametro = float(input("Diâmetro do eixo (mm): "))
-
-area = math.pi * (diametro / 2)**2
-tensao = forca / area
-
-print(f"A tensão normal é de {tensao:.2f} MPa")</code></pre>
-                        
-                        <div class="grid-visuals">
-                            <div class="canvas-holder">
-                                <h5>Visualização da Treliça e Forças Estruturais (Simulação Dinâmica)</h5>
-                                <canvas id="canvasTrelica" width="400" height="250"></canvas>
-                            </div>
-                            <div class="canvas-holder">
-                                <h5>Magnitude e Intensidade do Esforço por Barra</h5>
-                                <canvas id="canvasHistogramaTrelica" width="400" height="250"></canvas>
-                            </div>
-                        </div>
-                    </div>
+        <main class="lg:col-span-3 bg-gray-800 rounded-xl border border-gray-700 p-6 shadow-2xl">
+            <div id="exercise-display">
+                <div class="text-center py-20 text-gray-400">
+                    <i class="fa-solid fa-code text-5xl mb-4 text-indigo-500/30"></i>
+                    <p class="text-lg">Selecione um exercício na barra lateral para visualizar o enunciado e a solução em tempo real.</p>
                 </div>
             </div>
+        </main>
+    </div>
 
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-relatorio">Relatório 02</span><span>Avaliação Comparativa de Modelos de Linguagem</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Enunciado Oficial:</h4>
-                        <p>Redigir uma análise crítica e comparativa dos códigos e gráficos produzidos pelas LLMs (ChatGPT, Copilot e Gemini) focado no comportamento de resolução numérica de estruturas de grande escala, robustez para N=32 e conformidade com a engenharia.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Matriz de Desempenho e Conclusões:</h4>
-                        <div class="tabela-container">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Critério Analítico</th>
-                                        <th>Copilot Treliças</th>
-                                        <th>ChatGPT (Trabalho Completo)</th>
-                                        <th>Gemini Análise Gráfica</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Corretude Numérica</strong></td>
-                                        <td>Aproxima forças internas via deslocamentos (qualitativo).</td>
-                                        <td>Fiel ao cálculo clássico (cossenos diretores, reações de apoio). Batem com cálculo manual.</td>
-                                        <td>Correto para exemplo pequeno (N=3), mas não generaliza bem.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="texto-relatorio">
-                            <strong>Conclusão do Relatório:</strong> O ChatGPT apresentou a melhor resposta consolidada e robustez sob malhas de grande escala, enquanto o Gemini gerou um código com lacunas de generalização para N=32.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-projeto">Projeto 03</span><span>Conversão de Temperatura de Pré-aquecimento</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Contexto Técnico:</h4>
-                        <p>Em processos de soldagem, a temperatura de pré-aquecimento é dada em Fahrenheit em manuais americanos, mas o sensor da oficina lê em Celsius.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Integrado:</h4>
-                        <pre><code>celsius = float(input("Temperatura em Celsius: "))
-
-fahrenheit = (celsius * 9/5) + 32
-
-print(f"Temperatura: {fahrenheit:.2f} °F")</code></pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-projeto">Projeto 04</span><span>Seleção de Rolamento por Vida Útil</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Contexto Técnico:</h4>
-                        <p>Verificar se um rolamento suportará o número de ciclos desejado antes da falha por fadiga.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Integrado:</h4>
-                        <pre><code>c = float(input("Capacidade de carga dinâmica (N): "))
-p = float(input("Carga dinâmica equivalente (N): "))
-
-vida_l10 = (c / p)**3
-
-print(f"Vida nominal L10: {vida_l10:.2f} milhões de revoluções")</code></pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-projeto">Projeto 05</span><span>Dilatação Térmica de uma Tubulação</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Contexto Técnico:</h4>
-                        <p>Calcular a variação no comprimento de uma tubulação de vapor de aço inoxidável devido ao aumento de temperatura.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Integrado:</h4>
-                        <pre><code>l0 = float(input("Comprimento inicial (m): "))
-alfa = 17.3e-6 # Aço Inox
-ti = float(input("Temperatura inicial (°C): "))
-tf = float(input("Temperatura final (°C): "))
-
-delta_l = l0 * alfa * (tf - ti)
-
-print(f"A variação de comprimento é: {delta_l*1000:.2f} mm")</code></pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-projeto">Projeto 06</span><span>Eficiência de um Motor de Combustão</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Contexto Técnico:</h4>
-                        <p>Determinar a eficiência térmica de um motor a partir do trabalho útil produzido e do calor fornecido pelo combustível.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Integrado:</h4>
-                        <pre><code>w_util = float(input("Trabalho útil produzido (kJ): "))
-q_in = float(input("Calor fornecido pelo combustível (kJ): "))
-
-eficiencia = (w_util / q_in) * 100
-
-print(f"Eficiência térmica do motor: {eficiencia:.2f}%")</code></pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-projeto">Projeto 07</span><span>Velocidade de Corte em Torneamento</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Contexto Técnico:</h4>
-                        <p>Um operador de torno precisa calcular a velocidade de corte (Vc) para ajustar a rotação da máquina.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Integrado:</h4>
-                        <pre><code>import math
-
-d = float(input("Diâmetro da peça (mm): "))
-n = float(input("Rotação (RPM): "))
-
-vc = (math.pi * d * n) / 1000
-
-print(f"Velocidade de corte: {vc:.2f} m/min")</code></pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-projeto">Projeto 08</span><span>Perda de Carga em Tubulação</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Contexto Técnico:</h4>
-                        <p>Calcular a queda de pressão em uma tubulação horizontal para dimensionar uma bomba hidráulica.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Integrado:</h4>
-                        <pre><code>f = float(input("Fator de atrito: "))
-l = float(input("Comprimento (m): "))
-d = float(input("Diâmetro interno (m): "))
-rho = float(input("Densidade do fluido (kg/m³): "))
-v = float(input("Velocidade do fluido (m/s): "))
-
-delta_p = f * (l / d) * (rho * v**2 / 2)
-
-print(f"Queda de pressão: {delta_p:.2f} Pa")</code></pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-projeto">Projeto 09</span><span>Torque em Parafuso de Fixação</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Contexto Técnico:</h4>
-                        <p>Determinar o torque necessário para atingir uma força de união específica em um parafuso de fixação.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Integrado:</h4>
-                        <pre><code>k = 0.2 # Coeficiente de atrito padrão
-d = float(input("Diâmetro nominal do parafuso (m): "))
-f_pre = float(input("Força de protensão desejada (N): "))
-
-torque = k * d * f_pre
-
-print(f"Torque de aperto necessário: {torque:.2f} Nm")</code></pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-projeto">Projeto 10</span><span>Volume de Material em um Fundido</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Contexto Técnico:</h4>
-                        <p>Calcular o volume de metal necessário para preencher um molde cilíndrico de fundição com base no raio e altura.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Integrado:</h4>
-                        <pre><code>import math
-
-raio = float(input("Raio do molde (m): "))
-altura = float(input("Altura do molde (m): "))
-
-volume = math.pi * (raio**2) * altura
-
-print(f"Volume necessário de metal: {volume:.4f} m³")</code></pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-projeto">Projeto 11</span><span>Monitoramento Térmico de Rolamentos Industriais</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Contexto Técnico:</h4>
-                        <p>Algoritmo condicional para verificar a temperatura de operação de rolamentos industriais e emitir alertas de segurança.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Integrado:</h4>
-                        <pre><code>temp = float(input("Temperatura do rolamento (°C): "))
-
-if temp > 80:
-    print("CRÍTICO: Risco de quebra. Desligamento imediato!")
-elif temp > 65:
-    print("ALERTA: Temperatura elevada. Monitorar componente.")
-else:
-    print("Temperatura operacional normal.")</code></pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-projeto">Projeto 12</span><span>Análise de Abastecimento e Reservatórios</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Contexto Técnico:</h4>
-                        <p>Algoritmo condicional para gerenciamento automatizado de bombas de fluido com base no nível percentual do reservatório industrial.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Integrado:</h4>
-                        <pre><code>nivel = float(input("Nível atual do reservatório (%): "))
-
-if nivel < 20:
-    print("Bomba LIGADA - Nível Crítico")
-elif nivel > 90:
-    print("Bomba DESLIGADA - Limite Máximo Atingido")
-else:
-    print("Operação Estável - Bomba em Standby")</code></pre>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-projeto">Projeto 13</span><span>Monitoramento de Resfriamento Líquido</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Contexto Técnico:</h4>
-                        <p>Controle condicional da vazão de uma bomba em sistemas de refrigeração industrial de alta performance e simulações térmicas transientes.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Integrado:</h4>
-                        <pre><code>temp_fluido = float(input("Temperatura do fluido de resfriamento (°C): "))
-
-if temp_fluido > 50:
-    print("Acionar Vazão Máxima (100% da capacidade da bomba)")
-else:
-    print("Acionar Vazão Econômica (50% da capacidade da bomba)")</code></pre>
-                        
-                        <div class="grid-visuals" style="grid-template-columns: 1fr;">
-                            <div class="canvas-holder">
-                                <h5>Evolução Térmica Convectiva ao Longo do Tempo (Curva Transiente)</h5>
-                                <canvas id="canvasTermico" width="600" height="250"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="header-left"><span class="badge badge-projeto">Projeto 14</span><span>Mecanismos: Relação de Transmissão por Engrenagens</span></div>
-                    <div class="arrow-icon">▼</div>
-                </div>
-                <div class="accordion-content">
-                    <div class="enunciado">
-                        <h4>Contexto Técnico:</h4>
-                        <p>Calcular a razão de engrenamento e a rotação de saída (RPM) para um par de engrenagens cilíndricas retas acopladas.</p>
-                    </div>
-                    <div class="solucao">
-                        <h4>Código Python Integrado:</h4>
-                        <pre><code>n_entrada = int(input("Número de dentes da engrenagem motriz (entrada): "))
-n_saida = int(input("Número de dentes da engrenagem movida (saída): "))
-rpm_entrada = float(input("Velocidade de entrada (RPM): "))
-
-i = n_saida / n_entrada
-rpm_saida = rpm_entrada / i
-
-print(f"Razão de transmissão (i): {i:.2f}")
-print(f"Velocidade angular de saída: {rpm_saida:.2f} RPM")</code></pre>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 - Genezio Dall'Agnol Neto. Todos os direitos reservados.</p>
-        <p>Curso de Engenharia | Matrícula: 2610100840</p>
+    <footer class="bg-gray-800 border-t border-gray-700 mt-20 py-6 text-center text-sm text-gray-500">
+        <p>© 2026 • Desenvolvido para fins acadêmicos e hospedado no GitHub Pages.</p>
     </footer>
 
     <script>
-        // --- SCRIPT DO MENU ACCORDION ---
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.parentElement;
-                const content = item.querySelector('.accordion-content');
-                const isOpen = item.classList.contains('active');
+        const exercicios = [
+            { id: 1, titulo: "01. Declaração de Variáveis", desc: "Armazenar dados de resistores, cabeamento e status elétricos.", code: `resistencia = 47\\nnum_fios = 12\\nnome_projeto = "Subestacao Norte"\\nesta_energizado = True\\n\\nprint(f"Projeto: {nome_projeto}")\\nprint(f"Resistência: {resistencia} Ω")` },
+            { id: 2, titulo: "02. Seção Transversal", desc: "Cálculo da área de um duto circular com raio r = 0.15m.", code: `pi = 3.14159\\nraio = 0.15\\narea = pi * (raio ** 2)\\nprint(f"Área: {area:.5f} m²")` },
+            { id: 3, titulo: "03. Consumo de Motor", desc: "Corrente consumida e resistência interna com carga de 3500W.", code: `p_ativa = 3500\\nv_fonte = 220\\ncorrente = p_ativa / v_fonte\\nr_eq = v_fonte / corrente` },
+            { id: 4, titulo: "04. Velocidade do Som", desc: "Tempo de propagação mecânica da onda sonora por 1500 metros.", code: `v_som = 343\\ndist = 1500\\ntempo = dist / v_som\\nprint(f"{tempo} s")` },
+            { id: 5, titulo: "05. Decomposição de Tempo", desc: "Conversão direta de segundos para formato estruturado H:MM:SS.", code: `segundos_totais = 3600\\nhoras = segundos_totais // 3600\\nresto = segundos_totais % 3600` },
+            { id: 6, titulo: "06. Tanque Cilíndrico", desc: "Cálculo de volume volumétrico e área de contato superficial de chapa.", code: `vol = 3.14159 * (2.0**2) * 5.0\\narea_lat = 2 * 3.14159 * 2.0 * 5.0` },
+            { id: 7, titulo: "07. Análise de Tipagem", desc: "Explicação sobre coerção implícita de tipos numéricos dinâmicos.", code: `freq = 60\\nperiodo = 1.0 / freq\\n# Divisão gera float por padrão` },
+            { id: 8, titulo: "08. Força Gravitacional", desc: "Interação gravitacional planetária expressa em notação científica.", code: `F = 6.674e-11 * 5.0e24 * 80.0 / (6.371e6 ** 2)` },
+            { id: 9, titulo: "09. Onda de Rádio", desc: "Frequência eletromagnética convertida em metros lineares.", code: `lambda_onda = 3e8 / 98.5e6` },
+            { id: 10, titulo: "10. Divisores Inteiros vs Reais", desc: "Análise comparativa de performance de tipos e comportamentos do interpretador.", code: `print(10 // 3) # Inteiro\\nprint(10 / 3)  # Flutuante` },
+            { id: 11, titulo: "11. Telemetria de Satélite", desc: "Conversão de marcos de tempo operacionais complexos (Dias, H:MM:SS).", code: `dias = t // 86400\\nhoras = (t % 86400) // 3600` },
+            { id: 12, titulo: "12. Ponte de Wheatstone", desc: "Tratamento de exceções físicas de divisão por zero e cálculo de balanço.", code: `Rx = (R3 * R2) / R1 if R1 != 0 else float('inf')` },
+            { id: 13, titulo: "13. Tributos em Cascata", desc: "Modelo financeiro de incidência sequencial de impostos (IPI, ICMS, PIS).", code: `base_icms = preco_fabrica + ipi\\nicms = base_icms * (aliq_icms / 100)` },
+            { id: 14, titulo: "14. Laudo Geotécnico", desc: "Classificação automática estrutural baseada em índices SPT de sondagem.", code: `if spt < 5 or cap_carga < 80:\\n    return "INAPTO"` },
+            { id: 15, titulo: "15. Inspeção Industrial", desc: "Validação estatística dimensional de soldagem mecânica robotizada.", code: `if -0.08 * nominal <= desvio <= 0.08 * nominal:\\n    return "APROVADO"` }
+        ];
 
-                document.querySelectorAll('.accordion-item').forEach(i => {
-                    i.classList.remove('active');
-                    i.querySelector('.accordion-content').style.display = 'none';
-                });
+        const menuContainer = document.getElementById('exercise-menu');
+        const displayContainer = document.getElementById('exercise-display');
 
-                if (!isOpen) {
-                    item.classList.add('active');
-                    content.style.display = 'block';
-                    renderizarGraficos();
-                }
-            });
-        });
-
-        // --- LÓGICA DE RENDERIZAÇÃO DOS CANVAS NATIVOS ---
-        function renderizarGraficos() {
-            // CANVAS 1: TRELIÇA
-            const ctxTrelica = document.getElementById('canvasTrelica');
-            if (ctxTrelica && ctxTrelica.offsetParent !== null) {
-                const ctx = ctxTrelica.getContext('2d');
-                ctx.clearRect(0,0,400,250);
-                ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 3; ctx.beginPath();
-                ctx.moveTo(50, 180); ctx.lineTo(150, 60); ctx.lineTo(250, 180); ctx.lineTo(50, 180);
-                ctx.lineTo(150, 180); ctx.lineTo(150, 60); ctx.stroke();
-                ctx.fillStyle = '#f8fafc';
-                [[50,180], [150,60], [250,180], [150,180]].forEach(no => {
-                    ctx.beginPath(); ctx.arc(no[0], no[1], 5, 0, Math.PI * 2); ctx.fill();
-                });
-            }
-
-            // CANVAS 2: HISTOGRAMA
-            const ctxHisto = document.getElementById('canvasHistogramaTrelica');
-            if (ctxHisto && ctxHisto.offsetParent !== null) {
-                const ctx = ctxHisto.getContext('2d');
-                ctx.clearRect(0,0,400,250);
-                const barrasForcas = [45, -32, 12, -54];
-                barrasForcas.forEach((f, idx) => {
-                    ctx.fillStyle = f >= 0 ? '#2563eb' : '#ef4444';
-                    const h = Math.abs(f) * 2; const x = 50 + idx * 60;
-                    ctx.fillRect(x, f >= 0 ? 120 - h : 120, 35, h);
-                });
-                ctx.strokeStyle = '#334155'; ctx.beginPath(); ctx.moveTo(20, 120); ctx.lineTo(380, 120); ctx.stroke();
-            }
-
-            // CANVAS 3: EVOLUÇÃO TÉRMICA TRANSIENTE
-            const ctxTerm = document.getElementById('canvasTermico');
-            if (ctxTerm && ctxTerm.offsetParent !== null) {
-                const ctx = ctxTerm.getContext('2d');
-                ctx.clearRect(0,0,600,250);
-                ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 3; ctx.beginPath();
-                ctx.moveTo(50, 200); ctx.quadraticCurveTo(250, 120, 550, 80); ctx.stroke();
-                ctx.fillStyle = '#64748b'; ctx.font = '10px sans-serif';
-                ctx.fillText('0 min', 45, 230); ctx.fillText('15 min', 530, 230);
-            }
+        function renderMenu() {
+            menuContainer.innerHTML = exercicios.map(ex => `
+                <button onclick="renderExercise(${ex.id})" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all flex items-center justify-between text-gray-400 hover:bg-gray-700/50 hover:text-white group">
+                    <span class="truncate">${ex.titulo}</span>
+                    <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 text-indigo-400 transition-opacity"></i>
+                </button>
+            `).join('');
         }
-        window.onload = renderizarGraficos;
+
+        function renderExercise(id) {
+            const ex = exercicios.find(e => e.id === id);
+            displayContainer.innerHTML = `
+                <div class="animate-fade-in">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-gray-700 pb-4 mb-6">
+                        <div>
+                            <h2 class="text-2xl font-bold text-white">${ex.titulo}</h2>
+                            <p class="text-sm text-gray-400 mt-1">${ex.desc}</p>
+                        </div>
+                        <span class="bg-indigo-500/10 text-indigo-400 text-xs px-2.5 py-1 rounded border border-indigo-500/20 font-mono">ID: #${ex.id}</span>
+                    </div>
+                    
+                    <div class="mb-4 flex items-center justify-between text-xs text-gray-400 uppercase tracking-wider font-semibold">
+                        <span><i class="fa-solid fa-terminal mr-1"></i> Script Script Python</span>
+                    </div>
+                    <div class="bg-gray-900 rounded-lg p-4 border border-gray-700 overflow-x-auto shadow-inner">
+                        <pre class="code-block text-sm text-emerald-400"><code>${ex.code}</code></pre>
+                    </div>
+                </div>
+            `;
+        }
+
+        renderMenu();
     </script>
 </body>
 </html>
+# ==========================================
+# EXERCÍCIO 1: Declaração de Variáveis
+# ==========================================
+resistencia = 47  # int (Ohms)
+num_fios = 12     # int
+nome_projeto = "Subestacao Norte"  # string
+esta_energizado = True  # bool
+
+print(f"Projeto: {nome_projeto}")
+print(f"Resistência: {resistencia} Ω | Fios: {num_fios}")
+print(f"Energizado: {esta_energizado}")
+
+# ==========================================
+# EXERCÍCIO 2: Área de Seção Circular
+# ==========================================
+pi = 3.14159
+raio = 0.15  # metros
+area = pi * (raio ** 2)
+print(f"Área da seção transversal: {area:.5f} m²")
+
+# ==========================================
+# EXERCÍCIO 3: Potência e Corrente de Motor
+# ==========================================
+p_ativa = 3500  # Watts
+v_fonte = 220   # Volts
+corrente = p_ativa / v_fonte
+r_equivalente = v_fonte / corrente
+print(f"Corrente: {corrente:.2f} A | Resistência Equivalente: {r_equivalente:.2f} Ω")
+
+# ==========================================
+# EXERCÍCIO 4: Velocidade do Som
+# ==========================================
+v_som = 343  # m/s
+distancia = 1500  # metros
+tempo_s = distancia / v_som
+tempo_ms = tempo_s * 1000
+print(f"Tempo de percurso: {tempo_s:.4f} s ({tempo_ms:.2f} ms)")
+
+# ==========================================
+# EXERCÍCIO 5: Conversão de Tempo H:MM:SS
+# ==========================================
+total_segundos = 3600
+horas = total_segundos // 3600
+resto_min = total_segundos % 3600
+minutos = resto_min // 60
+segundos = resto_min % 60
+print(f"Tempo formatado: {horas}:{minutos:02d}:{segundos:02d}")
+
+# ==========================================
+# EXERCÍCIO 6: Volume de Tanque Cilíndrico
+# ==========================================
+r_tanque = 2.0
+h_tanque = 5.0
+vol_tanque = pi * (r_tanque ** 2) * h_tanque
+area_lat_tanque = 2 * pi * r_tanque * h_tanque
+print(f"Volume: {vol_tanque:.2f} m³ | Área Lateral: {area_lat_tanque:.2f} m²")
+
+# ==========================================
+# EXERCÍCIO 7: Frequência e Período
+# ==========================================
+freq = 60
+periodo = 1.0 / freq
+print(f"Freq: {freq} Hz ({type(freq)}) | Período: {periodo} s ({type(periodo)})")
+# O período é float porque a divisão com '/' em Python sempre retorna um tipo flutuante (float),
+# mesmo que os operandos sejam inteiros, garantindo precisão matemática.
+
+# ==========================================
+# EXERCÍCIO 8: Força Gravitacional
+# ==========================================
+G = 6.674e-11
+m1 = 5.0e24
+m2 = 80.0
+d = 6.371e6
+f_gravitacional = G * m1 * m2 / (d ** 2)
+print(f"Força Gravitacional: {f_gravitacional:.2f} N")
+
+# ==========================================
+# EXERCÍCIO 9: Comprimento de Onda de Rádio
+# ==========================================
+c_luz = 3e8  # m/s
+f_radio = 98.5e6  # Hz
+lambda_onda = c_luz / f_radio
+print(f"Comprimento de onda (λ): {lambda_onda:.4f} metros")
+
+# ==========================================
+# EXERCÍCIO 10: Operadores de Divisão
+# ==========================================
+div_inteira = 10 // 3
+div_real = 10 / 3
+print(f"10 // 3 = {div_inteira} ({type(div_inteira)})")
+print(f"10 / 3 = {div_real} ({type(div_real)})")
+# EXPLICAÇÃO: '//' realiza a divisão inteira (truncando as casas decimais e retornando int),
+# enquanto '/' realiza a divisão real/padrão, gerando uma dízima periódica do tipo float.
+# ==========================================
+# EXERCÍCIO 11 (Problema 1): Telemetria de Voo
+# ==========================================
+def telemetria_voo(t):
+    dias = t // 86400
+    resto1 = t % 86400
+    horas = resto1 // 3600
+    resto2 = resto1 % 3600
+    minutos = resto2 // 60
+    segundos = resto2 % 60
+    return f"{dias} dias, {horas}:{minutos:02d}:{segundos:02d}"
+
+print("Ex 11 (Telemetria):", telemetria_voo(90125))
+
+# ==========================================
+# EXERCÍCIO 12 (Problema 2): Ponte de Wheatstone
+# ==========================================
+def wheatstone_bridge(R1, R2, R3, Vfonte):
+    if R1 == 0:
+        return "Erro: R1 não pode ser zero (divisão por zero)."
+    Rx = (R3 * R2) / R1
+    R_total = ((R1 + Rx) * (R2 + R3)) / (R1 + Rx + R2 + R3)
+    I_total = Vfonte / R_total
+    P_total = Vfonte * I_total
+    equilibrio = (R1 * Rx == R2 * R3)
+    return {"Rx": Rx, "I_total": I_total, "P_total": P_total, "Equilibrada": equilibrio}
+
+print("Ex 12 (Wheatstone):", wheatstone_bridge(120, 240, 180, 9))
+
+# ==========================================
+# EXERCÍCIO 13 (Problema 3): Tributos em Cascata
+# ==========================================
+def calcular_nota_fiscal(preco_fabrica, aliq_ipi, aliq_icms, aliq_pis_cofins):
+    ipi = preco_fabrica * (aliq_ipi / 100)
+    base_icms = preco_fabrica + ipi
+    icms = base_icms * (aliq_icms / 100)
+    base_pc = base_icms + icms
+    pis_cofins = base_pc * (aliq_pis_cofins / 100)
+    preco_final = base_pc + pis_cofins
+    carga_total_pct = ((preco_final - preco_fabrica) / preco_fabrica) * 100
+    return preco_final, carga_total_pct
+
+pf, carga = calcular_nota_fiscal(850.00, 10, 12, 3.65)
+print(f"Ex 13 (Impostos): Preço Final: R${pf:.2f} | Carga: {carga:.2f}%")
+
+# ==========================================
+# EXERCÍCIO 14 (Problema 4): Laudo Geotécnico (Solos)
+# ==========================================
+def laudo_geotecnico(spt, cap_carga):
+    if spt < 5 or cap_carga < 80:
+        return "INAPTO: solo muito fraco — reforço necessário"
+    elif spt < 10 or cap_carga < 150:
+        limite = "SPT" if spt < 10 else "Capacidade de Carga"
+        return f"RESTRITO: fundação especial recomendada (Parâmetro no limite: {limite})"
+    elif spt >= 30 and cap_carga >= 300:
+        return "EXCELENTE: solo de alta capacidade"
+    else:
+        return "ADEQUADO: fundação convencional viável"
+
+print("Ex 14 (Geotecnia):", laudo_geotecnico(15, 120))
+
+# ==========================================
+# EXERCÍCIO 15 (Problema 5): Inspeção de Solda e Esteira
+# ==========================================
+def inspecao_linha(res_nominal, res_medida, vel_atual, vel_alvo):
+    # Parte A: Solda (Sem usar variavel intermediaria absoluta, conforme desafio extra)
+    desvio = res_medida - res_nominal
+    pct_desvio = (desvio / res_nominal) * 100
+    
+    if -0.08 * res_nominal <= desvio <= 0.08 * res_nominal:
+        laudo_solda = "SOLDA APROVADA"
+    else:
+        laudo_solda = f"SOLDA REPROVADA | Desvio: {desvio:+.2f} MPa ({pct_desvio:+.2f}%)"
+        
+    # Parte B: Esteira
+    if vel_atual > vel_alvo * 1.10:
+        laudo_esteira = "VELOCIDADE ALTA — risco de posicionamento incorreto"
+    elif vel_atual < vel_alvo * 0.90:
+        laudo_esteira = "VELOCIDADE BAIXA — gargalo na produção"
+    else:
+        laudo_esteira = "VELOCIDADE OK"
+        
+    return laudo_solda, laudo_esteira
+
+print("Ex 15 (Fábrica):", inspecao_linha(420, 390, 14.5, 12))
